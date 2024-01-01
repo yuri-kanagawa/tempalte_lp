@@ -1,2 +1,2 @@
 export * from './metas'
-export * from './type'
+export * from './type.d'

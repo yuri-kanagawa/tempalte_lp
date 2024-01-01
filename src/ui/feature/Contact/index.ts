@@ -1,1 +1,1 @@
-export * from 'src/ui/feature/Contact/Contact'
+export * from './Contact'

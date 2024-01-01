@@ -1,5 +1,5 @@
 import { Scroll } from 'src/ui/feature/Scroll'
-import { scrollHome } from 'src/constants/scroll'
+import { scroll } from 'src/constants/scroll'
 import { LanguageSelect } from 'src/ui/feature/Header/internal/LanguageSelect'
 import React from 'react'
 import { Typography } from '@mui/material'
@@ -15,20 +15,19 @@ export const HeaderRight: React.FC = () => {
     <>
       {getIsRoot(pathname) && (
         <Typography sx={{ ...TextBlackStyle, mr: 2 }}>
-          <Scroll to={scrollHome.app} smooth={true} text={t.howToUse} />
+          <Scroll to={scroll.howToUse} smooth={true} text={t.howToUse} />
         </Typography>
       )}
 
       {getIsRoot(pathname) && (
         <Typography sx={{ ...TextBlackStyle, mr: 2 }}>
-          <Scroll to={scrollHome.app} smooth={true} text={t.download} />
+          <Scroll to={scroll.download} smooth={true} text={t.download} />
         </Typography>
       )}
-      {getIsRoot(pathname) && (
-        <Typography sx={{ ...TextBlackStyle, mr: 2 }}>
-          <Scroll to={scrollHome.app} smooth={true} text={t.contact} />
-        </Typography>
-      )}
+
+      <Typography sx={{ ...TextBlackStyle, mr: 2 }}>
+        <Scroll to={scroll.contact} smooth={true} text={t.contact} />
+      </Typography>
 
       <LanguageSelect />
     </>

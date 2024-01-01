@@ -20,7 +20,6 @@ export const LanguageSelect: React.FC = () => {
 
   const handleChange = useCallback(
     (event: SelectChangeEvent<unknown>) => {
-      console.log(event.target.value)
       setLang(event.target.value as LanguageKey)
     },
     [setLang]

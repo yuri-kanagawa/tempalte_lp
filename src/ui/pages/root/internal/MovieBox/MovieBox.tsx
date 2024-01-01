@@ -4,6 +4,7 @@ import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { useLocale } from 'src/hooks/useLocal'
+import { scroll } from 'src/constants/scroll'
 
 export const MovieBox = () => {
   const { isMobileSize, isLessDesktop, isDesktopSize } = useMediaQuerySize()
@@ -14,8 +15,10 @@ export const MovieBox = () => {
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
   const { t } = useLocale()
+
   return (
     <Box
+      id={scroll.howToUse}
       sx={{
         background: 'white',
         display: 'flex',

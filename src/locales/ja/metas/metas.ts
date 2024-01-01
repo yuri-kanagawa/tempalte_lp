@@ -1,3 +1,5 @@
+import { MetaPageType } from 'src/locales/en'
+
 export const metaIndex = {
   description: ''
 }
@@ -11,7 +13,7 @@ export const metaPage = {
   }
 }
 
-export const metas = {
+export const metas: MetaPageType = {
   metas: {
     ...metaPage
   }

@@ -4,7 +4,8 @@ import { titleFontSize } from 'src/styles/fontStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { useMemo } from 'react'
 import { useLocale } from 'src/hooks/useLocal'
-
+import { scroll } from 'src/constants/scroll'
+import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
 export const DownloadBox: React.FC = () => {
   const { isLessDesktop, isDesktopSize } = useMediaQuerySize()
   const buttonWidth = useMemo(() => {
@@ -13,8 +14,11 @@ export const DownloadBox: React.FC = () => {
   }, [isDesktopSize, isLessDesktop])
 
   const { t } = useLocale()
+  const onClickAppStore = () => open(APP_STORE_URL, '_blank')
+  const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
     <Box
+      id={scroll.download}
       sx={{
         background: 'black',
         display: 'flex',
@@ -41,7 +45,7 @@ export const DownloadBox: React.FC = () => {
               alt="appStore"
               width={buttonWidth}
               height={100}
-              onClick={() => console.log('d')}
+              onClick={onClickAppStore}
             />
           </Grid>
           <Grid item>
@@ -50,6 +54,7 @@ export const DownloadBox: React.FC = () => {
               alt="GoogleStore"
               width={buttonWidth}
               height={100}
+              onClick={onClickGoogleStore}
             />
           </Grid>
         </Grid>

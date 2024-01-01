@@ -18,7 +18,7 @@ import {
   TikTokIconSize
 } from 'src/ui/feature/Contact/utils'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
-import { scrollHome } from 'src/constants/scroll'
+import { scroll } from 'src/constants/scroll'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { getIsChinese } from 'src/utils/language'
 
@@ -35,7 +35,7 @@ export const Contact = () => {
   const getIconSize = createIconSizeCalculator(iconSizeMedia)
 
   return (
-    <Box id={scrollHome.contact} sx={{ background: 'white', py: 10 }}>
+    <Box id={scroll.contact} sx={{ background: 'white', py: 10 }}>
       <Typography sx={{ textAlign: 'center', fontSize: 40, color: 'black' }}>
         {t.contact}
       </Typography>

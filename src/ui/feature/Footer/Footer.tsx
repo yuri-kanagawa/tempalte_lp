@@ -58,10 +58,14 @@ export const Footer: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography sx={IconButtonWhiteStyle}>{t.terms}</Typography>
+            <Typography sx={IconButtonWhiteStyle} onClick={onClickTerms}>
+              {t.terms}
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography sx={IconButtonWhiteStyle}>{t.faq}</Typography>
+            <Typography sx={IconButtonWhiteStyle} onClick={onClickFaq}>
+              {t.faq}
+            </Typography>
           </Grid>
         </Grid>
       </Stack>

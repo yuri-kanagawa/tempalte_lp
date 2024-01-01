@@ -1,3 +1,5 @@
+import { MetaPageType } from './type'
+
 export const metaIndex = {
   description: ''
 }
@@ -7,11 +9,11 @@ export const metaFaq = {
 }
 export const metaPage = {
   index: {
-    description: ''
+    description: 'hthr'
   }
 }
 
-export const metas = {
+export const metas: MetaPageType = {
   metas: {
     ...metaPage
   }

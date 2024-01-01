@@ -1,8 +1,13 @@
 import { LocaleType } from 'src/locales/en'
-import { words } from 'src/locales/ja/words'
-import { metas } from 'src/locales/ja/metas/metas'
-
+import { words } from './words'
+import { metas } from './metas'
+import { faqs } from './faqs'
+import { privacyPolicies } from './privacy-policies'
+import { terms } from './terms'
 export const ja: LocaleType = {
   ...words,
-  ...metas
+  ...metas,
+  ...faqs,
+  ...privacyPolicies,
+  ...terms
 } as const

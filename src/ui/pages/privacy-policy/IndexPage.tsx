@@ -1,10 +1,15 @@
 import { Box, Stack, Typography } from '@mui/material'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 import { useLocale } from 'src/hooks/useLocal'
+import { useCallback } from 'react'
 
 export const IndexPage = () => {
-  const { locale, t } = useLocale()
-  console.log(locale)
+  const { t } = useLocale()
+  const getIsLast = useCallback(
+    (value: number) => value === t.privacyPolicyArray.length - 1,
+    [t.privacyPolicyArray.length]
+  )
+  const getIsFirst = (value: number) => value === 0
   return (
     <Box sx={{ pt: 10, background: 'black' }}>
       <Stack
@@ -17,9 +22,17 @@ export const IndexPage = () => {
         <Typography sx={{ color: 'white', fontSize: 40 }}>
           {t.privacyPolicy}
         </Typography>
-        <StyledAccordion title={'aaaaa'} explain={'423424'} isFirst={true} />
-        <StyledAccordion title={'aaaaa'} explain={'423424'} />
-        <StyledAccordion title={'aaaaa'} explain={''} isLast={true} />
+        {t.privacyPolicyArray.map((e, index: number) => {
+          return (
+            <StyledAccordion
+              key={index}
+              title={e.question}
+              explain={e.answer}
+              isFirst={getIsFirst(index)}
+              isLast={getIsLast(index)}
+            />
+          )
+        })}
       </Stack>
     </Box>
   )

@@ -10,14 +10,27 @@ import { HeaderRight } from 'src/ui/feature/Header/internal/HeaderRight/HeaderRi
 import { common } from 'src/locales/common'
 import { scrollToTop } from 'src/utils/scroll'
 import { TextBlackStyle } from 'src/styles/textStyle'
-
+import { getIsRoot } from 'src/utils/url'
+import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { route } from 'src/constants/route'
 export const Header: React.FC = () => {
-  const { t } = useLocale()
+  const { locale } = useLocale()
   const { isMobileSize } = useMediaQuerySize()
-
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
   const onClickMenu = () => setIsOpen(!isOpen)
+
+  const router = useRouter()
+
+  const onClickApp = () => {
+    if (getIsRoot(pathname)) {
+      return scrollToTop()
+    } else {
+      return router.push(route.root(locale))
+    }
+  }
 
   const isMobileWithOpenMenu = isOpen && isMobileSize
   return (
@@ -26,7 +39,7 @@ export const Header: React.FC = () => {
         backgroundColor: 'white'
       }}>
       <Toolbar>
-        <Typography sx={TextBlackStyle} onClick={scrollToTop}>
+        <Typography sx={TextBlackStyle} onClick={onClickApp}>
           {common.app}
         </Typography>
         <Box flexGrow={1} />
