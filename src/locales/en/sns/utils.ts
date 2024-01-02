@@ -1,4 +1,4 @@
-import { SnsType, SnsLink } from 'src/locales/en/contact-link/type.d'
+import { SnsType, SnsLink } from 'src/locales/en/sns/type.d'
 
 export const generateSnsLink = (value: SnsType): SnsLink => {
   return {
