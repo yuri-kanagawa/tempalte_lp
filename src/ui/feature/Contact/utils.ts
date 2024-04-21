@@ -1,6 +1,6 @@
 import { MediaQueryType } from 'src/hooks/useMediaQuerySize'
 
-export const DefaultIconSize = 100 as const
+export const DefaultIconSize = 80 as const
 export const TikTokIconSize = 80 as const
 export const BiliBiliIconSize = 90 as const
 

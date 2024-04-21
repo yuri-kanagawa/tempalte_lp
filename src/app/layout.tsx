@@ -39,20 +39,17 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <AppProvider>
-        <body
-          style={{
-            margin: 0,
-            padding: 0,
-            boxSizing: 'border-box',
-            background: 'black'
-          }}>
-          <Header />
-          {children}
-          <Contact />
-          <Footer />
-        </body>
-      </AppProvider>
+      <link rel="manifest" href="/manifest.json" />
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          width: '100%',
+          height: '100%',
+          background: 'black'
+        }}>
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   )
 }

@@ -2,10 +2,11 @@ import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
-import { useMemo } from 'react'
+import { MutableRefObject, useMemo } from 'react'
 import { useLocale } from 'src/hooks/useLocal'
 import { scroll } from 'src/constants/scroll'
 import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
+
 export const DownloadBox: React.FC = () => {
   const { isLessDesktop, isDesktopSize } = useMediaQuerySize()
   const buttonWidth = useMemo(() => {

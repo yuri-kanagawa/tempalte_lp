@@ -1,7 +1,11 @@
 import { Box, Stack, Typography } from '@mui/material'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 import { useLocale } from 'src/hooks/useLocal'
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
+import { useScroll } from 'src/hooks/useScroll'
+import { Header } from 'src/ui/feature/Header'
+import { Footer } from 'src/ui/feature/Footer'
+import { Contact } from 'src/ui/feature/Contact'
 
 export const IndexPage = () => {
   const { t } = useLocale()
@@ -9,9 +13,12 @@ export const IndexPage = () => {
     (value: number) => value === t.faqArray.length - 1,
     [t.faqArray.length]
   )
+
+  const { onClickHero, contactUseRef, onClickContact } = useScroll()
   const getIsFirst = (value: number) => value === 0
   return (
-    <Box sx={{ pt: 10, background: 'black' }}>
+    <>
+      <Header onClickHero={onClickHero} onClickContact={onClickContact} />
       <Stack
         py={10}
         sx={{
@@ -32,6 +39,10 @@ export const IndexPage = () => {
           )
         })}
       </Stack>
-    </Box>
+      <div ref={contactUseRef}>
+        <Contact />
+      </div>
+      <Footer />
+    </>
   )
 }

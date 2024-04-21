@@ -6,8 +6,15 @@ import 'react-device-frameset/styles/marvel-devices.min.css'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { useLocale } from 'src/hooks/useLocal'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
+import React from 'react'
 
-export const HeroBox = () => {
+type Props = {
+  onClickToHowToUse: () => void
+  onClickDownload: () => void
+}
+
+export const HeroBox: React.FC<Props> = (props: Props) => {
+  const { onClickToHowToUse, onClickDownload } = props
   const { t } = useLocale()
   return (
     <Box
@@ -33,11 +40,17 @@ export const HeroBox = () => {
               }}>
               {t.heroText}
             </Typography>
-            <Button variant={'outlined'} sx={whiteButtonStyle}>
-              {t.download}
-            </Button>
-            <Button variant={'outlined'} sx={whiteButtonStyle}>
+            <Button
+              variant={'outlined'}
+              sx={whiteButtonStyle}
+              onClick={onClickToHowToUse}>
               {t.howToUse}
+            </Button>
+            <Button
+              variant={'outlined'}
+              sx={whiteButtonStyle}
+              onClick={onClickDownload}>
+              {t.download}
             </Button>
           </Stack>
         </Grid>

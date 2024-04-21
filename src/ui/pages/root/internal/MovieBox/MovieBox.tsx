@@ -1,12 +1,12 @@
 import { Box, Stack, Typography } from '@mui/material'
 import { getMovieHeight } from 'src/styles/videoStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
-import { useMemo } from 'react'
+import { MutableRefObject, useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { useLocale } from 'src/hooks/useLocal'
 import { scroll } from 'src/constants/scroll'
 
-export const MovieBox = () => {
+export const MovieBox: React.FC = () => {
   const { isMobileSize, isLessDesktop, isDesktopSize } = useMediaQuerySize()
   const maxWidth = useMemo(() => {
     if (isMobileSize) return 400

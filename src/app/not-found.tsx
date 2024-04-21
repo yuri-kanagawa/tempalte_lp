@@ -1,31 +1,14 @@
 'use client'
-import { Button, Stack, Typography } from '@mui/material'
-import { whiteButtonStyle } from 'src/styles/buttonStyle'
 import { useEffect } from 'react'
 import { redirect } from 'next/navigation'
+import { useLocale } from 'src/hooks/useLocal'
+import { getIsEnglish } from 'src/utils/language'
 
 export default function NotFoundPage() {
-  useEffect(() => redirect('/'), [])
-  return (
-    <Stack
-      pt={10}
-      spacing={2}
-      sx={{
-        background: 'black',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'white'
-      }}
-      height={'100vh'}>
-      <Typography sx={{ color: 'white' }}>fsddsfds</Typography>
-      <Button
-        variant={'outlined'}
-        sx={whiteButtonStyle}
-        // onClick={clickTop}
-      >
-        gdfgdfg
-      </Button>
-    </Stack>
-  )
+  const { locale } = useLocale()
+  useEffect(() => {
+    if (getIsEnglish(locale)) return redirect('/')
+    else return redirect(`/${locale}`)
+  }, [locale])
+  return <></>
 }

@@ -1,6 +1,14 @@
 'use client'
-import { AppBar, Box, Fade, Stack, Toolbar, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import {
+  AppBar,
+  Box,
+  Collapse,
+  Fade,
+  Stack,
+  Toolbar,
+  Typography
+} from '@mui/material'
+import React, { useMemo, useState } from 'react'
 import { useLocale } from 'src/hooks/useLocal'
 import IconButton from '@mui/material/IconButton'
 
@@ -8,15 +16,24 @@ import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import MenuIcon from '@mui/icons-material/Menu'
 import { HeaderRight } from 'src/ui/feature/Header/internal/HeaderRight/HeaderRight'
 import { common } from 'src/locales/common'
-import { scrollToTop } from 'src/utils/scroll'
+
 import { TextBlackStyle } from 'src/styles/textStyle'
 import { getIsRoot } from 'src/utils/url'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { route } from 'src/constants/route'
-export const Header: React.FC = () => {
+import { useRecoilValue } from 'recoil'
+import { scrollState } from 'src/stores/scrollContext'
+
+type Props = {
+  onClickHero: () => void
+  onClickContact: () => void
+}
+
+export const Header: React.FC<Props> = (props: Props) => {
+  const { onClickHero, onClickContact } = props
   const { locale } = useLocale()
-  const { isMobileSize } = useMediaQuerySize()
+  const { isLessTabletSize } = useMediaQuerySize()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -24,26 +41,23 @@ export const Header: React.FC = () => {
 
   const router = useRouter()
 
-  const onClickApp = () => {
-    if (getIsRoot(pathname)) {
-      return scrollToTop()
-    } else {
-      return router.push(route.root(locale))
-    }
-  }
+  const isMobileWithOpenMenu = useMemo(
+    () => isOpen && isLessTabletSize,
+    [isLessTabletSize, isOpen]
+  )
 
-  const isMobileWithOpenMenu = isOpen && isMobileSize
   return (
     <AppBar
       sx={{
         backgroundColor: 'white'
-      }}>
+      }}
+      position={'sticky'}>
       <Toolbar>
-        <Typography sx={TextBlackStyle} onClick={onClickApp}>
+        <Typography sx={TextBlackStyle} onClick={onClickHero}>
           {common.app}
         </Typography>
         <Box flexGrow={1} />
-        {isMobileSize ? (
+        {isLessTabletSize ? (
           <IconButton
             size="large"
             edge="start"
@@ -52,17 +66,17 @@ export const Header: React.FC = () => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <HeaderRight key={1} />
+          <HeaderRight key={1} onClickContact={onClickContact} />
         )}
       </Toolbar>
 
-      {isMobileWithOpenMenu && (
-        <Fade in={isMobileWithOpenMenu}>
-          <Stack spacing={2} px={5} pb={2}>
-            <HeaderRight key={2} />
+      <Collapse in={isMobileWithOpenMenu}>
+        <Toolbar>
+          <Stack spacing={2} sx={{ width: '100%' }} pb={2}>
+            <HeaderRight key={2} onClickContact={onClickContact} />
           </Stack>
-        </Fade>
-      )}
+        </Toolbar>
+      </Collapse>
     </AppBar>
   )
 }
