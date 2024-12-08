@@ -1,3 +1,3 @@
-import { generateTerm, generateTermArray } from 'src/locales/en/terms'
+import { generateTerm, generateTermArray } from 'src/locales/utils'
 
-export const terms = generateTermArray(generateTerm('', ''))
+export const Terms = generateTermArray(generateTerm('', ''))

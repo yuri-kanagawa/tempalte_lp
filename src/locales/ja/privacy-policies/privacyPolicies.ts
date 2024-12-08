@@ -1,8 +1,8 @@
 import {
   generatePrivacyPolicy,
   generatePrivacyPolicyArray
-} from 'src/locales/en/privacy-policies'
+} from 'src/locales/utils/'
 
-export const privacyPolicies = generatePrivacyPolicyArray(
-  generatePrivacyPolicy('', '')
+export const PrivacyPolicies = generatePrivacyPolicyArray(
+  generatePrivacyPolicy('fsgsg', 'gsdfgsdgYouTubefafgaf')
 )
