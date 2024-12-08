@@ -2,8 +2,8 @@
 //
 // import { MenuItem, SelectProps } from '@mui/material'
 //
-// import {menuItemStyle} from "src/ui/feature/Header/internal/LanguageSelect/utils";
-// import {getLanguageLabel, LanguageList} from "src/utils/language";
+// import {menuItemStyle} from "src/ui/feature/Header/internal/LanguageSelect/utils.ts";
+// import {getLanguageLabel, LanguageList} from "src/utils.ts/language";
 //
 // export const BlackLanguageSelect = (props: SelectProps) => {
 //   return (

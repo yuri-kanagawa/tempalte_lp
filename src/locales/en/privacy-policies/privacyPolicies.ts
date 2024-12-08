@@ -1,5 +1,8 @@
-import { generatePrivacyPolicy, generatePrivacyPolicyArray } from './utils'
+import {
+  generatePrivacyPolicy,
+  generatePrivacyPolicyArray
+} from 'src/locales/utils/'
 
-export const privacyPolicies = generatePrivacyPolicyArray(
+export const PrivacyPolicies = generatePrivacyPolicyArray(
   generatePrivacyPolicy('fsgsg', 'gsdfgsdgYouTubefafgaf')
 )

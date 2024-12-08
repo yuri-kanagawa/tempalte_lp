@@ -1,6 +1,6 @@
-import { generateFaqAccordionObject, generateFaqType } from './utils'
+import { generateFaqAccordionObject, generateFaqType } from 'src/locales/utils'
 
-export const faqs = generateFaqAccordionObject(
+export const Faqs = generateFaqAccordionObject(
   generateFaqType('1', '2'),
   generateFaqType('1', '2'),
   generateFaqType('1', '2')

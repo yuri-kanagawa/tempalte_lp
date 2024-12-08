@@ -1,18 +1,14 @@
-import { words, WordType } from './words'
-import { metas, MetaPageType } from './metas'
-import { faqs, FaqListType } from './faqs'
-import { privacyPolicies, PrivacyPolicyArrayType } from './privacy-policies'
-import { terms, TermArrayType } from './terms'
-export type LocaleType = WordType &
-  MetaPageType &
-  FaqListType &
-  PrivacyPolicyArrayType &
-  TermArrayType
+import { Word } from './words'
+import { Meta } from './metas'
+import { Faqs } from './faqs'
+import { PrivacyPolicies } from './privacy-policies'
+import { Terms } from './terms'
+import { LocaleType } from '../utils'
 
 export const en: LocaleType = {
-  ...words,
-  ...metas,
-  ...faqs,
-  ...privacyPolicies,
-  ...terms
+  ...Word,
+  ...Meta,
+  ...Faqs,
+  ...PrivacyPolicies,
+  ...Terms
 } as const

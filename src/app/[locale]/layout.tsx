@@ -1,6 +1,37 @@
 import React from 'react'
-import { getIsEnglish, isExistLanguage } from 'src/utils/language'
+import {
+  generateLocalesWithoutEn,
+  getIsEnglish,
+  getLocaleFile,
+  isExistLanguage
+} from 'src/utils/language'
 import { redirect } from 'next/navigation'
+import { Metadata, ResolvingMetadata } from 'next'
+import * as console from 'console'
+
+type Params = {
+  locale: string
+}
+
+type Props = {
+  params: Params
+}
+
+export const dynamicParams = true
+
+export async function generateStaticParams(): Promise<Params[]> {
+  return generateLocalesWithoutEn()
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const locale = params.locale
+
+  const t = getLocaleFile(locale)
+  return t.metas.index
+}
 
 export default function Layout({
   children,

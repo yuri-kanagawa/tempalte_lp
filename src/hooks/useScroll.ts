@@ -6,13 +6,18 @@ import { usePathname, useRouter } from 'next/navigation'
 import { getIsRoot } from 'src/utils/url'
 import { route } from 'src/constants/route'
 import { langState } from 'src/stores/langContext'
+import { LanguageKey } from 'src/constants/language'
 
-export const useScroll = () => {
+type Props = {
+  lang: LanguageKey
+}
+
+export const useScroll = ({ lang }: Props) => {
   const heroUseRef = useRef<HTMLDivElement | null>(null)
   const howToUseUseRef = useRef<HTMLDivElement | null>(null)
   const downloadUseRef = useRef<HTMLDivElement | null>(null)
   const contactUseRef = useRef<HTMLDivElement | null>(null)
-  const lang = useRecoilValue(langState)
+  // const lang = useRecoilValue(langState)
   const pathname = usePathname()
   const router = useRouter()
 
@@ -52,36 +57,36 @@ export const useScroll = () => {
     })
   }, [transitionRoot])
 
-  const [scrollPosition, setScrollPosition] = useRecoilState(scrollState)
+  // const [scrollPosition, setScrollPosition] = useRecoilState(scrollState)
 
-  useEffect(() => {
-    switch (scrollPosition) {
-      case scroll.app:
-        setScrollPosition(undefined)
-        return onClickHero()
-
-      case scroll.howToUse:
-        setScrollPosition(undefined)
-        return onClickToHowToUse()
-
-      case scroll.contact:
-        setScrollPosition(undefined)
-        return onClickContact()
-
-      case scroll.download:
-        setScrollPosition(undefined)
-        return onClickDownload()
-      case undefined:
-        return
-    }
-  }, [
-    onClickContact,
-    onClickDownload,
-    onClickHero,
-    onClickToHowToUse,
-    scrollPosition,
-    setScrollPosition
-  ])
+  // useEffect(() => {
+  //   switch (scrollPosition) {
+  //     case scroll.app:
+  //       setScrollPosition(undefined)
+  //       return onClickHero()
+  //
+  //     case scroll.howToUse:
+  //       setScrollPosition(undefined)
+  //       return onClickToHowToUse()
+  //
+  //     case scroll.contact:
+  //       setScrollPosition(undefined)
+  //       return onClickContact()
+  //
+  //     case scroll.download:
+  //       // setScrollPosition(undefined)
+  //       return onClickDownload()
+  //     case undefined:
+  //       return
+  //   }
+  // }, [
+  //   onClickContact,
+  //   onClickDownload,
+  //   onClickHero,
+  //   onClickToHowToUse,
+  //   // scrollPosition,
+  //   // setScrollPosition
+  // ])
 
   return {
     heroUseRef,

@@ -1,5 +1,6 @@
-import { IndexPage } from 'src/ui/pages/root'
+import { IndexPage } from 'src/ui/pages/index'
+import { DefaultLanguage } from 'src/constants/language'
 
 export default function Page() {
-  return <IndexPage />
+  return <IndexPage lang={DefaultLanguage} />
 }

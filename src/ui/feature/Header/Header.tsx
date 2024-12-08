@@ -3,13 +3,11 @@ import {
   AppBar,
   Box,
   Collapse,
-  Fade,
   Stack,
   Toolbar,
   Typography
 } from '@mui/material'
 import React, { useMemo, useState } from 'react'
-import { useLocale } from 'src/hooks/useLocal'
 import IconButton from '@mui/material/IconButton'
 
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
@@ -18,28 +16,19 @@ import { HeaderRight } from 'src/ui/feature/Header/internal/HeaderRight/HeaderRi
 import { common } from 'src/locales/common'
 
 import { TextBlackStyle } from 'src/styles/textStyle'
-import { getIsRoot } from 'src/utils/url'
-import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-import { route } from 'src/constants/route'
-import { useRecoilValue } from 'recoil'
-import { scrollState } from 'src/stores/scrollContext'
+import { LanguageKey } from 'src/constants/language'
 
 type Props = {
-  onClickHero: () => void
-  onClickContact: () => void
+  lang: LanguageKey
+  currentPath: string
 }
 
-export const Header: React.FC<Props> = (props: Props) => {
-  const { onClickHero, onClickContact } = props
-  const { locale } = useLocale()
+export const Header: React.FC<Props> = ({ lang, currentPath }) => {
   const { isLessTabletSize } = useMediaQuerySize()
-  const pathname = usePathname()
+
   const [isOpen, setIsOpen] = useState(false)
 
   const onClickMenu = () => setIsOpen(!isOpen)
-
-  const router = useRouter()
 
   const isMobileWithOpenMenu = useMemo(
     () => isOpen && isLessTabletSize,
@@ -53,7 +42,10 @@ export const Header: React.FC<Props> = (props: Props) => {
       }}
       position={'sticky'}>
       <Toolbar>
-        <Typography sx={TextBlackStyle} onClick={onClickHero}>
+        <Typography
+          sx={TextBlackStyle}
+          // onClick={onClickHero}
+        >
           {common.app}
         </Typography>
         <Box flexGrow={1} />
@@ -66,14 +58,14 @@ export const Header: React.FC<Props> = (props: Props) => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <HeaderRight key={1} onClickContact={onClickContact} />
+          <HeaderRight key={1} lang={lang} currentPath={currentPath} />
         )}
       </Toolbar>
 
       <Collapse in={isMobileWithOpenMenu}>
         <Toolbar>
           <Stack spacing={2} sx={{ width: '100%' }} pb={2}>
-            <HeaderRight key={2} onClickContact={onClickContact} />
+            <HeaderRight key={2} lang={lang} currentPath={currentPath} />
           </Stack>
         </Toolbar>
       </Collapse>

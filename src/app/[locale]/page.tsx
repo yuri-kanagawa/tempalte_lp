@@ -1,5 +1,6 @@
-import { IndexPage } from 'src/ui/pages/root'
 import type { Metadata, ResolvingMetadata } from 'next'
+import { IndexPage } from 'src/ui/pages/index'
+import { LanguageKey } from 'src/constants/language'
 
 type Props = {
   params: { locale: string }
@@ -30,5 +31,6 @@ export async function generateMetadata(
 }
 
 export default function Page({ params }: Props) {
-  return <IndexPage />
+  const lang = params.locale as LanguageKey
+  return <IndexPage lang={lang} />
 }

@@ -1,44 +1,31 @@
-'use client'
-
-import { FormControl, MenuItem, SelectChangeEvent } from '@mui/material'
-import { langState } from 'src/stores/langContext'
+import { FormControl, MenuItem, Typography } from '@mui/material'
 import TranslateIcon from '@mui/icons-material/Translate'
-import { useRecoilState } from 'recoil'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { StyledSelect } from 'src/ui/feature/styled/select/StyledSelect'
 import { menuItemStyle } from 'src/ui/feature/Header/internal/LanguageSelect/utils'
-import { getLanguageLabel } from 'src/utils/language'
+import { getIsEnglish, getLanguageLabel } from 'src/utils/language'
 import { LanguageKey, LANGUAGES } from 'src/constants/language'
+import { NextLink } from 'src/ui/core/Link/NextLink'
 
-export const LanguageSelect: React.FC = () => {
-  const [lang, setLang] = useRecoilState(langState)
-  // const handleChange = useCallback(
-  //   (event: SelectChangeEvent<unknown>) =>
-  //     changeLang(setLang, String(event.target.value)),
-  //   [setLang]
-  // )
+type Props = {
+  lang: LanguageKey
+  currentPath: string
+}
 
-  const handleChange = useCallback(
-    (event: SelectChangeEvent<unknown>) => {
-      setLang(event.target.value as LanguageKey)
-    },
-    [setLang]
-  )
-
+export const LanguageSelect: React.FC<Props> = ({ lang, currentPath }) => {
   return (
-    <FormControl>
-      <StyledSelect
-        sx={{ minWidth: 200, height: 50 }}
-        onChange={handleChange}
-        value={lang}
-        startAdornment={<TranslateIcon />}
-        inputProps={{ MenuProps: { disableScrollLock: true } }}>
-        {LANGUAGES.map((e, index) => (
-          <MenuItem key={index} value={e} sx={menuItemStyle}>
-            {getLanguageLabel(e)}
-          </MenuItem>
-        ))}
-      </StyledSelect>
-    </FormControl>
+    <StyledSelect
+      sx={{ minWidth: 200, height: 50 }}
+      value={lang}
+      startAdornment={<TranslateIcon />}
+      inputProps={{ MenuProps: { disableScrollLock: true } }}>
+      {LANGUAGES.map((e, index) => (
+        <MenuItem key={`item ${index}`} value={e} sx={menuItemStyle}>
+          <NextLink pathname={e === 'en' ? currentPath : `${e}${currentPath}`}>
+            <Typography>{getLanguageLabel(e)}</Typography>
+          </NextLink>
+        </MenuItem>
+      ))}
+    </StyledSelect>
   )
 }

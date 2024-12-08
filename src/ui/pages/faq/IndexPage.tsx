@@ -1,24 +1,26 @@
-import { Box, Stack, Typography } from '@mui/material'
-import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
-import { useLocale } from 'src/hooks/useLocal'
-import React, { useCallback } from 'react'
-import { useScroll } from 'src/hooks/useScroll'
-import { Header } from 'src/ui/feature/Header'
+import { Stack, Typography } from '@mui/material'
+// import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
+
+import React, { FC } from 'react'
 import { Footer } from 'src/ui/feature/Footer'
-import { Contact } from 'src/ui/feature/Contact'
+import { LanguageKey } from 'src/constants/language'
+import { getLocaleFile } from 'src/utils/language'
+import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
+import { Header } from 'src/ui/feature/Header'
 
-export const IndexPage = () => {
-  const { t } = useLocale()
-  const getIsLast = useCallback(
-    (value: number) => value === t.faqArray.length - 1,
-    [t.faqArray.length]
-  )
+type Props = {
+  lang: LanguageKey
+}
 
-  const { onClickHero, contactUseRef, onClickContact } = useScroll()
+export const IndexPage: FC<Props> = ({ lang }) => {
+  const t = getLocaleFile(lang)
+  const getIsLast = (value: number) => value === t.faqArray.length - 1
+
+  // const { onClickHero, contactUseRef, onClickContact } = useScroll()
   const getIsFirst = (value: number) => value === 0
   return (
     <>
-      <Header onClickHero={onClickHero} onClickContact={onClickContact} />
+      <Header lang={lang} currentPath={'/faq'} />
       <Stack
         py={10}
         sx={{
@@ -26,7 +28,9 @@ export const IndexPage = () => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-        <Typography sx={{ color: 'white', fontSize: 40 }}>{t.faq}</Typography>
+        <Typography sx={{ color: 'white', fontSize: 40 }}>
+          {t.word.faq}
+        </Typography>
         {t.faqArray.map((e, index) => {
           return (
             <StyledAccordion
@@ -39,10 +43,10 @@ export const IndexPage = () => {
           )
         })}
       </Stack>
-      <div ref={contactUseRef}>
-        <Contact />
-      </div>
-      <Footer />
+      {/*<div ref={contactUseRef}>*/}
+      {/*  <Contact />*/}
+      {/*</div>*/}
+      <Footer lang={lang} />
     </>
   )
 }

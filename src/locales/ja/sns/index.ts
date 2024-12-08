@@ -1,1 +1,1 @@
-export * from 'src/locales/en/sns/sns'
+export * from './sns'

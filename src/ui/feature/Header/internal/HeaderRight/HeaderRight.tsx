@@ -1,47 +1,48 @@
-import { scroll, ScrollKey } from 'src/constants/scroll'
+import {
+  onClickContact,
+  onClickDownload,
+  onClickHowToUse,
+  scroll
+} from 'src/constants/scroll'
 import { LanguageSelect } from 'src/ui/feature/Header/internal/LanguageSelect'
 import React from 'react'
-import { Typography } from '@mui/material'
-import { useLocale } from 'src/hooks/useLocal'
-import { TextBlackStyle } from 'src/styles/textStyle'
-import { useSetRecoilState } from 'recoil'
-import { scrollState } from 'src/stores/scrollContext'
+import { LanguageKey } from 'src/constants/language'
+import { getLocaleFile } from 'src/utils/language'
+import { HeaderText } from 'src/ui/feature/Header/internal/HeaderRight/internal'
 
 type Props = {
-  onClickContact: () => void
+  lang: LanguageKey
+  currentPath: string
 }
 
-export const HeaderRight: React.FC<Props> = (props: Props) => {
-  const { onClickContact } = props
-  const { t } = useLocale()
+export const HeaderRight: React.FC<Props> = ({ lang, currentPath }) => {
+  const t = getLocaleFile(lang)
 
-  const setScrollTarget = useSetRecoilState(scrollState)
-
-  const onClickHowToUse = () => {
-    setScrollTarget(scroll.howToUse as ScrollKey)
-  }
-  const onClickDownload = () => {
-    setScrollTarget(scroll.download as ScrollKey)
-  }
-
+  const isRootPage = currentPath === '/'
   return (
     <>
-      <Typography
-        sx={{ ...TextBlackStyle, mr: 2, textAlign: 'center' }}
+      <HeaderText
+        isRootPage={isRootPage}
+        pathname={'/'}
+        query={{ scroll: scroll.howToUse }}
         onClick={onClickHowToUse}>
-        {t.howToUse}
-      </Typography>
-      <Typography
-        sx={{ ...TextBlackStyle, mr: 2, textAlign: 'center' }}
+        {t.word.howToUse}
+      </HeaderText>
+      <HeaderText
+        isRootPage={isRootPage}
+        pathname={'/'}
+        query={{ scroll: scroll.download }}
         onClick={onClickDownload}>
-        {t.download}
-      </Typography>
-      <Typography
-        sx={{ ...TextBlackStyle, mr: 2, textAlign: 'center' }}
+        {t.word.download}
+      </HeaderText>
+      <HeaderText
+        isRootPage={isRootPage}
+        pathname={'/'}
+        query={{ scroll: scroll.contact }}
         onClick={onClickContact}>
-        {t.contact}
-      </Typography>
-      <LanguageSelect />
+        {t.word.contact}
+      </HeaderText>
+      <LanguageSelect lang={lang} currentPath={currentPath} />
     </>
   )
 }

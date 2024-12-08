@@ -1,7 +1,7 @@
 // import { MenuItem, SelectProps } from '@mui/material'
 // import { StyledSelect } from 'src/ui/feature/styled/select/StyledSelect'
-// import {getLanguageLabel, LanguageList} from "src/utils/language";
-// import {menuItemStyle} from "src/ui/feature/Header/internal/LanguageSelect/utils";
+// import {getLanguageLabel, LanguageList} from "src/utils.ts/language";
+// import {menuItemStyle} from "src/ui/feature/Header/internal/LanguageSelect/utils.ts";
 //
 // export const WhiteLanguageSelect = (props: SelectProps) => {
 //   return (

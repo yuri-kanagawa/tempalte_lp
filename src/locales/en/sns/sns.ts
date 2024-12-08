@@ -1,4 +1,4 @@
-import { generateSnsLink } from 'src/locales/en/sns/utils'
+import { generateSnsLink } from 'src/locales/utils/sns/utils'
 
 export const sns = generateSnsLink({
   twitter: 'https://twitter.com/ledenm_en',

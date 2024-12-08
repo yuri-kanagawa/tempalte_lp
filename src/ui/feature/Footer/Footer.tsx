@@ -1,28 +1,23 @@
-'use client'
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
-import { useLocale } from 'src/hooks/useLocal'
-import { langState } from 'src/stores/langContext'
-import { useRecoilValue } from 'recoil'
-import { useRouter } from 'next/navigation'
+import { getIsEnglish, getLocaleFile } from 'src/utils/language'
+import { NextLink } from 'src/ui/core/Link/NextLink'
+import { LanguageKey } from 'src/constants/language'
 import { route } from 'src/constants/route'
-import { getIsEnglish } from 'src/utils/language'
 
-export const Footer: React.FC = () => {
-  const { locale, t } = useLocale()
-  const lang = useRecoilValue(langState)
-  const router = useRouter()
-  const onClickPrivacyPolicy = () =>
-    router.push(route.privacyPolicy.index(lang))
+type Props = {
+  lang: LanguageKey
+}
+export const Footer: React.FC<Props> = ({ lang }) => {
+  const t = getLocaleFile(lang)
 
-  const onClickTerms = () => router.push(route.terms.index(lang))
-  const onClickFaq = () => router.push(route.faq.index(lang))
-
-  const onClickLedenm = useCallback(() => {
-    if (getIsEnglish(locale)) return window.open('https://ledenm.com/')
-    else return window.open(`https://ledenm.com/${locale}`)
-  }, [locale])
+  const privacyPolicyLink = route.privacyPolicy.index(lang)
+  const ledenmLink = getIsEnglish(lang)
+    ? 'https://ledenm.com/'
+    : `https://ledenm.com/${lang}`
+  const termLink = route.terms.index(lang)
+  const faqLink = route.faq.index(lang)
   return (
     <Box
       py={2}
@@ -42,9 +37,9 @@ export const Footer: React.FC = () => {
             <Typography>©&nbsp;&nbsp;</Typography>
           </Grid>
           <Grid item>
-            <Typography sx={IconButtonWhiteStyle} onClick={onClickLedenm}>
-              Lilium Eden
-            </Typography>
+            <NextLink pathname={ledenmLink}>
+              <Typography sx={IconButtonWhiteStyle}>Lilium Eden</Typography>
+            </NextLink>
           </Grid>
           <Grid item>
             <Typography>&nbsp;&nbsp;All Rights Reserved.</Typography>
@@ -59,21 +54,24 @@ export const Footer: React.FC = () => {
           }}
           gap={2}>
           <Grid item>
-            <Typography
-              sx={IconButtonWhiteStyle}
-              onClick={onClickPrivacyPolicy}>
-              {t.privacyPolicy}
-            </Typography>
+            <NextLink pathname={privacyPolicyLink}>
+              <Typography
+                sx={IconButtonWhiteStyle}
+                // onClick={onClickPrivacyPolicy}
+              >
+                {t.word.privacyPolicy}
+              </Typography>
+            </NextLink>
           </Grid>
           <Grid item>
-            <Typography sx={IconButtonWhiteStyle} onClick={onClickTerms}>
-              {t.terms}
-            </Typography>
+            <NextLink pathname={termLink}>
+              <Typography sx={IconButtonWhiteStyle}>{t.word.terms}</Typography>
+            </NextLink>
           </Grid>
           <Grid item>
-            <Typography sx={IconButtonWhiteStyle} onClick={onClickFaq}>
-              {t.faq}
-            </Typography>
+            <NextLink pathname={faqLink}>
+              <Typography sx={IconButtonWhiteStyle}>{t.word.faq}</Typography>
+            </NextLink>
           </Grid>
         </Grid>
       </Stack>
