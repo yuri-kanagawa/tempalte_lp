@@ -1,5 +1,4 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import { en } from 'src/locales/en'
 import { generateLocalesWithoutEn, getLocaleFile } from 'src/utils/language'
 
 type Params = {

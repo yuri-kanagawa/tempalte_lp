@@ -1,6 +1,11 @@
-'use client'
 import { IndexPage } from 'src/ui/pages/privacy-policy'
+import { ResolvingMetadata } from 'next'
+import { LanguageKey } from 'src/constants/language'
 
-export default function Page() {
-  return <IndexPage />
+type Props = {
+  params: { locale: LanguageKey }
+}
+export default function Page({ params }: Props, parent: ResolvingMetadata) {
+  const lang = params.locale
+  return <IndexPage lang={lang} />
 }

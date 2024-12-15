@@ -3,9 +3,9 @@ import { ResolvingMetadata } from 'next'
 import { LanguageKey } from 'src/constants/language'
 
 type Props = {
-  params: { locale: string }
+  params: { locale: LanguageKey }
 }
 export default function Page({ params }: Props, parent: ResolvingMetadata) {
-  const lang = params.locale as LanguageKey
+  const lang = params.locale
   return <IndexPage lang={lang} />
 }
