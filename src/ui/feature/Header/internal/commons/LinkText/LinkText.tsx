@@ -4,17 +4,19 @@ import React, { FC } from 'react'
 import { scroll } from 'src/constants/scroll'
 import { Typography } from '@mui/material'
 import { TextBlackStyle } from 'src/styles/textStyle'
+import { ClientLink } from 'src/ui/feature/Header/internal/commons/LinkText/ClientLink'
 
 type Props = Omit<NextLinkProps, 'children'> &
   TypographyProps & {
-    isRootPage: boolean
+    currentPath: string
   }
-export const HeaderText: FC<Props> = ({
+export const LinkText: FC<Props> = ({
   pathname,
   query,
-  isRootPage,
+  currentPath,
   ...rest
 }) => {
+  const isRootPage = currentPath === '/'
   return (
     <>
       {!isRootPage && (
@@ -25,11 +27,7 @@ export const HeaderText: FC<Props> = ({
         </NextLink>
       )}
       {isRootPage && (
-        <Typography
-          sx={{ ...TextBlackStyle, mr: 2, textAlign: 'center' }}
-          onClick={rest.onClick}>
-          {rest.children}
-        </Typography>
+        <ClientLink onClick={rest.onClick}>{rest.children}</ClientLink>
       )}
     </>
   )
