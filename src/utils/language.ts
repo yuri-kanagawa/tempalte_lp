@@ -1,11 +1,16 @@
-import { LANGUAGE, LanguageKey, LANGUAGES } from 'src/constants/language'
+import { Language } from 'src/domains/valueObjects/language'
 import { en } from 'src/locales/en'
 import { ja } from 'src/locales/ja'
 import { LocaleType } from 'src/locales/utils'
 
-export const isExistLanguage = (value: string): boolean => value in LANGUAGE
+export const isExistLanguage = (value: string): boolean => {
+  return Language.create(value).isSuccess
+}
 
-export const getLanguageLabel = (value: LanguageKey): string => LANGUAGE[value]
+export const getLanguageLabel = (value: string): string => {
+  const language = Language.create(value).language ?? Language.default()
+  return language.label
+}
 
 export const getIsChinese = (lang: string): boolean => lang === 'zh'
 export const getIsEnglish = (lang: string): boolean => lang === 'en'

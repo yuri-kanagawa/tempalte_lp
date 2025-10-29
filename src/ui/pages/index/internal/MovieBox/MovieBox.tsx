@@ -5,14 +5,14 @@ import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { MutableRefObject, useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { scroll } from 'src/constants/scroll'
-import { LanguageKey } from 'src/constants/language'
+import type { Language } from 'src/domains/valueObjects/language'
 import { getLocaleFile } from 'src/utils/language'
 
 type Props = {
-  lang: LanguageKey
+  language: Language
 }
 
-export const MovieBox: React.FC<Props> = ({ lang }) => {
+export const MovieBox: React.FC<Props> = ({ language }) => {
   const { isMobileSize, isLessDesktop, isDesktopSize } = useMediaQuerySize()
   const maxWidth = useMemo(() => {
     if (isMobileSize) return 400
@@ -20,7 +20,7 @@ export const MovieBox: React.FC<Props> = ({ lang }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const t = getLocaleFile(lang)
+  const t = getLocaleFile(language)
   return (
     <Box
       id={scroll.howToUse}
@@ -34,7 +34,7 @@ export const MovieBox: React.FC<Props> = ({ lang }) => {
       <Stack spacing={4}>
         <Typography
           sx={{ display: 'flex', justifyContent: 'center', ...titleFontSize }}>
-          {t.word.howToUse}
+          {t.words.howToUse}
         </Typography>
         <iframe
           src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"

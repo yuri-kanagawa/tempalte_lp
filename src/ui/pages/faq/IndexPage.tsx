@@ -2,25 +2,25 @@ import { Stack, Typography } from '@mui/material'
 // import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 
 import React, { FC } from 'react'
-import { Footer } from 'src/ui/feature/Footer'
-import { LanguageKey } from 'src/constants/language'
+import { Footer } from 'src/features/language/components/footer'
+import type { Language } from 'src/domains/valueObjects/language'
 import { getLocaleFile } from 'src/utils/language'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
-import { Header } from 'src/ui/feature/Header'
+import { Header } from 'src/features/language/components/header'
 
 type Props = {
-  lang: LanguageKey
+  language: Language
 }
 
-export const IndexPage: FC<Props> = ({ lang }) => {
-  const t = getLocaleFile(lang)
+export const IndexPage: FC<Props> = ({ language }) => {
+  const t = getLocaleFile(language.value)
   const getIsLast = (value: number) => value === t.faqArray.length - 1
 
   // const { onClickHero, contactUseRef, onClickContact } = useScroll()
   const getIsFirst = (value: number) => value === 0
   return (
     <>
-      <Header lang={lang} currentPath={'/faq'} />
+      <Header language={language} currentPath={'/faq'} />
       <Stack
         py={10}
         sx={{
@@ -29,7 +29,7 @@ export const IndexPage: FC<Props> = ({ lang }) => {
           alignItems: 'center'
         }}>
         <Typography sx={{ color: 'white', fontSize: 40 }}>
-          {t.word.faq}
+          {t.words.faq}
         </Typography>
         {t.faqArray.map((e, index) => {
           return (
@@ -46,7 +46,7 @@ export const IndexPage: FC<Props> = ({ lang }) => {
       {/*<div ref={contactUseRef}>*/}
       {/*  <Contact />*/}
       {/*</div>*/}
-      <Footer lang={lang} />
+      <Footer language={language} />
     </>
   )
 }

@@ -1,28 +1,27 @@
+'use client'
 import React, { FC } from 'react'
 
-import { Footer } from 'src/ui/feature/Footer'
-import { LanguageKey } from 'src/constants/language'
+import { Footer, Contact, Header } from 'src/features/language'
+import type { Language } from 'src/domains/valueObjects/language'
 import { Content } from 'src/ui/pages/index/internal/Content'
-import { Contact } from 'src/ui/feature/Contact'
 import { DownloadBox } from 'src/ui/pages/index/internal/DownloadBox'
-import { Header } from 'src/ui/feature/Header'
 import { HeroBox } from 'src/ui/pages/index/internal/HeroBox/HeroBox'
 
 type Props = {
-  lang: LanguageKey
+  language: Language
 }
-export const IndexPage: FC<Props> = ({ lang }) => {
+export const IndexPage: FC<Props> = ({ language }) => {
   return (
     <>
-      <Header lang={lang} currentPath={'/'} />
-      <HeroBox lang={lang} />
-      <Content lang={lang} />
+      <Header language={language} currentPath={'/'} />
+      <HeroBox language={language} />
+      <Content language={language} />
 
-      <DownloadBox lang={lang} />
+      <DownloadBox language={language} />
 
-      <Contact lang={lang} />
+      <Contact language={language} />
 
-      <Footer lang={lang} />
+      <Footer language={language} />
     </>
   )
 }

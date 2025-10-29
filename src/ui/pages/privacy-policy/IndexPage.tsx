@@ -2,25 +2,25 @@ import { Box, Stack, Typography } from '@mui/material'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 
 import React, { FC, useCallback } from 'react'
-import { Header } from 'src/ui/feature/Header'
-import { Footer } from 'src/ui/feature/Footer'
+import { Header } from 'src/features/language/components/header'
+import { Footer } from 'src/features/language/components/footer'
 import { useScroll } from 'src/hooks/useScroll'
-import { Contact } from 'src/ui/feature/Contact'
+import { Contact } from 'src/features/language/components/contact'
 import { getLocaleFile } from 'src/utils/language'
-import { LanguageKey } from 'src/constants/language'
+import type { Language } from 'src/domains/valueObjects/language'
 
 type Props = {
-  lang: LanguageKey
+  language: Language
 }
 
-export const IndexPage: FC<Props> = ({ lang }) => {
-  const t = getLocaleFile(lang)
+export const IndexPage: FC<Props> = ({ language }) => {
+  const t = getLocaleFile(language.value)
   const getIsFirst = (value: number) => value === 0
   const getIsLast = (value: number) => value === t.privacyPolicyArray.length - 1
 
   return (
     <>
-      <Header lang={lang} currentPath={'/privacy-policy'} />
+      <Header language={language} currentPath={'/privacy-policy'} />
       <Stack
         py={10}
         sx={{
@@ -29,7 +29,7 @@ export const IndexPage: FC<Props> = ({ lang }) => {
           alignItems: 'center'
         }}>
         <Typography sx={{ color: 'white', fontSize: 40 }}>
-          {t.word.privacyPolicy}
+          {t.words.privacyPolicy}
         </Typography>
         {t.privacyPolicyArray.map((e, index: number) => {
           return (
@@ -43,8 +43,8 @@ export const IndexPage: FC<Props> = ({ lang }) => {
           )
         })}
       </Stack>
-      <Contact lang={lang} />
-      <Footer lang={lang} />
+      <Contact language={language} />
+      <Footer language={language} />
     </>
   )
 }

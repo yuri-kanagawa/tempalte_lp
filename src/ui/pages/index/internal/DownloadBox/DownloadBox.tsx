@@ -4,22 +4,22 @@ import Image from 'next/image'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { scroll } from 'src/constants/scroll'
 import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
-import { LanguageKey } from 'src/constants/language'
+import type { Language } from 'src/domains/valueObjects/language'
 import { getLocaleFile } from 'src/utils/language'
 import { Scroll } from './Internal'
 
 type Props = {
-  lang: LanguageKey
+  language: Language
 }
 
-export const DownloadBox: React.FC<Props> = ({ lang }) => {
+export const DownloadBox: React.FC<Props> = ({ language }) => {
   // const { isLessDesktop, isDesktopSize } = useMediaQuerySize()
   // const buttonWidth = useMemo(() => {
   //   if (isLessDesktop) return 150
   //   if (isDesktopSize) return 300
   // }, [isDesktopSize, isLessDesktop])
 
-  const t = getLocaleFile(lang)
+  const t = getLocaleFile(language)
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
@@ -40,7 +40,7 @@ export const DownloadBox: React.FC<Props> = ({ lang }) => {
             justifyContent: 'center',
             ...titleFontSize
           }}>
-          {t.word.download}
+          {t.words.download}
         </Typography>
         <Grid
           container

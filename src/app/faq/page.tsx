@@ -1,6 +1,6 @@
 import { IndexPage } from 'src/ui/pages/faq'
-import { DefaultLanguage } from 'src/constants/language'
+import { Language } from 'src/domains/valueObjects/language'
 
 export default function Page() {
-  return <IndexPage lang={DefaultLanguage} />
+  return <IndexPage language={Language.default()} />
 }

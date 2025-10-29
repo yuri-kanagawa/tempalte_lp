@@ -25,9 +25,15 @@
       }
     ],
     "paths": {
-      "src/*": [
-        "./src/*"
-      ]
+      "src/*": ["./src/*"],
+      "@src/*": ["./src/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@config/*": ["./src/config/*"],
+      "@domains/*": ["./src/domains/*"],
+      "@ui/*": ["./src/ui/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@locales/*": ["./src/locales/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": [

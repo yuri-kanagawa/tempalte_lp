@@ -13,7 +13,7 @@ export const DownloadButton: FC<Props> = ({ lang }) => {
       variant={'outlined'}
       sx={whiteButtonStyle}
       onClick={onClickDownload}>
-      {t.word.download}
+      {t.words.download}
     </Button>
   )
 }

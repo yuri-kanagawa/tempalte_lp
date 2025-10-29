@@ -16,7 +16,7 @@ export const HowToUseButton: FC<Props> = ({ lang }) => {
       variant={'outlined'}
       sx={whiteButtonStyle}
       onClick={onClickHowToUse}>
-      {t.word.howToUse}
+      {t.words.howToUse}
     </Button>
   )
 }

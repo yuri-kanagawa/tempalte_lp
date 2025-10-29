@@ -18,7 +18,7 @@ export const Texts: FC<Props> = ({ lang }) => {
           whiteSpace: 'pre-wrap',
           ...titleFontSize
         }}>
-        {t.word.heroText}
+        {t.words.heroText}
       </Typography>
       <HowToUseButton lang={lang} />
       <DownloadButton lang={lang} />
