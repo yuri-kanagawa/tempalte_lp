@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Select } from '@mui/material'
-import { theme } from 'src/stores/thema'
+import { theme } from 'src/config/theme'
 
 export const StyledSelect = styled(Select)(() => ({
   color: theme.palette.primary.main,

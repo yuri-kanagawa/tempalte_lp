@@ -1,5 +1,5 @@
 import { useMediaQuery } from '@mui/material'
-import { theme } from 'src/stores/thema'
+import { theme } from 'src/config/theme'
 import { useLayoutEffect, useState } from 'react'
 
 export function useMediaQuerySize() {

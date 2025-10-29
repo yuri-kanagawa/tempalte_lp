@@ -3,7 +3,7 @@
 import { ReactNode } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from '@mui/material'
-import { theme } from 'src/stores/thema'
+import { theme } from 'src/config/theme'
 
 export function AppProvider({ children }: { children: ReactNode }) {
   return (
