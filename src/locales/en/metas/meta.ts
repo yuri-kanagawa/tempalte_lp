@@ -1,9 +1,8 @@
-import { Metadata } from 'next'
 import { appName, OGP_IMAGE_URL } from 'src/constants/app'
 import ogImage from 'src/app/opengraph-image.png'
-
+import type { Metadata } from 'next'
 const DESCRIPTION = ''
-export const IndexMeta: Metadata = {
+const meta: Metadata = {
   title: appName,
   description: DESCRIPTION,
   openGraph: {

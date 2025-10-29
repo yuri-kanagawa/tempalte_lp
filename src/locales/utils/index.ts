@@ -1,7 +1,0 @@
-export * from './faq'
-export * from './meta'
-export * from './privacyPolicy'
-export * from './sns'
-export * from './terms'
-export * from './words'
-export * from './type.d'

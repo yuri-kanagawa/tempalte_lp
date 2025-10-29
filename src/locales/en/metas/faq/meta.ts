@@ -1,11 +1,9 @@
 import { Metadata } from 'next'
 import { appName, OGP_IMAGE_URL } from 'src/constants/app'
 import ogImage from 'src/app/opengraph-image.png'
-import { generateFaqType } from 'src/locales/utils'
-import { getFaqMeta } from 'src/locales/utils/meta/utils'
 
 const DESCRIPTION = ''
-const indexMeta: Metadata = {
+export const FaqMeta: Metadata = {
   title: appName,
   description: DESCRIPTION,
   openGraph: {
@@ -30,5 +28,3 @@ const indexMeta: Metadata = {
     ]
   }
 }
-
-export const FaqMeta = getFaqMeta(indexMeta)

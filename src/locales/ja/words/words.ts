@@ -1,4 +1,4 @@
-import { getWord } from 'src/locales/utils'
+
 
 export const words = {
   heroText: 'Fight is not fun,\nVictory is fun.',
@@ -10,4 +10,4 @@ export const words = {
   privacyPolicy: 'PRIVACY POLICY'
 } as const
 
-export const word = getWord(words)
+

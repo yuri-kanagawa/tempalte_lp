@@ -1,10 +1,9 @@
 import { Metadata } from 'next'
 import { appName, OGP_IMAGE_URL } from 'src/constants/app'
 import ogImage from 'src/app/opengraph-image.png'
-import { getPrivacyPolicyMeta } from 'src/locales/utils/meta/utils'
 
 const DESCRIPTION = ''
-const indexMeta: Metadata = {
+export const PrivacyPolicyMeta: Metadata = {
   title: appName,
   description: DESCRIPTION,
   openGraph: {
@@ -29,5 +28,3 @@ const indexMeta: Metadata = {
     ]
   }
 }
-
-export const PrivacyPolicyMeta = getPrivacyPolicyMeta(indexMeta)
