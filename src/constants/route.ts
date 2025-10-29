@@ -1,18 +1,15 @@
-import { getIsEnglish } from 'src/utils/language'
+import { PathBuilder } from 'src/lib/routes'
+import { Language } from 'src/domains/valueObjects/language'
 
-const changeLocalePage = (locale: string, url: string) => {
-  if (getIsEnglish(locale)) return url
-  else return `/${locale}${url}`
-}
 export const route = {
-  root: (locale: string) => changeLocalePage(locale, '/'),
+  root: (locale: string) => new PathBuilder(Language.create(locale).language ?? Language.default()).root(),
   privacyPolicy: {
-    index: (locale: string) => changeLocalePage(locale, '/privacy-policy')
+    index: (locale: string) => new PathBuilder(Language.create(locale).language ?? Language.default()).privacyPolicy()
   },
   terms: {
-    index: (locale: string) => changeLocalePage(locale, '/terms')
+    index: (locale: string) => new PathBuilder(Language.create(locale).language ?? Language.default()).terms()
   },
   faq: {
-    index: (locale: string) => changeLocalePage(locale, '/faq')
+    index: (locale: string) => new PathBuilder(Language.create(locale).language ?? Language.default()).faq()
   }
 }
