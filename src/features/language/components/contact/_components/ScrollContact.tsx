@@ -8,12 +8,13 @@ import { BsTiktok } from 'react-icons/bs'
 import { FaBilibili } from 'react-icons/fa6'
 import type { Language } from 'src/domains/valueObjects/language'
 import { FC } from 'react'
+import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
 }
 export const ScrollContact: FC<Props> = ({ language }) => {
-  const t = language.locale
+  const t = language?.locale ?? en
   const isChinese = language.value === 'zh'
   return (
     <>

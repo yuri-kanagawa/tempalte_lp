@@ -10,24 +10,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const locale = params.locale
-
-  return {
-    title: locale,
-    description: '',
-    themeColor: 'black',
-
-    openGraph: {
-      images: [
-        {
-          url: '',
-          height: '',
-          width: ''
-        }
-      ]
-    },
-    twitter: {}
-  }
+  const language = Language.create(params.locale).language ?? Language.default()
+  const t = language.locale
+  return t.metas.index
 }
 
 export default function Page({ params }: Props) {

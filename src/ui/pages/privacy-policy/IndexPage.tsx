@@ -29,19 +29,17 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.privacyPolicy}</Typography>
-        {t.messages.privacyPolicy.map(
-          (e: { title: string; body: string }, index: number) => {
-            return (
-              <StyledAccordion
-                key={index}
-                title={e.title}
-                explain={e.body}
-                isFirst={getIsFirst(index)}
-                isLast={getIsLast(index)}
-              />
-            )
-          }
-        )}
+        {t.messages.privacyPolicy.map((e: { title: string; body: string }, index: number) => {
+          return (
+            <StyledAccordion
+              key={index}
+              title={e.title}
+              explain={e.body}
+              isFirst={getIsFirst(index)}
+              isLast={getIsLast(index)}
+            />
+          )
+        })}
       </Stack>
       <Contact language={language} />
       <Footer language={language} />

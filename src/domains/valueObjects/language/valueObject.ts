@@ -1,5 +1,8 @@
 import { LanguageValueError } from './error'
 import { LanguageResult } from './result'
+import { en } from 'src/locales/en'
+import { ja } from 'src/locales/ja'
+import type { Locale } from 'src/locales/type'
 
 export class Language {
   private readonly _value: string
@@ -85,15 +88,9 @@ export class Language {
     return this._value
   }
 
-  get locale(): any {
-    // 直接ロケールを取得して循環依存を回避
-    switch (this._value) {
-      case Language.EN:
-        return require('src/locales/en').en
-      case Language.JA:
-        return require('src/locales/ja').ja
-      default:
-        return require('src/locales/en').en
-    }
+  get locale(): Locale {
+    if (this.isEnglish) return en
+    if (this.isJapanese) return ja
+    return en
   }
 }

@@ -9,7 +9,6 @@ import { builders } from 'prettier/doc'
 
 import type { Language } from 'src/domains/valueObjects/language'
 
-
 type Props = {
   language: Language
 }

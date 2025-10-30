@@ -8,6 +8,13 @@ export class PathBuilder {
   static readonly HOME_PAGE_URL = 'https://ledenm.com'
   private readonly language: Language
 
+  static isRoot(path: string): boolean {
+    const root = '/'
+    const languageKeys = Object.keys(Language.LANGUAGES)
+    const languageRoots = languageKeys.map((key) => `/${key}`)
+    return path === root || languageRoots.includes(path)
+  }
+
   private static withLocale(locale: Language, url: string): string {
     return locale.isEnglish ? url : `/${locale.value}${url}`
   }

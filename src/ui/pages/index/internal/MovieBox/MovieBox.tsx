@@ -6,6 +6,7 @@ import { MutableRefObject, useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 import type { Language } from 'src/domains/valueObjects/language'
+import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
@@ -19,7 +20,7 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const locale = language.locale
+  const locale = language?.locale ?? en
   return (
     <Box
       id={ScrollConstants.HOW_TO_USE}

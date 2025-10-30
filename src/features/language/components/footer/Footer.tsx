@@ -58,9 +58,7 @@ export const Footer: React.FC<Props> = ({ language }) => {
         >
           <Grid item>
             <NextLink pathname={privacyPolicyLink}>
-              <Typography sx={IconButtonWhiteStyle}>
-                {locale.words.privacyPolicy}
-              </Typography>
+              <Typography sx={IconButtonWhiteStyle}>{locale.words.privacyPolicy}</Typography>
             </NextLink>
           </Grid>
           <Grid item>

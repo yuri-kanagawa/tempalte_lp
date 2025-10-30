@@ -6,6 +6,7 @@ import { Scroll } from '@lib/scrolls'
 import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
 import type { Language } from 'src/domains/valueObjects/language'
 import { QueryScrollAnchor } from 'src/ui/fragments'
+import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
@@ -18,7 +19,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   //   if (isDesktopSize) return 300
   // }, [isDesktopSize, isLessDesktop])
 
-  const locale = language.locale
+  const locale = language?.locale ?? en
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
