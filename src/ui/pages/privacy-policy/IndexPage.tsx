@@ -20,7 +20,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
 
   return (
     <>
-      <Header language={language} currentPath={'/privacy-policy'} />
+      <Header language={language} currentPath={'/privacy'} />
       <Stack
         py={10}
         sx={{
@@ -30,7 +30,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.privacyPolicy}</Typography>
-        {t.privacyPolicyArray.map((e, index: number) => {
+        {t.privacyPolicyArray.map((e: { question: string; answer: string }, index: number) => {
           return (
             <StyledAccordion
               key={index}

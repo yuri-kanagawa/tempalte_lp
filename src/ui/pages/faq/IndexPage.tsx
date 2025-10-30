@@ -30,7 +30,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.faq}</Typography>
-        {t.faqArray.map((e, index) => {
+        {t.faqArray.map((e: { question: string; answer: string }, index: number) => {
           return (
             <StyledAccordion
               key={index}

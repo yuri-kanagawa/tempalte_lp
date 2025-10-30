@@ -29,7 +29,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.terms}</Typography>
-        {t.termArray.map((e, index) => {
+        {t.termArray.map((e: { heading: string; content: string }, index: number) => {
           return (
             <StyledAccordion
               key={index}
