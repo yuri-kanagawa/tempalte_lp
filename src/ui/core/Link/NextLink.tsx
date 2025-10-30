@@ -17,7 +17,8 @@ export const NextLink: FC<NextLinkProps> = ({ pathname, query, children }) => {
         query
       }}
       passHref
-      legacyBehavior>
+      legacyBehavior
+    >
       {children}
     </Link>
   )

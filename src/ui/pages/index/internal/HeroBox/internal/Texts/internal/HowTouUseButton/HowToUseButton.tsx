@@ -12,10 +12,7 @@ type Props = {
 export const HowToUseButton: FC<Props> = ({ lang }) => {
   const t = getLocaleFile(lang)
   return (
-    <Button
-      variant={'outlined'}
-      sx={whiteButtonStyle}
-      onClick={Scroll.scrollToHowToUse}>
+    <Button variant={'outlined'} sx={whiteButtonStyle} onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}
     </Button>
   )

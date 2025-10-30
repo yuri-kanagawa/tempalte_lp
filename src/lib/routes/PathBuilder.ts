@@ -35,5 +35,3 @@ export class PathBuilder {
     return PathBuilder.withLocale(this.language, PathBuilder.HOME_PAGE_URL)
   }
 }
-
-

@@ -1,10 +1,5 @@
 'use client'
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography
-} from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useState } from 'react'
 import { YouTubeHighlighter } from 'src/ui/feature/Text'
@@ -16,7 +11,7 @@ type Props = {
   isLast?: boolean
 }
 
-export const StyledAccordion: React.FC<Props> = props => {
+export const StyledAccordion: React.FC<Props> = (props) => {
   const { title, explain, isFirst, isLast } = props
   const [isOpen, setIsOpen] = useState(false)
 
@@ -37,7 +32,8 @@ export const StyledAccordion: React.FC<Props> = props => {
           borderBottomLeftRadius: isLast ? 2 : 0,
           borderColor: 'white',
           minWidth: 500
-        }}>
+        }}
+      >
         <Typography>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>

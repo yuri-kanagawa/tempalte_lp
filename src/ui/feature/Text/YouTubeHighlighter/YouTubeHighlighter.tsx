@@ -13,9 +13,7 @@ export const YouTubeHighlighter = (props: Props) => {
     return (
       <Typography>
         {youtubePart[0]}
-        <a
-          style={{ textDecoration: 'none' }}
-          href={'https://www.youtube.com/watch?v=V69AcgtZ3lM'}>
+        <a style={{ textDecoration: 'none' }} href={'https://www.youtube.com/watch?v=V69AcgtZ3lM'}>
           YouTube
         </a>
         {youtubePart[1]}

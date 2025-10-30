@@ -18,7 +18,8 @@ export const HeroBox: React.FC<Props> = ({ language }) => {
       sx={{
         background: 'black',
         py: 5
-      }}>
+      }}
+    >
       <Grid
         container
         sx={{
@@ -26,18 +27,14 @@ export const HeroBox: React.FC<Props> = ({ language }) => {
           alignItems: 'center',
           justifyContent: 'center'
         }}
-        gap={2}>
+        gap={2}
+      >
         <Grid item>
           <Texts lang={language.value} />
         </Grid>
         <Grid item>
           <DeviceFrameset device="iPhone 8" color="silver" zoom={0.8}>
-            <Image
-              src={'/images/lily.png'}
-              alt="猫は最高に可愛い"
-              width={300}
-              height={553.6}
-            />
+            <Image src={'/images/lily.png'} alt="猫は最高に可愛い" width={300} height={553.6} />
           </DeviceFrameset>
         </Grid>
       </Grid>

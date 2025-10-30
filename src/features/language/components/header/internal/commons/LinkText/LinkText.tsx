@@ -10,12 +10,7 @@ type Props = Omit<NextLinkProps, 'children'> &
   TypographyProps & {
     currentPath: string
   }
-export const LinkText: FC<Props> = ({
-  pathname,
-  query,
-  currentPath,
-  ...rest
-}) => {
+export const LinkText: FC<Props> = ({ pathname, query, currentPath, ...rest }) => {
   const isRootPage = currentPath === '/'
   return (
     <>
@@ -26,9 +21,7 @@ export const LinkText: FC<Props> = ({
           </Typography>
         </NextLink>
       )}
-      {isRootPage && (
-        <ClientLink onClick={rest.onClick}>{rest.children}</ClientLink>
-      )}
+      {isRootPage && <ClientLink onClick={rest.onClick}>{rest.children}</ClientLink>}
     </>
   )
 }

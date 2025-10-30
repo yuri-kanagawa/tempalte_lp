@@ -16,7 +16,8 @@ export const ContactLink: FC<Props> = ({ language, currentPath }) => {
       currentPath={currentPath}
       pathname={'/'}
       query={{ scroll: Scroll.CONTACT }}
-      onClick={Scroll.scrollToContact}>
+      onClick={Scroll.scrollToContact}
+    >
       {t.words.contact}
     </LinkText>
   )

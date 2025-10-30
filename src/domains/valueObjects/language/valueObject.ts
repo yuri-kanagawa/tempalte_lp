@@ -18,10 +18,7 @@ export class Language {
 
   static create(value: string): LanguageResult {
     if (!Object.keys(Language.LANGUAGES).includes(value)) {
-      return new LanguageResult(
-        null,
-        new LanguageValueError(`Invalid language value: ${value}`)
-      )
+      return new LanguageResult(null, new LanguageValueError(`Invalid language value: ${value}`))
     }
     return new LanguageResult(new Language(value), null)
   }
@@ -57,8 +54,6 @@ export class Language {
     return this._value
   }
 
-
-
   get label(): string {
     return Language.LANGUAGES[this._value as keyof typeof Language.LANGUAGES]
   }
@@ -81,8 +76,6 @@ export class Language {
   get isJapanese(): boolean {
     return this._value === Language.JA
   }
-
-
 
   equals(other: Language): boolean {
     return this._value === other._value

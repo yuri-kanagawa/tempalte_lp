@@ -25,7 +25,8 @@ export const Footer: React.FC<Props> = ({ language }) => {
       sx={{
         background: 'black',
         color: 'white'
-      }}>
+      }}
+    >
       <Stack>
         <Grid
           container
@@ -33,7 +34,8 @@ export const Footer: React.FC<Props> = ({ language }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
-          }}>
+          }}
+        >
           <Grid item>
             <Typography>©&nbsp;&nbsp;</Typography>
           </Grid>
@@ -53,7 +55,8 @@ export const Footer: React.FC<Props> = ({ language }) => {
             justifyContent: 'center',
             alignItems: 'center'
           }}
-          gap={2}>
+          gap={2}
+        >
           <Grid item>
             <NextLink pathname={privacyPolicyLink}>
               <Typography
@@ -66,16 +69,12 @@ export const Footer: React.FC<Props> = ({ language }) => {
           </Grid>
           <Grid item>
             <NextLink pathname={termLink}>
-              <Typography sx={IconButtonWhiteStyle}>
-                {locale.words.terms}
-              </Typography>
+              <Typography sx={IconButtonWhiteStyle}>{locale.words.terms}</Typography>
             </NextLink>
           </Grid>
           <Grid item>
             <NextLink pathname={faqLink}>
-              <Typography sx={IconButtonWhiteStyle}>
-                {locale.words.faq}
-              </Typography>
+              <Typography sx={IconButtonWhiteStyle}>{locale.words.faq}</Typography>
             </NextLink>
           </Grid>
         </Grid>

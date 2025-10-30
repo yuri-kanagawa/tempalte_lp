@@ -17,7 +17,8 @@ export const Texts: FC<Props> = ({ lang }) => {
           color: 'white',
           whiteSpace: 'pre-wrap',
           ...titleFontSize
-        }}>
+        }}
+      >
         {t.words.heroText}
       </Typography>
       <HowToUseButton lang={lang} />

@@ -2,11 +2,7 @@ import { Grid, Typography } from '@mui/material'
 import { NextLink } from 'src/ui/core/Link/NextLink'
 import IconButton from '@mui/material/IconButton'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
-import {
-  AiFillYoutube,
-  AiOutlineInstagram,
-  AiOutlineTwitter
-} from 'react-icons/ai'
+import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 
 import { BsTiktok } from 'react-icons/bs'
 import { getIsChinese, getLocaleFile } from 'src/utils/language'

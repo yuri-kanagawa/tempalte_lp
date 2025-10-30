@@ -1,9 +1,4 @@
-import {
-  ContactLink,
-  DownLoadLink,
-  HowToUseLink,
-  LanguageSelect
-} from '../../commons'
+import { ContactLink, DownLoadLink, HowToUseLink, LanguageSelect } from '../../commons'
 import React, { FC } from 'react'
 import type { Language } from 'src/domains/valueObjects/language'
 

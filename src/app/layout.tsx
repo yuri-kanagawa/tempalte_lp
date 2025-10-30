@@ -5,11 +5,7 @@ import React from 'react'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 // export const metadata: Metadata = en.metas.index
 // export const metadata: Metadata = en.metas.index
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <link rel="manifest" href="/manifest.json" />
@@ -20,7 +16,8 @@ export default function RootLayout({
           width: '100%',
           height: '100%',
           background: 'black'
-        }}>
+        }}
+      >
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>
     </html>

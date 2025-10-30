@@ -26,7 +26,8 @@ export const DesktopHeader: FC<Props> = ({ language, currentPath }) => {
           sm: 'none',
           md: 'inline-flex'
         }
-      }}>
+      }}
+    >
       <Toolbar>
         <AppLink language={language} currentPath={currentPath} />
         <Box flexGrow={1} />

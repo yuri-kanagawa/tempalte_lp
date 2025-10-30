@@ -27,10 +27,9 @@ export const IndexPage: FC<Props> = ({ language }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center'
-        }}>
-        <Typography sx={{ color: 'white', fontSize: 40 }}>
-          {t.words.privacyPolicy}
-        </Typography>
+        }}
+      >
+        <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.privacyPolicy}</Typography>
         {t.privacyPolicyArray.map((e, index: number) => {
           return (
             <StyledAccordion

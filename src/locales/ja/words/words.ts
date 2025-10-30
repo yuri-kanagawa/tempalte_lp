@@ -1,5 +1,3 @@
-
-
 export const words = {
   heroText: 'Fight is not fun,\nVictory is fun.',
   contact: 'CONTACT',
@@ -9,5 +7,3 @@ export const words = {
   howToUse: 'HOW TO USE',
   privacyPolicy: 'PRIVACY POLICY'
 } as const
-
-

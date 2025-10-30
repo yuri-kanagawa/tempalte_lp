@@ -6,11 +6,7 @@ export const messages = {
     { q: 'How much does it cost?', a: 'APP is free to use.' },
     { q: 'Which platforms are supported?', a: 'iOS and Android are supported.' }
   ],
-  terms: [
-    { title: 'Terms of Service', body: '' }
-  ],
-  privacyPolicy: [
-    { title: 'Privacy Policy', body: '' }
-  ],
+  terms: [{ title: 'Terms of Service', body: '' }],
+  privacyPolicy: [{ title: 'Privacy Policy', body: '' }],
   sns: links
 } as const

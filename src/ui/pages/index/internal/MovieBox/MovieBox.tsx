@@ -30,16 +30,17 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
         alignItems: 'center',
         justifyContent: 'center',
         py: 10
-      }}>
+      }}
+    >
       <Stack spacing={4}>
-        <Typography
-          sx={{ display: 'flex', justifyContent: 'center', ...titleFontSize }}>
+        <Typography sx={{ display: 'flex', justifyContent: 'center', ...titleFontSize }}>
           {locale.words.howToUse}
         </Typography>
         <iframe
           src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
           height={getMovieHeight(maxWidth)}
-          width={maxWidth}></iframe>
+          width={maxWidth}
+        ></iframe>
       </Stack>
     </Box>
   )

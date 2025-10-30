@@ -31,4 +31,4 @@ export const getLocaleFile = (locale?: string): LocaleType => {
 }
 
 export const generateLocalesWithoutEn = (): { locale: string }[] =>
-  LANGUAGES.filter(e => e !== 'en').map(e => ({ locale: e }))
+  LANGUAGES.filter((e) => e !== 'en').map((e) => ({ locale: e }))

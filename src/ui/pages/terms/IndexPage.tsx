@@ -26,10 +26,9 @@ export const IndexPage: FC<Props> = ({ language }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center'
-        }}>
-        <Typography sx={{ color: 'white', fontSize: 40 }}>
-          {t.words.terms}
-        </Typography>
+        }}
+      >
+        <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.terms}</Typography>
         {t.termArray.map((e, index) => {
           return (
             <StyledAccordion

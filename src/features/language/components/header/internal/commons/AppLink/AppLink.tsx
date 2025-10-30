@@ -14,7 +14,8 @@ export const AppLink: FC<Props> = ({ language, currentPath }) => {
       currentPath={currentPath}
       pathname={'/'}
       query={{ scroll: Scroll.HOW_TO_USE }}
-      onClick={Scroll.scrollToHowToUse}>
+      onClick={Scroll.scrollToHowToUse}
+    >
       {common.app}
     </LinkText>
   )

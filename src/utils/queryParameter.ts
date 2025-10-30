@@ -10,8 +10,7 @@ export const removeQueryParameter = (queryKey: string) => {
     window.history.replaceState({}, document.title, url.toString()) // URL を更新
   }
 }
-export const removeScrollQueryParameter = (): void =>
-  removeQueryParameter('scroll')
+export const removeScrollQueryParameter = (): void => removeQueryParameter('scroll')
 
 export const addQueryParamToUrl = (key: string, value: string): void => {
   // 現在の URL を取得
@@ -24,5 +23,4 @@ export const addQueryParamToUrl = (key: string, value: string): void => {
   window.history.replaceState({}, document.title, url.toString())
 }
 
-export const addScrollQueryParameter = (value: string) =>
-  addQueryParamToUrl('scroll', value)
+export const addScrollQueryParameter = (value: string) => addQueryParamToUrl('scroll', value)

@@ -18,10 +18,7 @@ export const createIconSizeCalculator =
     else return size * 1.3
   }
 
-export type ColumnSpacingMediaType = Pick<
-  MediaQueryType,
-  'isOverTabletSize' | 'isTabletSize'
->
+export type ColumnSpacingMediaType = Pick<MediaQueryType, 'isOverTabletSize' | 'isTabletSize'>
 
 export const getColumnSpacing = (props: ColumnSpacingMediaType): number => {
   if (props.isOverTabletSize) return 5

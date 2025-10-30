@@ -18,11 +18,11 @@ export const LanguageSelect: React.FC<Props> = ({ language, currentPath }) => {
       sx={{ minWidth: 200, height: 50 }}
       value={language}
       startAdornment={<TranslateIcon />}
-      inputProps={{ MenuProps: { disableScrollLock: true } }}>
+      inputProps={{ MenuProps: { disableScrollLock: true } }}
+    >
       {Language.getAllLanguages().map((e, index) => (
         <MenuItem key={`item ${index}`} value={e.key} sx={menuItemStyle}>
-          <NextLink
-            pathname={e.key === 'en' ? currentPath : `${e.key}${currentPath}`}>
+          <NextLink pathname={e.key === 'en' ? currentPath : `${e.key}${currentPath}`}>
             <Typography>{e.label}</Typography>
           </NextLink>
         </MenuItem>

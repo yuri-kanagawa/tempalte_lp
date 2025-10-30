@@ -26,10 +26,7 @@ export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
 
   const onClickMenu = () => setIsOpen(!isOpen)
 
-  const isMobileWithOpenMenu = useMemo(
-    () => isOpen && isLessTabletSize,
-    [isLessTabletSize, isOpen]
-  )
+  const isMobileWithOpenMenu = useMemo(() => isOpen && isLessTabletSize, [isLessTabletSize, isOpen])
   return (
     <TopBar
       sx={{
@@ -39,7 +36,8 @@ export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
           sm: 'inline-flex',
           md: 'none'
         }
-      }}>
+      }}
+    >
       <Toolbar>
         <AppLink language={language} currentPath={currentPath} />
         <Box flexGrow={1} />
@@ -54,12 +52,11 @@ export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
               md: 'none'
             }
           }}
-          onClick={onClickMenu}>
+          onClick={onClickMenu}
+        >
           <MenuIcon />
         </IconButton>
-        {!isLessTabletSize && (
-          <HeaderMenu language={language} currentPath={currentPath} />
-        )}
+        {!isLessTabletSize && <HeaderMenu language={language} currentPath={currentPath} />}
       </Toolbar>
       <Collapse in={isMobileWithOpenMenu}>
         <Toolbar>

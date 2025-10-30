@@ -29,7 +29,8 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
         display: 'flex',
         justifyContent: 'center',
         py: 10
-      }}>
+      }}
+    >
       <QueryScrollAnchor id={Scroll.DOWNLOAD} queryValue={Scroll.DOWNLOAD} />
       <Stack spacing={4}>
         <Typography
@@ -38,13 +39,11 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
             display: 'flex',
             justifyContent: 'center',
             ...titleFontSize
-          }}>
+          }}
+        >
           {locale.words.download}
         </Typography>
-        <Grid
-          container
-          gap={2}
-          sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid container gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Grid item>
             <Box
               sx={{
@@ -59,13 +58,9 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
                   md: 300
                 },
                 position: 'relative' // 必須
-              }}>
-              <Image
-                src={'/images/app-store.svg'}
-                alt="appStore"
-                fill
-                onClick={onClickAppStore}
-              />
+              }}
+            >
+              <Image src={'/images/app-store.svg'} alt="appStore" fill onClick={onClickAppStore} />
             </Box>
           </Grid>
           <Grid
@@ -83,7 +78,8 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
               },
               position: 'relative' // 必須
               // background: 'red'
-            }}>
+            }}
+          >
             <Image
               src="/images/google-store.svg"
               alt="GoogleStore"

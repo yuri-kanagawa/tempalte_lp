@@ -9,10 +9,7 @@ type Props = { lang: string }
 export const DownloadButton: FC<Props> = ({ lang }) => {
   const t = getLocaleFile(lang)
   return (
-    <Button
-      variant={'outlined'}
-      sx={whiteButtonStyle}
-      onClick={Scroll.scrollToDownload}>
+    <Button variant={'outlined'} sx={whiteButtonStyle} onClick={Scroll.scrollToDownload}>
       {t.words.download}
     </Button>
   )

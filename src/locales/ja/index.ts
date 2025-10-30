@@ -4,4 +4,4 @@ import { messages } from './messages/messages'
 export const ja = {
   words,
   messages
-} as const 
+} as const

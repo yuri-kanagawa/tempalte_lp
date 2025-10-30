@@ -22,7 +22,6 @@ export const usePathNavigation = ({ language }: Props) => {
   const pushPrivacyPolicy = () => router.push(builder.privacyPolicy())
 
   return {
-
     builder,
     pushRoot,
     pushFaq,
@@ -30,5 +29,3 @@ export const usePathNavigation = ({ language }: Props) => {
     pushPrivacyPolicy
   }
 }
-
-

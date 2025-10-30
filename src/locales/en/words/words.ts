@@ -7,5 +7,3 @@ export const words = {
   howToUse: 'HOW TO USE',
   privacyPolicy: 'PRIVACY POLICY'
 } as const
-
-

@@ -27,9 +27,7 @@ export abstract class Result<T, E extends Error = Error> {
   ) {
     // ビジネスルール：成功と失敗は排他的
     if ((_value === null) === (_error === null)) {
-      throw new Error(
-        'Result must have either value or error, not both or neither'
-      )
+      throw new Error('Result must have either value or error, not both or neither')
     }
   }
 
@@ -81,18 +79,14 @@ export abstract class Result<T, E extends Error = Error> {
   /**
    * 成功を表すResultを作成（protected - 派生クラスでok()を実装する際に使用）
    */
-  protected static createOk<T, E extends Error = Error>(
-    value: T
-  ): Result<T, E> {
+  protected static createOk<T, E extends Error = Error>(value: T): Result<T, E> {
     return new OkResult(value)
   }
 
   /**
    * 失敗を表すResultを作成（protected - 派生クラスでfail()を実装する際に使用）
    */
-  protected static createFail<T, E extends Error = Error>(
-    error: E
-  ): Result<T, E> {
+  protected static createFail<T, E extends Error = Error>(error: E): Result<T, E> {
     return new FailResult(error)
   }
 }
