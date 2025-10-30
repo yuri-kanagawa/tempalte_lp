@@ -1,9 +1,9 @@
 export const words = {
-  heroText: 'Fight is not fun,\nVictory is fun.',
-  contact: 'CONTACT',
-  terms: 'TERMS',
-  faq: 'FAQ',
-  download: 'DOWNLOAD',
-  howToUse: 'HOW TO USE',
-  privacyPolicy: 'PRIVACY POLICY'
+  heroText: '戦いは楽しくない、\n勝利は楽しい。',
+  contact: 'お問い合わせ',
+  terms: '利用規約',
+  faq: 'よくある質問',
+  download: 'ダウンロード',
+  howToUse: '使い方',
+  privacyPolicy: 'プライバシーポリシー'
 } as const

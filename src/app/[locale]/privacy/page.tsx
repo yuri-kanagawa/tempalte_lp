@@ -1,5 +1,5 @@
 'use client'
-import { IndexPage } from 'src/ui/pages/privacy-policy'
+import { IndexPage } from 'src/ui/pages/privacy'
 import { ResolvingMetadata } from 'next'
 import { Language } from 'src/domains/valueObjects/language'
 

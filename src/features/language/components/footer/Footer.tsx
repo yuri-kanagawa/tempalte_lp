@@ -4,12 +4,13 @@ import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
 import { NextLink } from 'src/ui/core/Link/NextLink'
 import { PathBuilder } from 'src/lib/routes'
 import { Language } from 'src/domains/valueObjects/language'
+import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
 }
 export const Footer: React.FC<Props> = ({ language }) => {
-  const locale = language.locale
+  const locale = language?.locale ?? en
 
   const builder = new PathBuilder(language)
   const privacyPolicyLink = builder.privacyPolicy()
