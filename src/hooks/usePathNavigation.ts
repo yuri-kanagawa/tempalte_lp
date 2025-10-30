@@ -2,11 +2,6 @@ import { useRouter } from 'next/navigation'
 import { PathBuilder } from '@lib/routes'
 import { Language } from '@domains/valueObjects/language'
 
-type NavigateOptions = {
-  locale?: string
-  replace?: boolean
-}
-
 type Props = {
   language: Language
 }
