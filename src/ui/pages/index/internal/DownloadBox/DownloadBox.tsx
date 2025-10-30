@@ -18,7 +18,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   //   if (isDesktopSize) return 300
   // }, [isDesktopSize, isLessDesktop])
 
-  const t = language.locale
+  const locale = language.locale
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
@@ -39,7 +39,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
             justifyContent: 'center',
             ...titleFontSize
           }}>
-          {t.words.download}
+          {locale.words.download}
         </Typography>
         <Grid
           container

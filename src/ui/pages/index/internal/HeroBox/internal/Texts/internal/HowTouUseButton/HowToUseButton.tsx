@@ -2,7 +2,7 @@
 
 import { Button } from '@mui/material'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
-import { onClickHowToUse } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 import React, { FC } from 'react'
 import { getLocaleFile } from 'src/utils/language'
 
@@ -15,7 +15,7 @@ export const HowToUseButton: FC<Props> = ({ lang }) => {
     <Button
       variant={'outlined'}
       sx={whiteButtonStyle}
-      onClick={onClickHowToUse}>
+      onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}
     </Button>
   )

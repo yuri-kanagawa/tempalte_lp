@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
-import { scroll } from 'src/constants/scroll'
+import { Scroll as ScrollUtils } from '@lib/scrolls'
 import type { Language } from 'src/domains/valueObjects/language'
 import { FC } from 'react'
 import { ScrollContact } from './_components/ScrollContact'

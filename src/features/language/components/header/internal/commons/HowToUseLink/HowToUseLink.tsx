@@ -2,7 +2,7 @@ import type { Language } from 'src/domains/valueObjects/language'
 import { LinkText } from '../LinkText'
 import { getLocaleFile } from 'src/utils/language'
 import { FC } from 'react'
-import { onClickHowToUse, scroll } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 
 type Props = {
   language: Language
@@ -16,8 +16,8 @@ export const HowToUseLink: FC<Props> = ({ language, currentPath }) => {
     <LinkText
       currentPath={currentPath}
       pathname={'/'}
-      query={{ scroll: scroll.howToUse }}
-      onClick={onClickHowToUse}>
+      query={{ scroll: Scroll.HOW_TO_USE }}
+      onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}{' '}
     </LinkText>
   )

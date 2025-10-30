@@ -4,7 +4,7 @@ import { getMovieHeight } from 'src/styles/videoStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { MutableRefObject, useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
-import { scroll } from 'src/constants/scroll'
+import { Scroll as ScrollConstants } from '@lib/scrolls'
 import type { Language } from 'src/domains/valueObjects/language'
 import { getLocaleFile } from 'src/utils/language'
 
@@ -20,10 +20,10 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const t = getLocaleFile(language)
+  const locale = language.locale
   return (
     <Box
-      id={scroll.howToUse}
+      id={ScrollConstants.HOW_TO_USE}
       sx={{
         background: 'white',
         display: 'flex',
@@ -34,7 +34,7 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
       <Stack spacing={4}>
         <Typography
           sx={{ display: 'flex', justifyContent: 'center', ...titleFontSize }}>
-          {t.words.howToUse}
+          {locale.words.howToUse}
         </Typography>
         <iframe
           src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"

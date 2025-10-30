@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react'
-import { scroll } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 import { usePathname, useRouter } from 'next/navigation'
 import { getIsRoot } from 'src/utils/url'
 import { PathBuilder } from 'src/lib/routes'

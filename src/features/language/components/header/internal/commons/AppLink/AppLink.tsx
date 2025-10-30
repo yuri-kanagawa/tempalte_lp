@@ -1,4 +1,4 @@
-import { onClickApp, onClickHowToUse, scroll } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 import { common } from 'src/locales/common'
 import React, { FC } from 'react'
 import type { Language } from 'src/domains/valueObjects/language'
@@ -13,8 +13,8 @@ export const AppLink: FC<Props> = ({ language, currentPath }) => {
     <LinkText
       currentPath={currentPath}
       pathname={'/'}
-      query={{ scroll: scroll.howToUse }}
-      onClick={onClickHowToUse}>
+      query={{ scroll: Scroll.HOW_TO_USE }}
+      onClick={Scroll.scrollToHowToUse}>
       {common.app}
     </LinkText>
   )

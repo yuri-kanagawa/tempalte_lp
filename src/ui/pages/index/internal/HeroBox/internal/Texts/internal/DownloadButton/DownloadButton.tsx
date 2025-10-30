@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@mui/material'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
-import { onClickDownload } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 import React, { FC } from 'react'
 import { getLocaleFile } from 'src/utils/language'
 
@@ -12,7 +12,7 @@ export const DownloadButton: FC<Props> = ({ lang }) => {
     <Button
       variant={'outlined'}
       sx={whiteButtonStyle}
-      onClick={onClickDownload}>
+      onClick={Scroll.scrollToDownload}>
       {t.words.download}
     </Button>
   )
