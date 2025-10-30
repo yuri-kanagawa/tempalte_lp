@@ -3,7 +3,6 @@ import TranslateIcon from '@mui/icons-material/Translate'
 import React from 'react'
 import { StyledSelect } from 'src/ui/feature/styled/select/StyledSelect'
 import { menuItemStyle } from './utils'
-import type { Language } from 'src/domains/valueObjects/language'
 import { Language } from 'src/domains/valueObjects/language'
 import { NextLink } from 'src/ui/core/Link/NextLink'
 

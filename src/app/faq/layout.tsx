@@ -6,7 +6,7 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return en.metas.faq.index
+  return en.metas.faq
 }
 
 export default function Layout({
