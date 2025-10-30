@@ -6,7 +6,6 @@ import { Header } from 'src/features/language/components/header'
 import { Footer } from 'src/features/language/components/footer'
 import { useScroll } from 'src/hooks/useScroll'
 import { Contact } from 'src/features/language/components/contact'
-import { getLocaleFile } from 'src/utils/language'
 import type { Language } from 'src/domains/valueObjects/language'
 
 type Props = {
@@ -14,9 +13,9 @@ type Props = {
 }
 
 export const IndexPage: FC<Props> = ({ language }) => {
-  const t = getLocaleFile(language.value)
+  const t = language.locale
   const getIsFirst = (value: number) => value === 0
-  const getIsLast = (value: number) => value === t.privacyPolicyArray.length - 1
+  const getIsLast = (value: number) => value === t.messages.privacyPolicy.length - 1
 
   return (
     <>
@@ -30,17 +29,19 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.privacyPolicy}</Typography>
-        {t.privacyPolicyArray.map((e: { question: string; answer: string }, index: number) => {
-          return (
-            <StyledAccordion
-              key={index}
-              title={e.question}
-              explain={e.answer}
-              isFirst={getIsFirst(index)}
-              isLast={getIsLast(index)}
-            />
-          )
-        })}
+        {t.messages.privacyPolicy.map(
+          (e: { title: string; body: string }, index: number) => {
+            return (
+              <StyledAccordion
+                key={index}
+                title={e.title}
+                explain={e.body}
+                isFirst={getIsFirst(index)}
+                isLast={getIsLast(index)}
+              />
+            )
+          }
+        )}
       </Stack>
       <Contact language={language} />
       <Footer language={language} />

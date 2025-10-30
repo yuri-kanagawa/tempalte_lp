@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
-import { getIsEnglish, getLocaleFile } from 'src/utils/language'
 import { NextLink } from 'src/ui/core/Link/NextLink'
 import { PathBuilder } from 'src/lib/routes'
 import { Language } from 'src/domains/valueObjects/language'
@@ -59,10 +58,7 @@ export const Footer: React.FC<Props> = ({ language }) => {
         >
           <Grid item>
             <NextLink pathname={privacyPolicyLink}>
-              <Typography
-                sx={IconButtonWhiteStyle}
-                // onClick={onClickPrivacyPolicy}
-              >
+              <Typography sx={IconButtonWhiteStyle}>
                 {locale.words.privacyPolicy}
               </Typography>
             </NextLink>

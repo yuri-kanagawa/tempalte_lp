@@ -4,7 +4,6 @@ import { Stack, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { Footer } from 'src/features/language/components/footer'
 import type { Language } from 'src/domains/valueObjects/language'
-import { getLocaleFile } from 'src/utils/language'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 import { Header } from 'src/features/language/components/header'
 
@@ -13,10 +12,9 @@ type Props = {
 }
 
 export const IndexPage: FC<Props> = ({ language }) => {
-  const t = getLocaleFile(language.value)
-  const getIsLast = (value: number) => value === t.faqArray.length - 1
+  const t = language.locale
+  const getIsLast = (value: number) => value === t.messages.faq.length - 1
 
-  // const { onClickHero, contactUseRef, onClickContact } = useScroll()
   const getIsFirst = (value: number) => value === 0
   return (
     <>
@@ -30,21 +28,18 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.faq}</Typography>
-        {t.faqArray.map((e: { question: string; answer: string }, index: number) => {
+        {t.messages.faq.map((e: { q: string; a: string }, index: number) => {
           return (
             <StyledAccordion
               key={index}
-              title={e.question}
-              explain={e.answer}
+              title={e.q}
+              explain={e.a}
               isFirst={getIsFirst(index)}
               isLast={getIsLast(index)}
             />
           )
         })}
       </Stack>
-      {/*<div ref={contactUseRef}>*/}
-      {/*  <Contact />*/}
-      {/*</div>*/}
       <Footer language={language} />
     </>
   )

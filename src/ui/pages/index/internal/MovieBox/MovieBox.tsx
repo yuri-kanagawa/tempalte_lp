@@ -6,7 +6,6 @@ import { MutableRefObject, useMemo } from 'react'
 import { titleFontSize } from 'src/styles/fontStyle'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 import type { Language } from 'src/domains/valueObjects/language'
-import { getLocaleFile } from 'src/utils/language'
 
 type Props = {
   language: Language

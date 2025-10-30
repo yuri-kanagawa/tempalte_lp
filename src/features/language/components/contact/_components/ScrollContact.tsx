@@ -5,7 +5,6 @@ import { IconButtonBlackStyle } from 'src/styles/iconStyle'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 
 import { BsTiktok } from 'react-icons/bs'
-import { getIsChinese, getLocaleFile } from 'src/utils/language'
 import { FaBilibili } from 'react-icons/fa6'
 import type { Language } from 'src/domains/valueObjects/language'
 import { FC } from 'react'
@@ -15,6 +14,7 @@ type Props = {
 }
 export const ScrollContact: FC<Props> = ({ language }) => {
   const t = language.locale
+  const isChinese = language.value === 'zh'
   return (
     <>
       <Typography sx={{ textAlign: 'center', fontSize: 40, color: 'black' }}>
@@ -44,7 +44,7 @@ export const ScrollContact: FC<Props> = ({ language }) => {
           </IconButton>
         </Grid>
 
-        {getIsChinese(language.value) && (
+        {isChinese && (
           <Grid item>
             <IconButton sx={IconButtonBlackStyle}>
               <FaBilibili />

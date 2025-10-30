@@ -8,14 +8,14 @@ import { Footer } from 'src/features/language/components/footer'
 import { builders } from 'prettier/doc'
 
 import type { Language } from 'src/domains/valueObjects/language'
-import { getLocaleFile } from 'src/utils/language'
+
 
 type Props = {
   language: Language
 }
 export const IndexPage: FC<Props> = ({ language }) => {
-  const t = getLocaleFile(language.value)
-  const getIsLast = (value: number) => value === t.termArray.length - 1
+  const t = language.locale
+  const getIsLast = (value: number) => value === t.messages.terms.length - 1
   const getIsFirst = (value: number) => value === 0
   return (
     <>
@@ -29,12 +29,12 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.terms}</Typography>
-        {t.termArray.map((e: { heading: string; content: string }, index: number) => {
+        {t.messages.terms.map((e: { title: string; body: string }, index: number) => {
           return (
             <StyledAccordion
               key={index}
-              title={e.heading}
-              explain={e.content}
+              title={e.title}
+              explain={e.body}
               isFirst={getIsFirst(index)}
               isLast={getIsLast(index)}
             />

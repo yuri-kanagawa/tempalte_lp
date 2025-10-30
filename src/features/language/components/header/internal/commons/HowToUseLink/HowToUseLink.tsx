@@ -1,6 +1,5 @@
 import type { Language } from 'src/domains/valueObjects/language'
 import { LinkText } from '../LinkText'
-import { getLocaleFile } from 'src/utils/language'
 import { FC } from 'react'
 import { Scroll } from '@lib/scrolls'
 

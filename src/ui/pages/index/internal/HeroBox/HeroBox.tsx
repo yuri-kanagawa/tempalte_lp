@@ -4,7 +4,6 @@ import { DeviceFrameset } from 'react-device-frameset'
 import 'react-device-frameset/styles/marvel-devices.min.css'
 import React from 'react'
 import type { Language } from 'src/domains/valueObjects/language'
-import { getLocaleFile } from 'src/utils/language'
 import { Texts } from './internal'
 
 type Props = {
@@ -12,7 +11,6 @@ type Props = {
 }
 
 export const HeroBox: React.FC<Props> = ({ language }) => {
-  const t = getLocaleFile(language.value)
   return (
     <Box
       sx={{
