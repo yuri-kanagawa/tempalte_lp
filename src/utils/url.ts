@@ -1,17 +1,18 @@
-import { DefaultLanguage, LanguageKey, LANGUAGES } from 'src/constants/language'
+import { Language } from 'src/domains/valueObjects/language'
 
 const root = '/'
-const LanguageRoot = LANGUAGES.map((key) => `/${key}`)
+const languageKeys = Object.keys(Language.LANGUAGES)
+const LanguageRoot = languageKeys.map((key) => `/${key}`)
 const rootPath = [root, ...LanguageRoot]
 
-export const getUrlLanguage = (path: string): LanguageKey => {
-  if (path === '/') return DefaultLanguage
-  if (LanguageRoot.includes(path)) return path.replace(/^\//, '') as LanguageKey
+export const getUrlLanguage = (path: string): string => {
+  if (path === '/') return Language.default().value
+  if (LanguageRoot.includes(path)) return path.replace(/^\//, '')
 
   const segments = path.split('/')
   const firstPath = segments[1]
-  if (LANGUAGES.includes(firstPath as LanguageKey)) return firstPath as LanguageKey
-  else return DefaultLanguage
+  if (languageKeys.includes(firstPath)) return firstPath
+  else return Language.default().value
 }
 
 export const getIsRoot = (path: string): boolean => rootPath.includes(path)
