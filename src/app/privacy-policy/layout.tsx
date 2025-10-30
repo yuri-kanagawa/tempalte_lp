@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
 import { en } from 'src/locales/en'
 
-export const metadata: Metadata = en.metas.privacyPolicy.index
+export async function generateMetadata(): Promise<Metadata> {
+  return en.metas.privacyPolicy
+}
 export default function Layout({
   children,
   params
