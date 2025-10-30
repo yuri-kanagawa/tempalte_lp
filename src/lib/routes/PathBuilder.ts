@@ -4,7 +4,7 @@ export class PathBuilder {
   static readonly ROOT = '/'
   static readonly FAQ = '/faq'
   static readonly TERMS = '/terms'
-  static readonly PRIVACY_POLICY = '/privacy-policy'
+  static readonly PRIVACY_POLICY = '/privacy'
   static readonly HOME_PAGE_URL = 'https://ledenm.com'
   private readonly language: Language
 
