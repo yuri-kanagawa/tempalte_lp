@@ -1,29 +1,17 @@
-import { appName, OGP_IMAGE_URL } from 'src/constants/app'
-import ogImage from 'src/app/opengraph-image.png'
 import type { Metadata } from 'next'
-const DESCRIPTION = ''
-const meta: Metadata = {
-  title: appName,
-  description: DESCRIPTION,
-  openGraph: {
-    title: appName,
-    description: DESCRIPTION,
-    images: [
-      {
-        url: OGP_IMAGE_URL,
-        width: ogImage.width,
-        height: ogImage.height
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    images: [
-      {
-        url: OGP_IMAGE_URL,
-        width: ogImage.width,
-        height: ogImage.height
-      }
-    ]
-  }
+import { IndexMeta } from './root/meta'
+import { FaqMeta } from './faq/meta'
+import { TermsMeta } from './terms/meta'
+import { PrivacyPolicyMeta } from './privacy-policy/meta'
+
+export const Meta: {
+  index: Metadata
+  faq: Metadata
+  terms: Metadata
+  privacyPolicy: Metadata
+} = {
+  index: IndexMeta,
+  faq: FaqMeta,
+  terms: TermsMeta,
+  privacyPolicy: PrivacyPolicyMeta
 }
