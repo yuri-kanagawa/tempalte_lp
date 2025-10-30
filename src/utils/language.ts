@@ -1,7 +1,6 @@
 import { Language } from 'src/domains/valueObjects/language'
 import { en } from 'src/locales/en'
 import { ja } from 'src/locales/ja'
-import { LocaleType } from 'src/locales/utils'
 
 export const isExistLanguage = (value: string): boolean => {
   return Language.create(value).isSuccess
@@ -14,21 +13,14 @@ export const getLanguageLabel = (value: string): string => {
 
 export const getIsChinese = (lang: string): boolean => lang === 'zh'
 export const getIsEnglish = (lang: string): boolean => lang === 'en'
-export const getLocaleFile = (locale?: string): LocaleType => {
+export const getLocaleFile = (locale?: string) => {
   switch (locale) {
-    // case 'ar':
-    //     return ar
-    //
-    // case 'de':
-    //     return de
-
     case 'ja':
       return ja
-
     default:
       return en
   }
 }
 
 export const generateLocalesWithoutEn = (): { locale: string }[] =>
-  LANGUAGES.filter((e) => e !== 'en').map((e) => ({ locale: e }))
+  Language.getPageLanguages().map(({ key }) => ({ locale: key }))
