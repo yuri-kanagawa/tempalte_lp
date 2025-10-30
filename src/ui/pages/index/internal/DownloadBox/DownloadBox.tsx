@@ -2,11 +2,10 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import { titleFontSize } from 'src/styles/fontStyle'
-import { scroll } from 'src/constants/scroll'
+import { Scroll } from '@lib/scrolls'
 import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
 import type { Language } from 'src/domains/valueObjects/language'
-import { getLocaleFile } from 'src/utils/language'
-import { Scroll } from './Internal'
+import { QueryScrollAnchor } from 'src/ui/fragments'
 
 type Props = {
   language: Language
@@ -19,19 +18,19 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   //   if (isDesktopSize) return 300
   // }, [isDesktopSize, isLessDesktop])
 
-  const t = getLocaleFile(language)
+  const t = language.locale
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
     <Box
-      id={scroll.download}
+      id={Scroll.DOWNLOAD}
       sx={{
         background: 'black',
         display: 'flex',
         justifyContent: 'center',
         py: 10
       }}>
-      <Scroll />
+      <QueryScrollAnchor id={Scroll.DOWNLOAD} queryValue={Scroll.DOWNLOAD} />
       <Stack spacing={4}>
         <Typography
           sx={{
