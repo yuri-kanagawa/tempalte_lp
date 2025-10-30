@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import { generateLocalesWithoutEn, getLocaleFile } from 'src/utils/language'
+import { Language } from 'src/domains/valueObjects/language'
 
 type Params = {
   locale: string
@@ -9,20 +9,17 @@ type Props = {
   params: Params
 }
 
-export const dynamicParams = true
-
 export async function generateStaticParams(): Promise<Params[]> {
-  return generateLocalesWithoutEn()
+  return Language.getPageLanguages().map(({ key }) => ({ locale: key }))
 }
 
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const locale = params.locale
-
-  const t = getLocaleFile(locale)
-  return t.metas.faq.index
+  const language = Language.create(params.locale).language ?? Language.default()
+  const t = language.locale
+  return t.metas.faq
 }
 
 export default function Layout({
