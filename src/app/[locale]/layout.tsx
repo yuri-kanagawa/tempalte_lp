@@ -1,13 +1,7 @@
 import React from 'react'
-import {
-  generateLocalesWithoutEn,
-  getIsEnglish,
-  getLocaleFile,
-  isExistLanguage
-} from 'src/utils/language'
 import { redirect } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
-import * as console from 'console'
+import { Language } from 'src/domains/valueObjects/language'
 
 type Params = {
   locale: string
@@ -17,19 +11,17 @@ type Props = {
   params: Params
 }
 
-export const dynamicParams = true
-
 export async function generateStaticParams(): Promise<Params[]> {
-  return generateLocalesWithoutEn()
+  return Language.getPageLanguages().map(({ key }) => ({ locale: key }))
 }
 
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const locale = params.locale
-
-  const t = getLocaleFile(locale)
+  const result = Language.create(params.locale)
+  const language = result.language ?? Language.default()
+  const t = language.locale
   return t.metas.index
 }
 
@@ -40,7 +32,9 @@ export default function Layout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  const locale = params.locale
-  if (getIsEnglish(locale) || !isExistLanguage(locale)) return redirect('/')
+  const result = Language.create(params.locale)
+  if (!result.isSuccess) return redirect('/')
+  const language = result.language!
+  if (language.isEnglish) return redirect('/')
   return <>{children}</>
 }
