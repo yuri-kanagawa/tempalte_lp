@@ -5,6 +5,8 @@ import 'react-device-frameset/styles/marvel-devices.min.css'
 import React from 'react'
 import type { Language } from 'src/domains/valueObjects/language'
 import { Texts } from './internal'
+import { Scroll } from '@lib/scrolls'
+import { QueryScrollAnchor } from 'src/ui/fragments'
 
 type Props = {
   language: Language
@@ -13,11 +15,13 @@ type Props = {
 export const HeroBox: React.FC<Props> = ({ language }) => {
   return (
     <Box
+      id={Scroll.APP}
       sx={{
         background: 'black',
         py: 5
       }}
     >
+      <QueryScrollAnchor id={Scroll.APP} queryValue={Scroll.APP} />
       <Grid
         container
         sx={{
