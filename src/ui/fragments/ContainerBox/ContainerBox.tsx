@@ -33,6 +33,7 @@ export const ContainerBox: FC<Props> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
         py: 10,
         overflow: 'visible'
       }}

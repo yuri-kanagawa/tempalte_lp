@@ -4,14 +4,13 @@ import type { Language } from 'src/domains/valueObjects/language'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const HeaderMenu: FC<Props> = ({ language, currentPath }) => {
+export const HeaderMenu: FC<Props> = ({ language }) => {
   return (
     <>
-      <DownLoadLink language={language} currentPath={currentPath} />
-      <HowToUseLink language={language} currentPath={currentPath} />
-      <ContactLink language={language} currentPath={currentPath} />
+      <DownLoadLink language={language} />
+      <HowToUseLink language={language} />
+      <ContactLink language={language} />
       <LanguageSelect language={language} />
     </>
   )

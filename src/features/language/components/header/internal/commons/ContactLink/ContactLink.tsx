@@ -6,17 +6,11 @@ import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const ContactLink: FC<Props> = ({ language, currentPath }) => {
+export const ContactLink: FC<Props> = ({ language }) => {
   const t = language?.locale ?? en
   return (
-    <LinkText
-      currentPath={currentPath}
-      pathname={'/'}
-      query={{ scroll: Scroll.CONTACT }}
-      onClick={Scroll.scrollToContact}
-    >
+    <LinkText pathname={'/'} query={{ scroll: Scroll.CONTACT }} onClick={Scroll.scrollToContact}>
       {t.words.contact}
     </LinkText>
   )

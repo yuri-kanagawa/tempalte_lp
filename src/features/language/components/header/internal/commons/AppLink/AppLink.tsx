@@ -6,16 +6,10 @@ import { LinkText } from '../LinkText'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const AppLink: FC<Props> = ({ language, currentPath }) => {
+export const AppLink: FC<Props> = ({ language }) => {
   return (
-    <LinkText
-      currentPath={currentPath}
-      pathname={'/'}
-      query={{ scroll: Scroll.APP }}
-      onClick={Scroll.scrollToApp}
-    >
+    <LinkText pathname={'/'} query={{ scroll: Scroll.APP }} onClick={Scroll.scrollToApp}>
       {common.app}
     </LinkText>
   )

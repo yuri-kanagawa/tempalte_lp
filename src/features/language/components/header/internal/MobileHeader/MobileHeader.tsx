@@ -17,9 +17,8 @@ import type { Language } from 'src/domains/valueObjects/language'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
+export const MobileHeader: FC<Props> = ({ language }) => {
   const { isLessTabletSize } = useMediaQuerySize()
 
   const [isOpen, setIsOpen] = useState(false)
@@ -39,7 +38,7 @@ export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
       }}
     >
       <Toolbar>
-        <AppLink language={language} currentPath={currentPath} />
+        <AppLink language={language} />
         <Box flexGrow={1} />
         <IconButton
           size="large"
@@ -56,12 +55,12 @@ export const MobileHeader: FC<Props> = ({ language, currentPath }) => {
         >
           <MenuIcon />
         </IconButton>
-        {!isLessTabletSize && <HeaderMenu language={language} currentPath={currentPath} />}
+        {!isLessTabletSize && <HeaderMenu language={language} />}
       </Toolbar>
       <Collapse in={isMobileWithOpenMenu}>
         <Toolbar>
           <Stack spacing={2} sx={{ width: '100%' }} pb={2}>
-            <HeaderMenu language={language} currentPath={currentPath} />
+            <HeaderMenu language={language} />
           </Stack>
         </Toolbar>
       </Collapse>

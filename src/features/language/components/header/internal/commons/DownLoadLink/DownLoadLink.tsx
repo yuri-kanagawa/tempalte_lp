@@ -6,17 +6,11 @@ import { en } from 'src/locales/en'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const DownLoadLink: FC<Props> = ({ language, currentPath }) => {
+export const DownLoadLink: FC<Props> = ({ language }) => {
   const t = language?.locale ?? en
   return (
-    <LinkText
-      currentPath={currentPath}
-      pathname={'/'}
-      query={{ scroll: Scroll.LINK }}
-      onClick={Scroll.scrollToLink}
-    >
+    <LinkText pathname={'/'} query={{ scroll: Scroll.LINK }} onClick={Scroll.scrollToLink}>
       {t.words.link}
     </LinkText>
   )

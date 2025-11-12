@@ -13,7 +13,7 @@ type Props = {
 export const IndexPage: FC<Props> = ({ language }) => {
   return (
     <>
-      <Header language={language} currentPath={'/'} />
+      <Header language={language} />
       <HeroBox language={language} />
       <Content language={language} />
 

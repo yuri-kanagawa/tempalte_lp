@@ -19,7 +19,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
   const getIsFirst = (value: number) => value === 0
   return (
     <>
-      <Header language={language} currentPath={'/faq'} />
+      <Header language={language} />
       <Stack
         py={10}
         sx={{

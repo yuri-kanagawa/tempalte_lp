@@ -5,13 +5,11 @@ import { Scroll } from '@lib/scrolls'
 
 type Props = {
   language: Language
-  currentPath: string
 }
-export const HowToUseLink: FC<Props> = ({ language, currentPath }) => {
+export const HowToUseLink: FC<Props> = ({ language }) => {
   const t = language.locale
   return (
     <LinkText
-      currentPath={currentPath}
       pathname={'/'}
       query={{ scroll: Scroll.HOW_TO_USE }}
       onClick={Scroll.scrollToHowToUse}

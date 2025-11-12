@@ -19,7 +19,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
 
   return (
     <>
-      <Header language={language} currentPath={'/privacy'} />
+      <Header language={language} />
       <Stack
         py={10}
         sx={{

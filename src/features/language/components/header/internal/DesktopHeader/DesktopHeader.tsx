@@ -13,10 +13,9 @@ import type { Language } from 'src/domains/valueObjects/language'
 
 type Props = {
   language: Language
-  currentPath: string
 }
 
-export const DesktopHeader: FC<Props> = ({ language, currentPath }) => {
+export const DesktopHeader: FC<Props> = ({ language }) => {
   return (
     <TopBar
       sx={{
@@ -29,11 +28,11 @@ export const DesktopHeader: FC<Props> = ({ language, currentPath }) => {
       }}
     >
       <Toolbar>
-        <AppLink language={language} currentPath={currentPath} />
+        <AppLink language={language} />
         <Box flexGrow={1} />
-        <HowToUseLink language={language} currentPath={currentPath} />
-        <DownLoadLink language={language} currentPath={currentPath} />
-        <ContactLink language={language} currentPath={currentPath} />
+        <HowToUseLink language={language} />
+        <DownLoadLink language={language} />
+        <ContactLink language={language} />
         <LanguageSelect language={language} />
       </Toolbar>
     </TopBar>

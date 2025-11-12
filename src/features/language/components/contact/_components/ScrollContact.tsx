@@ -1,6 +1,7 @@
 'use client'
 
-import { Box, IconButton } from '@mui/material'
+import { Box, Grid, IconButton, useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { BsTiktok } from 'react-icons/bs'
@@ -19,14 +20,16 @@ const SOCIAL_LINKS = [
 ] as const
 
 export const ScrollContact: FC<Props> = ({ language }) => {
+  const theme = useTheme()
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'))
   const t = language.locale
   const snsLinks = t.links
   const iconButtonSx = useMemo(
     () =>
       ({
         ...IconButtonBlackStyle,
-        width: 'clamp(120px, 14vw, 240px)',
-        height: 'clamp(120px, 14vw, 240px)',
+        width: 'clamp(110px, 12vw, 200px)',
+        height: 'clamp(110px, 12vw, 200px)',
         borderRadius: '50%',
         transition: 'transform 0.2s ease',
         '&:hover': {
@@ -34,50 +37,66 @@ export const ScrollContact: FC<Props> = ({ language }) => {
           ...IconButtonBlackStyle['&:hover']
         },
         '& svg': {
-          fontSize: 'clamp(48px, 6vw, 128px)'
+          fontSize: 'clamp(40px, 5vw, 110px)'
         }
       }) as const,
     []
   )
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 'clamp(16px, 2vw, 32px)',
-        flexWrap: 'nowrap',
-        overflowX: 'visible',
-        overflowY: 'visible'
-      }}
-    >
-      {SOCIAL_LINKS.map(({ key, icon, label }) => {
-        const href = snsLinks[key]
-        if (!href) return null
-        return (
-          <Box
-            key={key}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              flex: '0 0 clamp(140px, 15vw, 260px)'
-            }}
-          >
-            <IconButton
-              sx={iconButtonSx}
-              component="a"
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
+    <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        wrap={isMdUp ? 'nowrap' : 'wrap'}
+        spacing={{ xs: 1.5, sm: 2, md: 2.5 }}
+        sx={{
+          width: '100%',
+          maxWidth: 1100,
+          px: { xs: 'clamp(12px, 5vw, 32px)', md: 'clamp(16px, 3vw, 40px)' },
+          overflowX: { xs: 'hidden', md: 'auto' },
+          overflowY: 'visible',
+          scrollbarWidth: 'thin',
+          '&::-webkit-scrollbar': {
+            height: '6px'
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: 'rgba(255,255,255,0.3)',
+            borderRadius: '999px'
+          }
+        }}
+      >
+        {SOCIAL_LINKS.map(({ key, icon, label }) => {
+          const href = snsLinks[key]
+          if (!href) return null
+          return (
+            <Grid
+              key={key}
+              item
+              xs={6}
+              md="auto"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                minWidth: { xs: 'auto', md: 120 },
+                maxWidth: 200
+              }}
             >
-              {icon}
-            </IconButton>
-          </Box>
-        )
-      })}
+              <IconButton
+                sx={iconButtonSx}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                {icon}
+              </IconButton>
+            </Grid>
+          )
+        })}
+      </Grid>
     </Box>
   )
 }

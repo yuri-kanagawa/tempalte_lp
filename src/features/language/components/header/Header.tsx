@@ -6,14 +6,13 @@ import { DesktopHeader, MobileHeader } from './internal'
 
 type Props = {
   language: Language
-  currentPath: string
 }
 
-export const Header: React.FC<Props> = ({ language, currentPath }) => {
+export const Header: React.FC<Props> = ({ language }) => {
   return (
     <>
-      <DesktopHeader language={language} currentPath={currentPath} />
-      <MobileHeader language={language} currentPath={currentPath} />
+      <DesktopHeader language={language} />
+      <MobileHeader language={language} />
     </>
   )
 }

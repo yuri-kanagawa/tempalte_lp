@@ -23,51 +23,30 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   return (
     <ContainerBox id={Scroll.LINK} background="black" label={locale.words.link}>
       <Stack spacing={4}>
-        <Grid container gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Grid item>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 'clamp(16px, 3vw, 40px)',
+            flexWrap: 'wrap'
+          }}
+        >
+          {[
+            { src: '/images/app-store.svg', alt: 'appStore', onClick: onClickAppStore },
+            { src: '/images/google-store.svg', alt: 'GoogleStore', onClick: onClickGoogleStore }
+          ].map(({ src, alt, onClick }) => (
             <Box
+              key={alt}
               sx={{
-                width: {
-                  xs: 150, // モバイルサイズ
-                  sm: 200,
-                  md: 300
-                },
-                height: {
-                  xs: 150, // モバイルサイズ
-                  sm: 200,
-                  md: 300
-                },
-                position: 'relative' // 必須
+                flex: '0 1 clamp(150px, 20vw, 300px)',
+                aspectRatio: '1 / 1',
+                position: 'relative'
               }}
             >
-              <Image src={'/images/app-store.svg'} alt="appStore" fill onClick={onClickAppStore} />
+              <Image src={src} alt={alt} fill onClick={onClick} />
             </Box>
-          </Grid>
-          <Grid
-            item
-            sx={{
-              width: {
-                xs: 150, // モバイルサイズ
-                sm: 200,
-                md: 300
-              },
-              height: {
-                xs: 150, // モバイルサイズ
-                sm: 200,
-                md: 300
-              },
-              position: 'relative' // 必須
-              // background: 'red'
-            }}
-          >
-            <Image
-              src="/images/google-store.svg"
-              alt="GoogleStore"
-              fill // 親要素に完全にフィット
-              onClick={onClickGoogleStore}
-            />
-          </Grid>
-        </Grid>
+          ))}
+        </Box>
       </Stack>
     </ContainerBox>
   )
