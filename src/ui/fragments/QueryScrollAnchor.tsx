@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { QueryParameter } from 'src/lib/queryParameters'
 
 export type QueryScrollAnchorProps = {
   id: string
@@ -25,8 +26,7 @@ export const QueryScrollAnchor: React.FC<QueryScrollAnchorProps> = ({
     if (!element) return
 
     element.scrollIntoView({ behavior })
-    // NOTE: remove scroll query param if desired
-    // removeScrollQueryParameter()
+    QueryParameter.remove(queryKey)
   }, [searchParams, id, queryKey, queryValue, behavior])
 
   return <div id={id} />

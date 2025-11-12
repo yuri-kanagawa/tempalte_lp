@@ -1,3 +1,4 @@
+'use client'
 import { IndexPage } from 'src/ui/pages/faq'
 import { Language } from 'src/domains/valueObjects/language'
 

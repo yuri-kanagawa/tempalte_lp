@@ -19,12 +19,12 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   //   if (isDesktopSize) return 300
   // }, [isDesktopSize, isLessDesktop])
 
-  const locale = language?.locale ?? en
+  const locale = language.locale
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
     <Box
-      id={Scroll.DOWNLOAD}
+      id={Scroll.LINK}
       sx={{
         background: 'black',
         display: 'flex',
@@ -32,7 +32,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
         py: 10
       }}
     >
-      <QueryScrollAnchor id={Scroll.DOWNLOAD} queryValue={Scroll.DOWNLOAD} />
+      <QueryScrollAnchor id={Scroll.LINK} queryValue={Scroll.LINK} />
       <Stack spacing={4}>
         <Typography
           sx={{
@@ -42,7 +42,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
             ...titleFontSize
           }}
         >
-          {locale.words.download}
+          {locale.words.link}
         </Typography>
         <Grid container gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Grid item>

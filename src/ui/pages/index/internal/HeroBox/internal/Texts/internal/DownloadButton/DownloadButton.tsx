@@ -3,15 +3,14 @@ import { Button } from '@mui/material'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
 import { Scroll } from '@lib/scrolls'
 import React, { FC } from 'react'
-import { en } from 'src/locales/en'
-import { ja } from 'src/locales/ja'
+import type { Language } from 'src/domains/valueObjects/language'
 
-type Props = { lang: string }
-export const DownloadButton: FC<Props> = ({ lang }) => {
-  const t = lang === 'ja' ? ja : en
+type Props = { language: Language }
+export const DownloadButton: FC<Props> = ({ language }) => {
+  const t = language.locale
   return (
-    <Button variant={'outlined'} sx={whiteButtonStyle} onClick={Scroll.scrollToDownload}>
-      {t.words.download}
+    <Button variant={'outlined'} sx={whiteButtonStyle} onClick={Scroll.scrollToLink}>
+      {t.words.link}
     </Button>
   )
 }

@@ -3,6 +3,7 @@ import { Stack, Typography } from '@mui/material'
 
 import React, { FC } from 'react'
 import { Footer } from 'src/features/language/components/footer'
+import { Contact } from 'src/features/language/components/contact'
 import type { Language } from 'src/domains/valueObjects/language'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 import { Header } from 'src/features/language/components/header'
@@ -40,6 +41,7 @@ export const IndexPage: FC<Props> = ({ language }) => {
           )
         })}
       </Stack>
+      <Contact language={language} />
       <Footer language={language} />
     </>
   )

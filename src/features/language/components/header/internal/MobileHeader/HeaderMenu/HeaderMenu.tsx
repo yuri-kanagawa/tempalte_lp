@@ -12,7 +12,7 @@ export const HeaderMenu: FC<Props> = ({ language, currentPath }) => {
       <DownLoadLink language={language} currentPath={currentPath} />
       <HowToUseLink language={language} currentPath={currentPath} />
       <ContactLink language={language} currentPath={currentPath} />
-      <LanguageSelect language={language} currentPath={currentPath} />
+      <LanguageSelect language={language} />
     </>
   )
 }

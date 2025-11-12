@@ -32,7 +32,7 @@ export const HeroBox: React.FC<Props> = ({ language }) => {
         gap={2}
       >
         <Grid item>
-          <Texts lang={language.value} />
+          <Texts language={language} />
         </Grid>
         <Grid item>
           <DeviceFrameset device="iPhone 8" color="silver" zoom={0.8}>

@@ -5,5 +5,6 @@ export const words = {
   faq: 'FAQ',
   download: 'DOWNLOAD',
   howToUse: 'HOW TO USE',
-  privacyPolicy: 'PRIVACY POLICY'
+  privacyPolicy: 'PRIVACY POLICY',
+  link: 'LINK'
 } as const

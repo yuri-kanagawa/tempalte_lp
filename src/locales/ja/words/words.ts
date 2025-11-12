@@ -5,5 +5,6 @@ export const words = {
   faq: 'よくある質問',
   download: 'ダウンロード',
   howToUse: '使い方',
-  privacyPolicy: 'プライバシーポリシー'
+  privacyPolicy: 'プライバシーポリシー',
+  link: 'リンク'
 } as const

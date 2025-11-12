@@ -29,7 +29,7 @@ export const useScroll = ({ language }: Props) => {
 
   const onClickDownload = useCallback(() => {
     transitionRoot()
-    Scroll.scrollToDownload()
+    Scroll.scrollToLink()
   }, [transitionRoot])
 
   const onClickContact = useCallback(() => {

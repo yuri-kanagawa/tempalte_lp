@@ -31,10 +31,10 @@ export const DesktopHeader: FC<Props> = ({ language, currentPath }) => {
       <Toolbar>
         <AppLink language={language} currentPath={currentPath} />
         <Box flexGrow={1} />
-        <DownLoadLink language={language} currentPath={currentPath} />
         <HowToUseLink language={language} currentPath={currentPath} />
+        <DownLoadLink language={language} currentPath={currentPath} />
         <ContactLink language={language} currentPath={currentPath} />
-        <LanguageSelect language={language} currentPath={currentPath} />
+        <LanguageSelect language={language} />
       </Toolbar>
     </TopBar>
   )

@@ -8,6 +8,7 @@ export type Words = {
   download: string
   howToUse: string
   privacyPolicy: string
+  link: string
 }
 
 export type Messages = {
