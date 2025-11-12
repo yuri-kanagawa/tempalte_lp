@@ -14,9 +14,7 @@ type Props = {
 
 export const IndexPage: FC<Props> = ({ language }) => {
   const t = language.locale
-  const getIsLast = (value: number) => value === t.messages.faq.length - 1
 
-  const getIsFirst = (value: number) => value === 0
   return (
     <>
       <Header language={language} />
@@ -29,14 +27,14 @@ export const IndexPage: FC<Props> = ({ language }) => {
         }}
       >
         <Typography sx={{ color: 'white', fontSize: 40 }}>{t.words.faq}</Typography>
-        {t.messages.faq.map((e: { q: string; a: string }, index: number) => {
+        {t.messages.faq.map((e, index: number) => {
           return (
             <StyledAccordion
               key={index}
               title={e.q}
               explain={e.a}
-              isFirst={getIsFirst(index)}
-              isLast={getIsLast(index)}
+              isFirst={index === 0}
+              isLast={index === t.messages.faq.length - 1}
             />
           )
         })}

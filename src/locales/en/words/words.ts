@@ -6,5 +6,6 @@ export const words = {
   download: 'DOWNLOAD',
   howToUse: 'HOW TO USE',
   privacyPolicy: 'PRIVACY POLICY',
-  link: 'LINK'
+  link: 'LINK',
+  webApp: 'WEB APP'
 } as const

@@ -1,50 +1,180 @@
 'use client'
-import { Box, Grid, Stack } from '@mui/material'
-import Image from 'next/image'
+
+import { Fragment, type ReactNode } from 'react'
+import { Box, ButtonBase, Stack, Typography } from '@mui/material'
+import LanguageIcon from '@mui/icons-material/Language'
 import { Scroll } from '@lib/scrolls'
-import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
+import { APP_STORE_URL, GOOGLE_STORE_URL, WEB_APP_URL } from 'src/constants/urls'
 import type { Language } from 'src/domains/valueObjects/language'
 import { ContainerBox } from 'src/ui/fragments'
-
 type Props = {
   language: Language
 }
 
 export const DownloadBox: React.FC<Props> = ({ language }) => {
-  // const { isLessDesktop, isDesktopSize } = useMediaQuerySize()
-  // const buttonWidth = useMemo(() => {
-  //   if (isLessDesktop) return 150
-  //   if (isDesktopSize) return 300
-  // }, [isDesktopSize, isLessDesktop])
-
   const locale = language.locale
-  const onClickAppStore = () => open(APP_STORE_URL, '_blank')
-  const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
+  const onClickWebApp = () => open(WEB_APP_URL, '_blank')
+
+  const storeButtons: { key: string; node: ReactNode }[] = []
+
+  if (APP_STORE_URL) {
+    storeButtons.push({
+      key: 'app-store',
+      node: (
+        <Box
+          component="a"
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            width: { xs: '100%', sm: 208, md: 224, lg: 240 },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            // borderRadius: 4,
+            overflow: 'hidden',
+            textDecoration: 'none',
+            border: 'none',
+            outline: 'none',
+            transition: 'transform 0.2s ease',
+            '&:hover': { transform: 'translateY(-2px)' },
+            '&:focus-visible': { outline: 'none' }
+          }}
+        >
+          <Box
+            component="img"
+            src="/images/app-store.svg"
+            alt="App Store"
+            sx={{ width: '100%', height: 'auto', maxWidth: 240 }}
+          />
+        </Box>
+      )
+    })
+  }
+
+  if (GOOGLE_STORE_URL) {
+    storeButtons.push({
+      key: 'google-play',
+      node: (
+        <Box
+          component="a"
+          href={GOOGLE_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            width: { xs: '100%', sm: 208, md: 224, lg: 240 },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            // borderRadius: 4,
+            overflow: 'hidden',
+            textDecoration: 'none',
+            border: 'none',
+            outline: 'none',
+            transition: 'transform 0.2s ease',
+            '&:hover': { transform: 'translateY(-2px)' },
+            '&:focus-visible': { outline: 'none' }
+          }}
+        >
+          <Box
+            component="img"
+            src="/images/google-store.svg"
+            alt="Google Play"
+            sx={{ width: '100%', height: 'auto', maxWidth: 240 }}
+          />
+        </Box>
+      )
+    })
+  }
+
+  if (WEB_APP_URL) {
+    storeButtons.push({
+      key: 'web-app',
+      node: (
+        <ButtonBase
+          onClick={onClickWebApp}
+          aria-label={locale.words.webApp}
+          sx={{
+            width: { xs: 250, sm: 208, md: 224, lg: 240 },
+            minHeight: 68,
+            borderRadius: 4,
+            border: '1px solid rgba(255,255,255,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            backgroundColor: 'rgba(255,255,255,0.04)',
+            px: { xs: 3, sm: 4 },
+            transition: 'transform 0.2s ease',
+            '&:hover': { transform: 'translateY(-2px)' }
+          }}
+        >
+          <Stack
+            direction="row"
+            spacing={{ xs: 2, sm: 2.5 }}
+            alignItems="center"
+            justifyContent="center"
+            sx={{ width: '100%' }}
+          >
+            <Box
+              sx={{
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255,255,255,0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <LanguageIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />
+            </Box>
+            <Typography
+              component="span"
+              sx={{
+                fontSize: { xs: 18, sm: 20 },
+                fontWeight: 700,
+                lineHeight: 1.2
+              }}
+            >
+              {locale.words.webApp}
+            </Typography>
+          </Stack>
+        </ButtonBase>
+      )
+    })
+  }
+
+  const shouldWrap = storeButtons.length > 2
+  const showDivider = storeButtons.length > 1 && !shouldWrap
+
   return (
     <ContainerBox id={Scroll.LINK} background="black" label={locale.words.link}>
-      <Stack spacing={4}>
+      <Stack spacing={{ xs: 3, md: 4 }}>
         <Box
           sx={{
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            flexWrap: { xs: 'wrap', sm: shouldWrap ? 'wrap' : 'nowrap' },
+            alignItems: 'center',
             justifyContent: 'center',
-            gap: 'clamp(16px, 3vw, 40px)',
-            flexWrap: 'wrap'
+            gap: { xs: 2.5, sm: 'clamp(16px, 3vw, 32px)' },
+            width: '100%'
           }}
         >
-          {[
-            { src: '/images/app-store.svg', alt: 'appStore', onClick: onClickAppStore },
-            { src: '/images/google-store.svg', alt: 'GoogleStore', onClick: onClickGoogleStore }
-          ].map(({ src, alt, onClick }) => (
-            <Box
-              key={alt}
-              sx={{
-                flex: '0 1 clamp(150px, 20vw, 300px)',
-                aspectRatio: '1 / 1',
-                position: 'relative'
-              }}
-            >
-              <Image src={src} alt={alt} fill onClick={onClick} />
-            </Box>
+          {storeButtons.map((button, index) => (
+            <Fragment key={button.key}>
+              {index > 0 && showDivider && (
+                <Box
+                  sx={{
+                    width: { xs: '100%', sm: 1 },
+                    height: { xs: 1, sm: 40 },
+                    backgroundColor: 'rgba(255,255,255,0.2)'
+                  }}
+                />
+              )}
+              {button.node}
+            </Fragment>
           ))}
         </Box>
       </Stack>
