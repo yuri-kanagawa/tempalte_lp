@@ -1,10 +1,12 @@
 import { words } from './words'
-import { messages } from './messages/messages'
-import { Meta } from './metas/meta'
-import type { Locale } from '../type'
+import { messages } from './messages'
+import { metas } from './metas'
+import { links } from './links'
+import type { Locale } from '../en'
 
-export const ja: Locale = {
+export const ja = {
   words,
   messages,
-  metas: Meta
-} as const
+  links,
+  metas
+} satisfies Locale

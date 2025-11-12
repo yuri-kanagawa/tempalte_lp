@@ -1,5 +1,3 @@
-import { links } from '../links'
-
 export const messages = {
   faq: [
     { q: 'APPとは何ですか？', a: 'APPはシンプルなランディングページテンプレートです。' },
@@ -7,6 +5,5 @@ export const messages = {
     { q: 'どのプラットフォームに対応していますか？', a: 'iOSとAndroidに対応しています。' }
   ],
   terms: [{ title: '利用規約', body: '' }],
-  privacyPolicy: [{ title: 'プライバシーポリシー', body: '' }],
-  sns: links
+  privacyPolicy: [{ title: 'プライバシーポリシー', body: '' }]
 } as const

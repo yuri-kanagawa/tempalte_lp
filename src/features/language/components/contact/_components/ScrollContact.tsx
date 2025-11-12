@@ -1,12 +1,8 @@
 'use client'
-import { Grid, Typography } from '@mui/material'
-import { NextLink } from 'src/ui/core/Link/NextLink'
-import IconButton from '@mui/material/IconButton'
+import { Grid, Typography, IconButton } from '@mui/material'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
-
 import { BsTiktok } from 'react-icons/bs'
-import { FaBilibili } from 'react-icons/fa6'
 import type { Language } from 'src/domains/valueObjects/language'
 import { FC, useEffect, useMemo, useState } from 'react'
 import { en } from 'src/locales/en'
@@ -14,9 +10,10 @@ import { en } from 'src/locales/en'
 type Props = {
   language: Language
 }
+
 export const ScrollContact: FC<Props> = ({ language }) => {
   const t = language.locale
-  const isChinese = language.value === 'zh'
+  const snsLinks = t.links
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 1024
   )
@@ -78,36 +75,31 @@ export const ScrollContact: FC<Props> = ({ language }) => {
         {t.words.contact}
       </Typography>
       <Grid container justifyContent="center" sx={{ pb: titleMargin, rowGap: gap, columnGap: gap }}>
-        <Grid item>
-          <NextLink pathname={''}>
-            <IconButton sx={iconButtonSx}>
-              <AiOutlineTwitter />
-            </IconButton>
-          </NextLink>
-        </Grid>
-        <Grid item>
-          <IconButton sx={iconButtonSx}>
-            <AiOutlineInstagram />
-          </IconButton>
-        </Grid>
-        <Grid item>
-          <IconButton sx={iconButtonSx}>
-            <AiFillYoutube />
-          </IconButton>
-        </Grid>
-        <Grid item>
-          <IconButton sx={iconButtonSx}>
-            <BsTiktok />
-          </IconButton>
-        </Grid>
-
-        {isChinese && (
-          <Grid item>
-            <IconButton sx={iconButtonSx}>
-              <FaBilibili />
-            </IconButton>
-          </Grid>
-        )}
+        {(
+          [
+            { key: 'twitter', icon: <AiOutlineTwitter />, label: 'Twitter' },
+            { key: 'instagram', icon: <AiOutlineInstagram />, label: 'Instagram' },
+            { key: 'youtube', icon: <AiFillYoutube />, label: 'YouTube' },
+            { key: 'tiktok', icon: <BsTiktok />, label: 'TikTok' }
+          ] as const
+        ).map(({ key, icon, label }) => {
+          const href = snsLinks[key]
+          if (!href) return null
+          return (
+            <Grid item key={key}>
+              <IconButton
+                sx={iconButtonSx}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                {icon}
+              </IconButton>
+            </Grid>
+          )
+        })}
       </Grid>
     </Grid>
   )

@@ -2,7 +2,8 @@ import { LanguageValueError } from './error'
 import { LanguageResult } from './result'
 import { en } from 'src/locales/en'
 import { ja } from 'src/locales/ja'
-import type { Locale } from 'src/locales/type'
+
+import type { Locale } from 'src/locales/en'
 
 export class Language {
   private readonly _value: string

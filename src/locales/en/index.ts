@@ -1,12 +1,28 @@
 import { words } from './words'
-import { messages } from './messages/messages'
-import { Meta } from './metas/meta'
-import type { Locale } from '../type'
+import { messages } from './messages'
+import { metas } from './metas'
+import { links } from './links'
 
-export const en: Locale = {
+export const en = {
   words,
   messages,
-  metas: Meta
+  links,
+  metas
 } as const
 
-export type { Locale }
+type EnLocale = typeof en
+
+type Localize<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? readonly Localize<U>[]
+    : T extends object
+      ? { readonly [K in keyof T]: Localize<T[K]> }
+      : T
+
+export type Locale = {
+  readonly words: Localize<EnLocale['words']>
+  readonly messages: Localize<EnLocale['messages']>
+  readonly links: Localize<EnLocale['links']>
+  readonly metas: EnLocale['metas']
+}

@@ -3,7 +3,7 @@ import { appName, OGP_IMAGE_URL } from 'src/constants/app'
 import ogImage from 'src/app/opengraph-image.png'
 
 const DESCRIPTION = ''
-export const PrivacyPolicyMeta: Metadata = {
+export const index: Metadata = {
   title: appName,
   description: DESCRIPTION,
   openGraph: {
