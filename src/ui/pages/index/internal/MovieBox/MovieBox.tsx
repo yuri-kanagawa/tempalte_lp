@@ -1,12 +1,12 @@
 'use client'
-import { Box, Stack, Typography } from '@mui/material'
+import { Stack } from '@mui/material'
 import { getMovieHeight } from 'src/styles/videoStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
-import { MutableRefObject, useMemo } from 'react'
-import { titleFontSize } from 'src/styles/fontStyle'
+import { useMemo } from 'react'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 import type { Language } from 'src/domains/valueObjects/language'
 import { en } from 'src/locales/en'
+import { ContainerBox } from 'src/ui/fragments'
 
 type Props = {
   language: Language
@@ -22,26 +22,19 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
   }, [isDesktopSize, isLessDesktop, isMobileSize])
   const locale = language?.locale ?? en
   return (
-    <Box
+    <ContainerBox
       id={ScrollConstants.HOW_TO_USE}
-      sx={{
-        background: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        py: 10
-      }}
+      background="white"
+      label={locale.words.howToUse}
+      labelColor="black"
     >
       <Stack spacing={4}>
-        <Typography sx={{ display: 'flex', justifyContent: 'center', ...titleFontSize }}>
-          {locale.words.howToUse}
-        </Typography>
         <iframe
           src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
           height={getMovieHeight(maxWidth)}
           width={maxWidth}
         ></iframe>
       </Stack>
-    </Box>
+    </ContainerBox>
   )
 }

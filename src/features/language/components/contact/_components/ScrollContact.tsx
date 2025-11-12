@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid, Typography, IconButton } from '@mui/material'
+import { Box, IconButton } from '@mui/material'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { BsTiktok } from 'react-icons/bs'
@@ -41,45 +41,43 @@ export const ScrollContact: FC<Props> = ({ language }) => {
   )
 
   return (
-    <Grid container direction="column" alignItems="center" sx={{ textAlign: 'center' }}>
-      <Typography
-        sx={{
-          fontSize: 'clamp(24px, 3.2vw, 36px)',
-          fontWeight: 600,
-          color: 'black',
-          mb: 'clamp(12px, 1vw, 18px)'
-        }}
-      >
-        {t.words.contact}
-      </Typography>
-      <Grid
-        container
-        justifyContent="center"
-        sx={{
-          pb: 'clamp(12px, 1vw, 18px)',
-          rowGap: 'clamp(16px, 2vw, 32px)',
-          columnGap: 'clamp(16px, 2vw, 32px)'
-        }}
-      >
-        {SOCIAL_LINKS.map(({ key, icon, label }) => {
-          const href = snsLinks[key]
-          if (!href) return null
-          return (
-            <Grid item key={key}>
-              <IconButton
-                sx={iconButtonSx}
-                component="a"
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-              >
-                {icon}
-              </IconButton>
-            </Grid>
-          )
-        })}
-      </Grid>
-    </Grid>
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 'clamp(16px, 2vw, 32px)',
+        flexWrap: 'nowrap',
+        overflowX: 'visible',
+        overflowY: 'visible'
+      }}
+    >
+      {SOCIAL_LINKS.map(({ key, icon, label }) => {
+        const href = snsLinks[key]
+        if (!href) return null
+        return (
+          <Box
+            key={key}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              flex: '0 0 clamp(140px, 15vw, 260px)'
+            }}
+          >
+            <IconButton
+              sx={iconButtonSx}
+              component="a"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+            >
+              {icon}
+            </IconButton>
+          </Box>
+        )
+      })}
+    </Box>
   )
 }

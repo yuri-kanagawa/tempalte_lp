@@ -6,7 +6,7 @@ import React from 'react'
 import type { Language } from 'src/domains/valueObjects/language'
 import { Texts } from './internal'
 import { Scroll } from '@lib/scrolls'
-import { QueryScrollAnchor } from 'src/ui/fragments'
+import { QueryScrollAnchor } from 'src/ui/cores'
 
 type Props = {
   language: Language

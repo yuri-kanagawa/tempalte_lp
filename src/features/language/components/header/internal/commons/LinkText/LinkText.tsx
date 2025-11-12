@@ -1,4 +1,4 @@
-import { NextLink, NextLinkProps } from 'src/ui/core/Link/NextLink'
+import { NextLink, NextLinkProps } from 'src/ui/cores/NextLink/NextLink'
 import { TypographyProps } from '@mui/material/Typography/Typography'
 import React, { FC, ReactNode } from 'react'
 import { Typography } from '@mui/material'

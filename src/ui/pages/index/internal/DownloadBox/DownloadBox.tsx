@@ -1,12 +1,10 @@
 'use client'
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { Box, Grid, Stack } from '@mui/material'
 import Image from 'next/image'
-import { titleFontSize } from 'src/styles/fontStyle'
 import { Scroll } from '@lib/scrolls'
 import { APP_STORE_URL, GOOGLE_STORE_URL } from 'src/constants/urls'
 import type { Language } from 'src/domains/valueObjects/language'
-import { QueryScrollAnchor } from 'src/ui/fragments'
-import { en } from 'src/locales/en'
+import { ContainerBox } from 'src/ui/fragments'
 
 type Props = {
   language: Language
@@ -23,27 +21,8 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   const onClickAppStore = () => open(APP_STORE_URL, '_blank')
   const onClickGoogleStore = () => open(GOOGLE_STORE_URL, '_blank')
   return (
-    <Box
-      id={Scroll.LINK}
-      sx={{
-        background: 'black',
-        display: 'flex',
-        justifyContent: 'center',
-        py: 10
-      }}
-    >
-      <QueryScrollAnchor id={Scroll.LINK} queryValue={Scroll.LINK} />
+    <ContainerBox id={Scroll.LINK} background="black" label={locale.words.link}>
       <Stack spacing={4}>
-        <Typography
-          sx={{
-            color: 'white',
-            display: 'flex',
-            justifyContent: 'center',
-            ...titleFontSize
-          }}
-        >
-          {locale.words.link}
-        </Typography>
         <Grid container gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Grid item>
             <Box
@@ -90,6 +69,6 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
           </Grid>
         </Grid>
       </Stack>
-    </Box>
+    </ContainerBox>
   )
 }

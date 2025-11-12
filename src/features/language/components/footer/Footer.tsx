@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
-import { NextLink } from 'src/ui/core/Link/NextLink'
+import { NextLink } from 'src/ui/cores/NextLink/NextLink'
 import { PathBuilder } from 'src/lib/routes'
 import { Language } from 'src/domains/valueObjects/language'
 import { en } from 'src/locales/en'
