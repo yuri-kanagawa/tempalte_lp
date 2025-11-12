@@ -96,9 +96,9 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
           aria-label={locale.words.webApp}
           sx={{
             width: { xs: 250, sm: 208, md: 224, lg: 240 },
-            minHeight: 68,
+            minHeight: 71,
             borderRadius: 4,
-            border: '1px solid rgba(255,255,255,0.3)',
+            border: '1.8px solid rgba(255,255,255,0.6)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
