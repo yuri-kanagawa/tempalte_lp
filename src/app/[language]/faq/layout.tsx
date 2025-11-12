@@ -1,4 +1,5 @@
 import React from 'react'
+import { redirect } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
 import { Language } from 'src/domains/valueObjects/language'
 import type { LanguageProps } from '../layout'
@@ -18,6 +19,9 @@ export async function generateMetadata(
   return t.metas.faq
 }
 
-export default function Layout({ children }: React.PropsWithChildren<LanguageProps>) {
+export default function Layout({ children, params }: React.PropsWithChildren<LanguageProps>) {
+  const language = Language.create(params.language).language
+  if (!language) return redirect('/faq')
+  if (language.isEnglish) return redirect('/faq')
   return <>{children}</>
 }

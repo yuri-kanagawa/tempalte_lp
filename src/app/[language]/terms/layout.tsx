@@ -2,7 +2,7 @@ import React from 'react'
 import { Metadata, ResolvingMetadata } from 'next'
 import { Language } from 'src/domains/valueObjects/language'
 import type { LanguageProps } from '../layout'
-
+import { redirect } from 'next/navigation'
 type Params = LanguageProps['params']
 
 export async function generateStaticParams(): Promise<Params[]> {
@@ -18,6 +18,9 @@ export async function generateMetadata(
   return t.metas.terms
 }
 
-export default function Layout({ children }: React.PropsWithChildren<LanguageProps>) {
+export default function Layout({ children, params }: React.PropsWithChildren<LanguageProps>) {
+  const language = Language.create(params.language).language
+  if (!language) return redirect('/terms')
+  if (language.isEnglish) return redirect('/terms')
   return <>{children}</>
 }
