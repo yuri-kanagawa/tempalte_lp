@@ -1,9 +1,9 @@
 'use client'
 import { IndexPage } from 'src/ui/pages/terms'
-import { Language } from 'src/domains/valueObjects/language'
+import { Locale } from 'src/domains/valueObjects/locale'
 import type { LanguageProps } from '../layout'
 
 export default function Page({ params }: LanguageProps) {
-  const language = Language.create(params.language).language ?? Language.default()
+  const language = Locale.create(params.locale).locale ?? Locale.default()
   return <IndexPage language={language} />
 }

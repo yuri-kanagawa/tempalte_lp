@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
-import { en } from 'src/locales/en'
+import { enUS } from 'src/locales/en-US'
 
 export async function generateMetadata(): Promise<Metadata> {
-  return en.metas.terms
+  return enUS.metas.terms
 }
 
 export default function Layout({

@@ -1,10 +1,10 @@
 import { AppProvider } from 'src/app/provider'
 import type { Metadata } from 'next'
-import { en } from 'src/locales/en'
+import { enUS } from 'src/locales/en-US'
 import React from 'react'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 
-export const metadata: Metadata = en.metas.index
+export const metadata: Metadata = enUS.metas.index
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

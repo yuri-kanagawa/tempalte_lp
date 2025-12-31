@@ -1,27 +1,23 @@
 import React from 'react'
-import { redirect } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
-import { Language } from 'src/domains/valueObjects/language'
+import { Locale } from 'src/domains/valueObjects/locale'
 import type { LanguageProps } from '../layout'
 
 type Params = LanguageProps['params']
 
 export async function generateStaticParams(): Promise<Params[]> {
-  return Language.getPageLanguages().map(({ key }) => ({ language: key }))
+  return Locale.getPageLanguages().map(({ key }) => ({ locale: key }))
 }
 
 export async function generateMetadata(
   { params }: LanguageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const language = Language.create(params.language).language ?? Language.default()
+  const language = Locale.create(params.locale).locale ?? Locale.default()
   const t = language.locale
-  return t.metas.faq
+  return t.metas.privacyPolicy
 }
 
 export default function Layout({ children, params }: React.PropsWithChildren<LanguageProps>) {
-  const language = Language.create(params.language).language
-  if (!language) return redirect('/faq')
-  if (language.isEnglish) return redirect('/faq')
   return <>{children}</>
 }

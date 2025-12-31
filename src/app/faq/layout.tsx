@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
-import { en } from 'src/locales/en'
+import { enUS } from 'src/locales/en-US'
 
 type Props = {
   params: {}
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return en.metas.faq
+  return enUS.metas.faq
 }
 
 export default function Layout({
