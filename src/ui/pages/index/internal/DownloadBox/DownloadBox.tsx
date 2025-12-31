@@ -5,10 +5,10 @@ import { Box, ButtonBase, Stack, Typography } from '@mui/material'
 import LanguageIcon from '@mui/icons-material/Language'
 import { Scroll } from '@lib/scrolls'
 import { APP_STORE_URL, GOOGLE_STORE_URL, WEB_APP_URL } from 'src/constants/urls'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { ContainerBox } from 'src/ui/fragments'
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const DownloadBox: React.FC<Props> = ({ language }) => {

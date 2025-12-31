@@ -3,14 +3,14 @@ import { titleFontSize } from 'src/styles/fontStyle'
 import React, { FC } from 'react'
 import { HowToUseButton } from './internal'
 import { DownloadButton } from 'src/ui/pages/index/internal/HeroBox/internal/Texts/internal/DownloadButton/DownloadButton'
-import type { Language } from 'src/domains/valueObjects/language'
-import { en } from 'src/locales/en'
+import type { Locale } from 'src/domains/valueObjects/locale'
+import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const Texts: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? en
+  const t = language?.locale ?? enUS
   return (
     <Stack spacing={2}>
       <Typography

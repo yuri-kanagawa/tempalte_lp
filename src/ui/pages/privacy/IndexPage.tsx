@@ -6,10 +6,10 @@ import { Header } from 'src/features/language/components/header'
 import { Footer } from 'src/features/language/components/footer'
 import { useScroll } from 'src/hooks/useScroll'
 import { Contact } from 'src/features/language/components/contact'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const IndexPage: FC<Props> = ({ language }) => {

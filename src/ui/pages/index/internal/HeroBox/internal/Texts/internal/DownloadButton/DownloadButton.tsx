@@ -3,9 +3,9 @@ import { Button } from '@mui/material'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
 import { Scroll } from '@lib/scrolls'
 import React, { FC } from 'react'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
-type Props = { language: Language }
+type Props = { language: Locale }
 export const DownloadButton: FC<Props> = ({ language }) => {
   const t = language.locale
   return (

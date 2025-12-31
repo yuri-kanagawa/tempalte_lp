@@ -4,14 +4,14 @@ import { Button } from '@mui/material'
 import { whiteButtonStyle } from 'src/styles/buttonStyle'
 import { Scroll } from '@lib/scrolls'
 import React, { FC } from 'react'
-import type { Language } from 'src/domains/valueObjects/language'
-import { en } from 'src/locales/en'
+import type { Locale } from 'src/domains/valueObjects/locale'
+import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const HowToUseButton: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? en
+  const t = language?.locale ?? enUS
   return (
     <Button variant={'outlined'} sx={whiteButtonStyle} onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}

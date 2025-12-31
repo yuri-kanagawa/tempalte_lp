@@ -4,12 +4,12 @@ import { getMovieHeight } from 'src/styles/videoStyle'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { useMemo } from 'react'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
-import type { Language } from 'src/domains/valueObjects/language'
-import { en } from 'src/locales/en'
+import type { Locale } from 'src/domains/valueObjects/locale'
+import { enUS } from 'src/locales/en-US'
 import { ContainerBox } from 'src/ui/fragments'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const MovieBox: React.FC<Props> = ({ language }) => {
@@ -20,7 +20,7 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const locale = language?.locale ?? en
+  const locale = language?.locale ?? enUS
   return (
     <ContainerBox
       id={ScrollConstants.HOW_TO_USE}

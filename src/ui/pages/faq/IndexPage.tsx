@@ -4,12 +4,12 @@ import { Stack, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { Footer } from 'src/features/language/components/footer'
 import { Contact } from 'src/features/language/components/contact'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
 import { Header } from 'src/features/language/components/header'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const IndexPage: FC<Props> = ({ language }) => {

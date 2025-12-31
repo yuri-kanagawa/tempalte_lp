@@ -1,9 +1,9 @@
 import { ContactLink, DownLoadLink, HowToUseLink, LanguageSelect } from '../../commons'
 import React, { FC } from 'react'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const HeaderMenu: FC<Props> = ({ language }) => {
   return (

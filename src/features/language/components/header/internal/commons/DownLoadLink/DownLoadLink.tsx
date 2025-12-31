@@ -1,14 +1,14 @@
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { LinkText } from '../LinkText'
 import { FC } from 'react'
 import { Scroll } from '@lib/scrolls'
-import { en } from 'src/locales/en'
+import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const DownLoadLink: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? en
+  const t = language?.locale ?? enUS
   return (
     <LinkText pathname={'/'} query={{ scroll: Scroll.LINK }} onClick={Scroll.scrollToLink}>
       {t.words.link}

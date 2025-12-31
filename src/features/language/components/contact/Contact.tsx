@@ -1,11 +1,11 @@
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { FC } from 'react'
 import { ScrollContact } from './_components'
 import { ContainerBox } from 'src/ui/fragments'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const Contact: FC<Props> = ({ language }) => {

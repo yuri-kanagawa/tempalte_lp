@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { DeviceFrameset } from 'react-device-frameset'
 import 'react-device-frameset/styles/marvel-devices.min.css'
 import React from 'react'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { Texts } from './internal'
 import { Scroll } from '@lib/scrolls'
 import { QueryScrollAnchor } from 'src/ui/cores'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const HeroBox: React.FC<Props> = ({ language }) => {

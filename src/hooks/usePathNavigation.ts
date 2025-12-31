@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation'
 import { PathBuilder } from '@lib/routes'
-import { Language } from '@domains/valueObjects/language'
+import { Locale } from '@domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const usePathNavigation = ({ language }: Props) => {

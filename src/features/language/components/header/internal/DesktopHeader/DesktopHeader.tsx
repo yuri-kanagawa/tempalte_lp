@@ -9,10 +9,10 @@ import {
 } from '../commons'
 import React, { FC } from 'react'
 import { Box, Toolbar } from '@mui/material'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const DesktopHeader: FC<Props> = ({ language }) => {

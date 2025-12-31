@@ -13,10 +13,10 @@ import { Box, Collapse, Stack, Toolbar, Typography } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { HeaderMenu } from './HeaderMenu'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const MobileHeader: FC<Props> = ({ language }) => {
   const { isLessTabletSize } = useMediaQuerySize()

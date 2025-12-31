@@ -5,11 +5,11 @@ import { useTheme } from '@mui/material/styles'
 import { IconButtonBlackStyle } from 'src/styles/iconStyle'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { BsTiktok } from 'react-icons/bs'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { FC, useMemo } from 'react'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 const SOCIAL_LINKS = [

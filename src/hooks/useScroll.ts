@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { Scroll } from '@lib/scrolls'
 import { usePathname, useRouter } from 'next/navigation'
 import { PathBuilder } from 'src/lib/routes'
-import { Language } from 'src/domains/valueObjects/language'
+import { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
   language: string
@@ -14,7 +14,7 @@ export const useScroll = ({ language }: Props) => {
 
   const transitionRoot = useCallback(() => {
     if (PathBuilder.isRoot(pathname)) return
-    const langObj = Language.create(language).language ?? Language.default()
+    const langObj = Locale.create(language).locale ?? Locale.default()
     router.push(new PathBuilder(langObj).root())
   }, [language, pathname, router])
 

@@ -7,10 +7,10 @@ import { Contact } from 'src/features/language/components/contact'
 import { Footer } from 'src/features/language/components/footer'
 import { builders } from 'prettier/doc'
 
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const IndexPage: FC<Props> = ({ language }) => {
   const t = language.locale

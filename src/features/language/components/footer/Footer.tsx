@@ -3,14 +3,14 @@ import { Box, Grid, Stack, Typography } from '@mui/material'
 import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
 import { NextLink } from 'src/ui/cores/NextLink/NextLink'
 import { PathBuilder } from 'src/lib/routes'
-import { Language } from 'src/domains/valueObjects/language'
-import { en } from 'src/locales/en'
+import { Locale } from 'src/domains/valueObjects/locale'
+import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const Footer: React.FC<Props> = ({ language }) => {
-  const locale = language?.locale ?? en
+  const locale = language?.locale ?? enUS
 
   const builder = new PathBuilder(language)
   const privacyPolicyLink = builder.privacyPolicy()

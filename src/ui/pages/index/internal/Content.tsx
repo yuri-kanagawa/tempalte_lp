@@ -1,9 +1,9 @@
 import { MovieBox } from 'src/ui/pages/index/internal/MovieBox/MovieBox'
 import React, { FC } from 'react'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const Content: FC<Props> = ({ language }) => {
   return (

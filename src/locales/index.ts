@@ -1,2 +1,2 @@
-export * from './en'
-export * from './ja'
+export * from './en-US'
+export * from './ja-JP'

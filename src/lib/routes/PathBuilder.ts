@@ -1,4 +1,4 @@
-import { Language } from 'src/domains/valueObjects/language'
+import { Locale } from 'src/domains/valueObjects/locale'
 
 export class PathBuilder {
   static readonly ROOT = '/'
@@ -6,20 +6,20 @@ export class PathBuilder {
   static readonly TERMS = '/terms'
   static readonly PRIVACY_POLICY = '/privacy'
   static readonly HOME_PAGE_URL = 'https://ledenm.com'
-  private readonly language: Language
+  private readonly language: Locale
 
   static isRoot(path: string): boolean {
     const root = '/'
-    const languageKeys = Object.keys(Language.LANGUAGES)
+    const languageKeys = Object.keys(Locale.LANGUAGES)
     const languageRoots = languageKeys.map((key) => `/${key}`)
     return path === root || languageRoots.includes(path)
   }
 
-  private static withLocale(locale: Language, url: string): string {
+  private static withLocale(locale: Locale, url: string): string {
     return locale.isEnglish ? url : `/${locale.value}${url}`
   }
 
-  constructor(locale: Language) {
+  constructor(locale: Locale) {
     this.language = locale
   }
 

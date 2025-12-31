@@ -2,13 +2,13 @@
 import React, { FC } from 'react'
 
 import { Footer, Contact, Header } from 'src/features/language'
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { Content } from 'src/ui/pages/index/internal/Content'
 import { DownloadBox } from 'src/ui/pages/index/internal/DownloadBox'
 import { HeroBox } from 'src/ui/pages/index/internal/HeroBox/HeroBox'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const IndexPage: FC<Props> = ({ language }) => {
   return (

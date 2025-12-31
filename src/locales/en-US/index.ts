@@ -3,14 +3,14 @@ import { messages } from './messages'
 import { metas } from './metas'
 import { links } from './links'
 
-export const en = {
+export const enUS = {
   words,
   messages,
   links,
   metas
 } as const
 
-type EnLocale = typeof en
+type EnLocale = typeof enUS
 
 type Localize<T> = T extends string
   ? string

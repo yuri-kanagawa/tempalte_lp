@@ -1,10 +1,10 @@
-import type { Language } from 'src/domains/valueObjects/language'
+import type { Locale } from 'src/domains/valueObjects/locale'
 import { LinkText } from '../LinkText'
 import { FC } from 'react'
 import { Scroll } from '@lib/scrolls'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 export const HowToUseLink: FC<Props> = ({ language }) => {
   const t = language.locale

@@ -5,11 +5,11 @@ import TranslateIcon from '@mui/icons-material/Translate'
 import React from 'react'
 import { StyledSelect } from 'src/ui/feature/styled/select/StyledSelect'
 import { menuItemStyle } from './utils'
-import { Language } from 'src/domains/valueObjects/language'
+import { Locale } from 'src/domains/valueObjects/locale'
 import { usePathname, useRouter } from 'next/navigation'
 
 type Props = {
-  language: Language
+  language: Locale
 }
 
 export const LanguageSelect: React.FC<Props> = ({ language }) => {
@@ -19,7 +19,7 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
   const segments = normalizedPath.split('/').filter(Boolean)
 
   const [firstSegment, ...restSegments] = segments
-  const isLocaleSegment = firstSegment != null && firstSegment in Language.LANGUAGES
+  const isLocaleSegment = firstSegment != null && firstSegment in Locale.LANGUAGES
   const baseSegments = isLocaleSegment ? restSegments : segments
   const basePath =
     baseSegments.length > 0
@@ -30,7 +30,7 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
 
   const handleChange = (event: SelectChangeEvent<unknown>) => {
     const targetLang = String(event.target.value)
-    const isDefaultLang = targetLang === Language.default().value
+    const isDefaultLang = targetLang === Locale.default().value
     const nextPath = isDefaultLang ? basePath : `/${targetLang}${basePath === '/' ? '' : basePath}`
     router.push(nextPath)
   }
@@ -49,11 +49,11 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
       inputProps={{ MenuProps: { disableScrollLock: true } }}
       onChange={handleChange}
       renderValue={(value) => {
-        const key = String(value || Language.default().value)
-        return Language.LANGUAGES[key as keyof typeof Language.LANGUAGES]
+        const key = String(value || Locale.default().value)
+        return Locale.LANGUAGES[key as keyof typeof Locale.LANGUAGES]
       }}
     >
-      {Language.getAllLanguages().map((e, index) => (
+      {Locale.getAllLanguages().map((e, index) => (
         <MenuItem key={`item ${index}`} value={e.key} sx={menuItemStyle}>
           <Typography>{e.label}</Typography>
         </MenuItem>
