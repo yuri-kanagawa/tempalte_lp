@@ -20,7 +20,7 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const locale = language?.locale ?? enUS
+  const locale = language?.translation ?? enUS
   return (
     <ContainerBox
       id={ScrollConstants.HOW_TO_USE}

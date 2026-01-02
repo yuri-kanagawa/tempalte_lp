@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
 export const ScrollContact: FC<Props> = ({ language }) => {
   const themeFromHook = useTheme()
   const isMdUp = useMediaQuery(themeFromHook.breakpoints.up('md'))
-  const t = language.locale
+  const t = language.translation
   const snsLinks = t.links
   const iconButtonSx = useMemo(
     () =>

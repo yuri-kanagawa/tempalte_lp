@@ -10,7 +10,7 @@ type Props = {
   language: Locale
 }
 export const Texts: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? enUS
+  const t = language?.translation ?? enUS
   return (
     <Stack spacing={2}>
       <Typography

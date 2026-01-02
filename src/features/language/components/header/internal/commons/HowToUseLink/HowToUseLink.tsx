@@ -7,7 +7,7 @@ type Props = {
   language: Locale
 }
 export const HowToUseLink: FC<Props> = ({ language }) => {
-  const t = language.locale
+  const t = language.translation
   return (
     <LinkText
       pathname={'/'}

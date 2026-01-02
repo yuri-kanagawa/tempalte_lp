@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const DownloadBox: React.FC<Props> = ({ language }) => {
-  const locale = language.locale
+  const locale = language.translation
   const onClickWebApp = () => open(WEB_APP_URL, '_blank')
 
   const storeButtons: { key: string; node: ReactNode }[] = []

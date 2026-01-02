@@ -3,5 +3,5 @@ import { IndexPage } from 'src/ui/pages/faq'
 import { Locale } from 'src/domains/valueObjects/locale'
 
 export default function Page() {
-  return <IndexPage language={Locale.default()} />
+  return <IndexPage locale={Locale.default()} />
 }

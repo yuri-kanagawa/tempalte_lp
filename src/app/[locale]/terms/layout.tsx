@@ -13,7 +13,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const language = Locale.create(params.locale).locale ?? Locale.default()
-  const t = language.locale
+  const t = language.translation
   return t.metas.terms
 }
 

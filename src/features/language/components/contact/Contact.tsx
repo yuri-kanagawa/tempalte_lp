@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const Contact: FC<Props> = ({ language }) => {
-  const locale = language.locale
+  const locale = language.translation
   return (
     <ContainerBox
       id={ScrollConstants.CONTACT}

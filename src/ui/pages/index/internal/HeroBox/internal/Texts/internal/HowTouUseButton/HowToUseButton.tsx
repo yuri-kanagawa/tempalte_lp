@@ -11,7 +11,7 @@ type Props = {
   language: Locale
 }
 export const HowToUseButton: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? enUS
+  const t = language?.translation ?? enUS
   return (
     <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}

@@ -89,7 +89,7 @@ export class Locale {
     return this._value
   }
 
-  get locale(): LocaleData {
+  get translation(): LocaleData {
     if (this.isEnglish) return enUS
     if (this.isJapanese) return jaJP
     return enUS

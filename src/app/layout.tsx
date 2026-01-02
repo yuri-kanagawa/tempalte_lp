@@ -1,8 +1,8 @@
-import { AppProvider } from 'src/app/provider'
 import type { Metadata } from 'next'
 import { enUS } from 'src/locales/en-US'
 import React from 'react'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
+import { AppProvider } from './AppProvider'
 
 export const metadata: Metadata = enUS.metas.index
 
@@ -19,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           background: 'black'
         }}
       >
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        <AppRouterCacheProvider>
+          <AppProvider>{children}</AppProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   )

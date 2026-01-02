@@ -10,7 +10,7 @@ type Props = {
   language: Locale
 }
 export const Footer: React.FC<Props> = ({ language }) => {
-  const locale = language?.locale ?? enUS
+  const locale = language?.translation ?? enUS
 
   const builder = new PathBuilder(language)
   const privacyPolicyLink = builder.privacyPolicy()

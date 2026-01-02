@@ -7,7 +7,7 @@ import { styles } from 'src/config/styles'
 
 type Props = { language: Locale }
 export const DownloadButton: FC<Props> = ({ language }) => {
-  const t = language.locale
+  const t = language.translation
   return (
     <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToLink}>
       {t.words.link}

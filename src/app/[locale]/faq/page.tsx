@@ -5,6 +5,6 @@ import { Locale } from 'src/domains/valueObjects/locale'
 import type { LanguageProps } from '../layout'
 
 export default function Page({ params }: LanguageProps, parent: ResolvingMetadata) {
-  const language = Locale.create(params.locale).locale ?? Locale.default()
-  return <IndexPage language={language} />
+  const locale = Locale.create(params.locale).locale ?? Locale.default()
+  return <IndexPage locale={locale} />
 }

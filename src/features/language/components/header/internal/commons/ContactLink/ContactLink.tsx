@@ -8,7 +8,7 @@ type Props = {
   language: Locale
 }
 export const ContactLink: FC<Props> = ({ language }) => {
-  const t = language?.locale ?? enUS
+  const t = language?.translation ?? enUS
   return (
     <LinkText pathname={'/'} query={{ scroll: Scroll.CONTACT }} onClick={Scroll.scrollToContact}>
       {t.words.contact}
