@@ -1,7 +1,7 @@
 'use client'
-import { HomePage } from 'src/ui/pages/index'
+import { RootPage } from 'src/ui/pages/RootPage'
 import { Locale } from 'src/domains/valueObjects/locale'
 
 export default function Page() {
-  return <HomePage locale={Locale.default()} />
+  return <RootPage locale={Locale.default()} />
 }

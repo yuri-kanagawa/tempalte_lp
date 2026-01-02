@@ -1,1 +1,5 @@
 export * from './ContainerBox'
+export * from './StoreButtons'
+export * from './HeroContent'
+export * from './SocialLinks'
+export * from './MovieContent'
