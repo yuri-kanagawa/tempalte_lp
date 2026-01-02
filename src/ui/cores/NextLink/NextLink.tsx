@@ -10,14 +10,17 @@ export type NextLinkProps = {
 }
 
 export const NextLink: FC<NextLinkProps> = ({ pathname, query, children }) => {
-  return (
-    <Link
-      href={{
+  const href = query
+    ? {
         pathname,
         query
-      }}
-      passHref
-      legacyBehavior
+      }
+    : pathname
+
+  return (
+    <Link
+      href={href}
+      style={{ textDecoration: 'none' }}
     >
       {children}
     </Link>
