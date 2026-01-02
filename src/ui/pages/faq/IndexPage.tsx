@@ -14,11 +14,5 @@ export const IndexPage: FC<Props> = ({ locale }) => {
     body: item.a
   }))
 
-  return (
-    <AccordionTemplate
-      locale={locale}
-      title={t.words.faq}
-      items={items}
-    />
-  )
+  return <AccordionTemplate locale={locale} title={t.words.faq} items={items} />
 }

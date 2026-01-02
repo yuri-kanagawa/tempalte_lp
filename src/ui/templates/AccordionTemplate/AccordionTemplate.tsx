@@ -47,4 +47,3 @@ export const AccordionTemplate: FC<Props> = ({ locale, title, items }) => {
     </>
   )
 }
-

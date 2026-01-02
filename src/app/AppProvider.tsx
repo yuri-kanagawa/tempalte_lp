@@ -12,4 +12,3 @@ export function AppProvider({ children }: { children: ReactNode }) {
     </RecoilRoot>
   )
 }
-

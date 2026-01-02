@@ -38,5 +38,3 @@ export class QueryParameter {
     window.history.replaceState({}, document.title, url.toString())
   }
 }
-
-

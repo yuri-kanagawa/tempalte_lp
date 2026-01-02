@@ -18,4 +18,3 @@ export const index: Metadata = {
     images: buildTwitterImages()
   }
 }
-

@@ -18,10 +18,7 @@ export const NextLink: FC<NextLinkProps> = ({ pathname, query, children }) => {
     : pathname
 
   return (
-    <Link
-      href={href}
-      style={{ textDecoration: 'none' }}
-    >
+    <Link href={href} style={{ textDecoration: 'none' }}>
       {children}
     </Link>
   )

@@ -9,11 +9,5 @@ type Props = {
 export const IndexPage: FC<Props> = ({ language }) => {
   const t = language.translation
 
-  return (
-    <AccordionTemplate
-      locale={language}
-      title={t.words.terms}
-      items={t.messages.terms}
-    />
-  )
+  return <AccordionTemplate locale={language} title={t.words.terms} items={t.messages.terms} />
 }

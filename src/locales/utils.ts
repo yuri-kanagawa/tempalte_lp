@@ -30,5 +30,3 @@ export function buildOgImages(alt: string): OgImages {
 export function buildTwitterImages(): TwitterImages {
   return ['/og/1200x630.png']
 }
-
-
