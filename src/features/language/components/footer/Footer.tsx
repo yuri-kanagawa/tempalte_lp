@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Grid, Stack, Typography } from '@mui/material'
-import { IconButtonWhiteStyle } from 'src/styles/iconStyle'
+import { styles } from 'src/config/styles'
 import { NextLink } from 'src/ui/cores/NextLink/NextLink'
 import { PathBuilder } from 'src/lib/routes'
 import { Locale } from 'src/domains/valueObjects/locale'
@@ -41,7 +41,7 @@ export const Footer: React.FC<Props> = ({ language }) => {
           </Grid>
           <Grid item>
             <NextLink pathname={ledenmLink}>
-              <Typography sx={IconButtonWhiteStyle}>Lilium Eden</Typography>
+              <Typography sx={styles.iconButton.white}>Lilium Eden</Typography>
             </NextLink>
           </Grid>
           <Grid item>
@@ -59,17 +59,17 @@ export const Footer: React.FC<Props> = ({ language }) => {
         >
           <Grid item>
             <NextLink pathname={privacyPolicyLink}>
-              <Typography sx={IconButtonWhiteStyle}>{locale.words.privacyPolicy}</Typography>
+              <Typography sx={styles.iconButton.white}>{locale.words.privacyPolicy}</Typography>
             </NextLink>
           </Grid>
           <Grid item>
             <NextLink pathname={termLink}>
-              <Typography sx={IconButtonWhiteStyle}>{locale.words.terms}</Typography>
+              <Typography sx={styles.iconButton.white}>{locale.words.terms}</Typography>
             </NextLink>
           </Grid>
           <Grid item>
             <NextLink pathname={faqLink}>
-              <Typography sx={IconButtonWhiteStyle}>{locale.words.faq}</Typography>
+              <Typography sx={styles.iconButton.white}>{locale.words.faq}</Typography>
             </NextLink>
           </Grid>
         </Grid>

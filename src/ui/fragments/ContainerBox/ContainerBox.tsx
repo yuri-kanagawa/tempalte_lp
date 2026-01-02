@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import { FC, useMemo } from 'react'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { QueryScrollAnchor } from 'src/ui/cores'
-import { titleFontSize } from 'src/styles/fontStyle'
+import { styles } from 'src/config/styles'
 type Props = {
   id?: string
   background: string
@@ -46,7 +46,7 @@ export const ContainerBox: FC<Props> = ({
               display: 'flex',
               justifyContent: 'center',
               color: labelColor,
-              ...titleFontSize
+              ...styles.typography.titleFontSize
             }}
           >
             {label}

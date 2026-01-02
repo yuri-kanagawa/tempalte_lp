@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/material'
-import { titleFontSize } from 'src/styles/fontStyle'
+import { styles } from 'src/config/styles'
 import React, { FC } from 'react'
 import { HowToUseButton } from './internal'
 import { DownloadButton } from 'src/ui/pages/index/internal/HeroBox/internal/Texts/internal/DownloadButton/DownloadButton'
@@ -17,7 +17,7 @@ export const Texts: FC<Props> = ({ language }) => {
         sx={{
           color: 'white',
           whiteSpace: 'pre-wrap',
-          ...titleFontSize
+          ...styles.typography.titleFontSize
         }}
       >
         {t.words.heroText}

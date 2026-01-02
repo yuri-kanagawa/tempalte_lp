@@ -1,12 +1,11 @@
 'use client'
 
-import { Box, Grid, IconButton, useMediaQuery } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
-import { IconButtonBlackStyle } from 'src/styles/iconStyle'
+import { Box, Grid, IconButton, useMediaQuery, useTheme } from '@mui/material'
 import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { BsTiktok } from 'react-icons/bs'
 import type { Locale } from 'src/domains/valueObjects/locale'
 import { FC, useMemo } from 'react'
+import { styles } from 'src/config/styles'
 
 type Props = {
   language: Locale
@@ -20,21 +19,21 @@ const SOCIAL_LINKS = [
 ] as const
 
 export const ScrollContact: FC<Props> = ({ language }) => {
-  const theme = useTheme()
-  const isMdUp = useMediaQuery(theme.breakpoints.up('md'))
+  const themeFromHook = useTheme()
+  const isMdUp = useMediaQuery(themeFromHook.breakpoints.up('md'))
   const t = language.locale
   const snsLinks = t.links
   const iconButtonSx = useMemo(
     () =>
       ({
-        ...IconButtonBlackStyle,
+        ...styles.iconButton.black,
         width: 'clamp(110px, 12vw, 200px)',
         height: 'clamp(110px, 12vw, 200px)',
         borderRadius: '50%',
         transition: 'transform 0.2s ease',
         '&:hover': {
           transform: 'translateY(-2px)',
-          ...IconButtonBlackStyle['&:hover']
+          ...styles.iconButton.black['&:hover']
         },
         '& svg': {
           fontSize: 'clamp(40px, 5vw, 110px)'

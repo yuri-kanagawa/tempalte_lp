@@ -1,5 +1,5 @@
-import { getTextColorStyle } from 'src/styles/textStyle'
+import { styles } from 'src/config/styles'
 
 export const getTextStyle = (isBackgroundBlack: boolean) => {
-  return { ...getTextColorStyle(isBackgroundBlack), mr: 2 }
+  return { ...styles.text.getColorStyle(isBackgroundBlack), mr: 2 }
 }

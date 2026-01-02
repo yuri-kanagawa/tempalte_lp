@@ -1,6 +1,6 @@
 'use client'
 import { Stack } from '@mui/material'
-import { getMovieHeight } from 'src/styles/videoStyle'
+import { styles } from 'src/config/styles'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { useMemo } from 'react'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
@@ -31,7 +31,7 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
       <Stack spacing={4}>
         <iframe
           src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-          height={getMovieHeight(maxWidth)}
+          height={styles.video.getMovieHeight(maxWidth)}
           width={maxWidth}
         ></iframe>
       </Stack>

@@ -1,15 +1,15 @@
 'use client'
 import { Typography } from '@mui/material'
-import { TextBlackStyle } from 'src/styles/textStyle'
 import React, { FC } from 'react'
 import { TypographyProps } from '@mui/material/Typography/Typography'
+import { styles } from 'src/config/styles'
 
 type Props = TypographyProps
 export const ClientLink: FC<Props> = ({ onClick, children, sx, ...rest }) => {
   return (
     <Typography
       sx={{
-        ...TextBlackStyle,
+        ...styles.text.black,
         mr: 2,
         textAlign: 'center',
         ...sx

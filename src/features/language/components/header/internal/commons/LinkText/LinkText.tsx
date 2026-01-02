@@ -4,9 +4,9 @@ import { NextLink, NextLinkProps } from 'src/ui/cores/NextLink/NextLink'
 import { TypographyProps } from '@mui/material/Typography/Typography'
 import React, { FC, ReactNode } from 'react'
 import { Typography } from '@mui/material'
-import { TextBlackStyle } from 'src/styles/textStyle'
 import { ClientLink } from './ClientLink'
 import { usePathname } from 'next/navigation'
+import { styles } from 'src/config/styles'
 
 type Props = Omit<NextLinkProps, 'children'> &
   TypographyProps & {
@@ -21,7 +21,7 @@ export const LinkText: FC<Props> = ({ pathname, query, children, onClick, sx, ..
       <NextLink pathname={pathname} query={query}>
         <Typography
           sx={{
-            ...TextBlackStyle,
+            ...styles.text.black,
             mr: 2,
             textAlign: 'center',
             ...sx
