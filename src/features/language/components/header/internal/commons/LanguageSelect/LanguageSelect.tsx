@@ -1,12 +1,12 @@
 'use client'
 
-import { MenuItem, Typography, SelectChangeEvent } from '@mui/material'
+import { MenuItem, Typography, SelectChangeEvent, Select } from '@mui/material'
 import TranslateIcon from '@mui/icons-material/Translate'
 import React from 'react'
-import { StyledSelect } from 'src/ui/feature/styled/select/StyledSelect'
 import { menuItemStyle } from './utils'
 import { Locale } from 'src/domains/valueObjects/locale'
 import { usePathname, useRouter } from 'next/navigation'
+import { theme } from 'src/config/theme'
 
 type Props = {
   language: Locale
@@ -36,13 +36,22 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
   }
 
   return (
-    <StyledSelect
+    <Select
       sx={{
         minWidth: 200,
         height: 50,
-        color: 'text.primary',
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.contrastText,
         '& .MuiSelect-select': { color: 'text.primary' },
-        '& .MuiSvgIcon-root': { color: 'text.primary' }
+        '& .MuiSvgIcon-root': { color: 'text.primary' },
+        '&.MuiOutlinedInput-root': {
+          '&:hover fieldset': {
+            borderColor: theme.palette.secondary.main
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: theme.palette.secondary.main
+          }
+        }
       }}
       value={language.value}
       startAdornment={<TranslateIcon />}
@@ -58,6 +67,6 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
           <Typography>{e.label}</Typography>
         </MenuItem>
       ))}
-    </StyledSelect>
+    </Select>
   )
 }
