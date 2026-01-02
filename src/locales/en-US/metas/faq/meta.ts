@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { buildOgImages, buildTwitterImages } from 'src/locales/utils'
-import { appName } from 'src/constants/app'
+import { appName } from 'src/locales/common'
 
 const DESCRIPTION = ''
 export const faq: Metadata = {

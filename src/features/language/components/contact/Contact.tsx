@@ -1,6 +1,6 @@
 import type { Locale } from 'src/domains/valueObjects/locale'
 import { FC } from 'react'
-import { ScrollContact } from './_components'
+import { ScrollContact } from './ScrollContact'
 import { ContainerBox } from 'src/ui/fragments'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 

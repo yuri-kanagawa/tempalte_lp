@@ -5,18 +5,18 @@ import { PathBuilder } from 'src/lib/routes'
 import { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: string
+  locale: string
 }
 
-export const useScroll = ({ language }: Props) => {
+export const useScroll = ({ locale }: Props) => {
   const pathname = usePathname()
   const router = useRouter()
 
   const transitionRoot = useCallback(() => {
     if (PathBuilder.isRoot(pathname)) return
-    const langObj = Locale.create(language).locale ?? Locale.default()
+    const langObj = Locale.create(locale).locale ?? Locale.default()
     router.push(new PathBuilder(langObj).root())
-  }, [language, pathname, router])
+  }, [locale, pathname, router])
 
   const onClickHero = useCallback(() => {
     transitionRoot()
