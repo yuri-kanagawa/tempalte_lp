@@ -9,10 +9,10 @@ import { enUS } from 'src/locales/en-US'
 import { ContainerBox } from 'src/ui/fragments'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const MovieBox: React.FC<Props> = ({ language }) => {
+export const MovieBox: React.FC<Props> = ({ locale }) => {
   const { isMobileSize, isLessDesktop, isDesktopSize } = useMediaQuerySize()
   const maxWidth = useMemo(() => {
     if (isMobileSize) return 400
@@ -20,12 +20,12 @@ export const MovieBox: React.FC<Props> = ({ language }) => {
     if (isDesktopSize) return 900
     return 900
   }, [isDesktopSize, isLessDesktop, isMobileSize])
-  const locale = language?.translation ?? enUS
+  const localeTranslation = locale?.translation ?? enUS
   return (
     <ContainerBox
       id={ScrollConstants.HOW_TO_USE}
       background="white"
-      label={locale.words.howToUse}
+      label={localeTranslation.words.howToUse}
       labelColor="black"
     >
       <Stack spacing={4}>

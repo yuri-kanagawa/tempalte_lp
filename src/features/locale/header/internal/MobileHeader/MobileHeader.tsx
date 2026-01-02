@@ -16,9 +16,9 @@ import { HeaderMenu } from './HeaderMenu'
 import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const MobileHeader: FC<Props> = ({ language }) => {
+export const MobileHeader: FC<Props> = ({ locale }) => {
   const { isLessTabletSize } = useMediaQuerySize()
 
   const [isOpen, setIsOpen] = useState(false)
@@ -38,7 +38,7 @@ export const MobileHeader: FC<Props> = ({ language }) => {
       }}
     >
       <Toolbar>
-        <AppLink language={language} />
+        <AppLink locale={locale} />
         <Box flexGrow={1} />
         <IconButton
           size="large"
@@ -55,12 +55,12 @@ export const MobileHeader: FC<Props> = ({ language }) => {
         >
           <MenuIcon />
         </IconButton>
-        {!isLessTabletSize && <HeaderMenu language={language} />}
+        {!isLessTabletSize && <HeaderMenu locale={locale} />}
       </Toolbar>
       <Collapse in={isMobileWithOpenMenu}>
         <Toolbar>
           <Stack spacing={2} sx={{ width: '100%' }} pb={2}>
-            <HeaderMenu language={language} />
+            <HeaderMenu locale={locale} />
           </Stack>
         </Toolbar>
       </Collapse>

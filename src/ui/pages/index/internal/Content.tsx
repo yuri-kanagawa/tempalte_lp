@@ -3,12 +3,12 @@ import React, { FC } from 'react'
 import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const Content: FC<Props> = ({ language }) => {
+export const Content: FC<Props> = ({ locale }) => {
   return (
     <>
-      <MovieBox language={language} />
+      <MovieBox locale={locale} />
     </>
   )
 }

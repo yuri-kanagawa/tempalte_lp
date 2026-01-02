@@ -4,10 +4,10 @@ import { FC } from 'react'
 import { Scroll } from '@lib/scrolls'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const HowToUseLink: FC<Props> = ({ language }) => {
-  const t = language.translation
+export const HowToUseLink: FC<Props> = ({ locale }) => {
+  const t = locale.translation
   return (
     <LinkText
       pathname={'/'}

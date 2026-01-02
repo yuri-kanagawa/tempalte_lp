@@ -5,19 +5,19 @@ import { ContainerBox } from 'src/ui/fragments'
 import { Scroll as ScrollConstants } from '@lib/scrolls'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const Contact: FC<Props> = ({ language }) => {
-  const locale = language.translation
+export const Contact: FC<Props> = ({ locale }) => {
+  const localeTranslation = locale.translation
   return (
     <ContainerBox
       id={ScrollConstants.CONTACT}
       background="white"
-      label={locale.words.contact}
+      label={localeTranslation.words.contact}
       labelColor="black"
     >
-      <ScrollContact language={language} />
+      <ScrollContact locale={locale} />
     </ContainerBox>
   )
 }

@@ -7,10 +7,10 @@ import type { Locale } from 'src/domains/valueObjects/locale'
 import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const Texts: FC<Props> = ({ language }) => {
-  const t = language?.translation ?? enUS
+export const Texts: FC<Props> = ({ locale }) => {
+  const t = locale?.translation
   return (
     <Stack spacing={2}>
       <Typography
@@ -22,8 +22,8 @@ export const Texts: FC<Props> = ({ language }) => {
       >
         {t.words.heroText}
       </Typography>
-      <HowToUseButton language={language} />
-      <DownloadButton language={language} />
+      <HowToUseButton locale={locale} />
+      <DownloadButton locale={locale} />
     </Stack>
   )
 }

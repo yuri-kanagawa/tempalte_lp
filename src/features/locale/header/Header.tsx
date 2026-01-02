@@ -5,14 +5,14 @@ import type { Locale } from 'src/domains/valueObjects/locale'
 import { DesktopHeader, MobileHeader } from './internal'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const Header: React.FC<Props> = ({ language }) => {
+export const Header: React.FC<Props> = ({ locale }) => {
   return (
     <>
-      <DesktopHeader language={language} />
-      <MobileHeader language={language} />
+      <DesktopHeader locale={locale} />
+      <MobileHeader locale={locale} />
     </>
   )
 }

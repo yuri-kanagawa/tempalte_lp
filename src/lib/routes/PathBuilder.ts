@@ -5,7 +5,7 @@ export class PathBuilder {
   static readonly FAQ = '/faq'
   static readonly TERMS = '/terms'
   static readonly PRIVACY_POLICY = '/privacy'
-  static readonly HOME_PAGE_URL = 'https://ledenm.com'
+  static readonly HOME_PAGE_URL = 'https://ledenm.com/'
   private readonly language: Locale
 
   static isRoot(path: string): boolean {
@@ -41,4 +41,5 @@ export class PathBuilder {
   homePageUrl(): string {
     return PathBuilder.withLocale(this.language, PathBuilder.HOME_PAGE_URL)
   }
+
 }

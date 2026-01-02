@@ -9,10 +9,10 @@ import { Scroll } from '@lib/scrolls'
 import { QueryScrollAnchor } from 'src/ui/cores'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const HeroBox: React.FC<Props> = ({ language }) => {
+export const HeroBox: React.FC<Props> = ({ locale }) => {
   return (
     <Box
       id={Scroll.APP}
@@ -32,7 +32,7 @@ export const HeroBox: React.FC<Props> = ({ language }) => {
         gap={2}
       >
         <Grid item>
-          <Texts language={language} />
+          <Texts locale={locale} />
         </Grid>
         <Grid item>
           <DeviceFrameset device="iPhone 8" color="silver" zoom={0.8}>

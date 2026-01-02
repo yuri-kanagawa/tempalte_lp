@@ -8,10 +8,10 @@ import { enUS } from 'src/locales/en-US'
 import { styles } from 'src/config/styles'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const HowToUseButton: FC<Props> = ({ language }) => {
-  const t = language?.translation ?? enUS
+export const HowToUseButton: FC<Props> = ({ locale }) => {
+  const t = locale?.translation ?? enUS
   return (
     <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToHowToUse}>
       {t.words.howToUse}

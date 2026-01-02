@@ -1,10 +1,10 @@
 import { Stack, Typography } from '@mui/material'
 import React, { FC } from 'react'
-import { Footer } from 'src/features/language/components/footer'
-import { Contact } from 'src/features/language/components/contact'
+import { Footer } from 'src/features/locale/footer'
+import { Contact } from 'src/features/locale/contact'
 import type { Locale } from 'src/domains/valueObjects/locale'
 import { StyledAccordion } from 'src/ui/feature/styled/StyledAccordion'
-import { Header } from 'src/features/language/components/header'
+import { Header } from 'src/features/locale/header'
 
 type AccordionItem = {
   readonly title: string
@@ -20,7 +20,7 @@ type Props = {
 export const AccordionTemplate: FC<Props> = ({ locale, title, items }) => {
   return (
     <>
-      <Header language={locale} />
+      <Header locale={locale} />
       <Stack
         py={10}
         sx={{
@@ -42,8 +42,8 @@ export const AccordionTemplate: FC<Props> = ({ locale, title, items }) => {
           )
         })}
       </Stack>
-      <Contact language={locale} />
-      <Footer language={locale} />
+      <Contact locale={locale} />
+      <Footer locale={locale} />
     </>
   )
 }

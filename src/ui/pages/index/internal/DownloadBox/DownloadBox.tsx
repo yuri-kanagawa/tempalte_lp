@@ -8,11 +8,11 @@ import { APP_STORE_URL, GOOGLE_STORE_URL, WEB_APP_URL } from 'src/locales/common
 import type { Locale } from 'src/domains/valueObjects/locale'
 import { ContainerBox } from 'src/ui/fragments'
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const DownloadBox: React.FC<Props> = ({ language }) => {
-  const locale = language.translation
+export const DownloadBox: React.FC<Props> = ({ locale }) => {
+  const localeTranslation = locale.translation
   const onClickWebApp = () => open(WEB_APP_URL, '_blank')
 
   const storeButtons: { key: string; node: ReactNode }[] = []
@@ -93,7 +93,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
       node: (
         <ButtonBase
           onClick={onClickWebApp}
-          aria-label={locale.words.webApp}
+          aria-label={localeTranslation.words.webApp}
           sx={{
             width: { xs: 250, sm: 208, md: 224, lg: 240 },
             minHeight: 71,
@@ -137,7 +137,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
                 lineHeight: 1.2
               }}
             >
-              {locale.words.webApp}
+              {localeTranslation.words.webApp}
             </Typography>
           </Stack>
         </ButtonBase>
@@ -149,7 +149,7 @@ export const DownloadBox: React.FC<Props> = ({ language }) => {
   const showDivider = storeButtons.length > 1 && !shouldWrap
 
   return (
-    <ContainerBox id={Scroll.LINK} background="black" label={locale.words.link}>
+    <ContainerBox id={Scroll.LINK} background="black" label={localeTranslation.words.link}>
       <Stack spacing={{ xs: 3, md: 4 }}>
         <Box
           sx={{

@@ -9,10 +9,10 @@ import { usePathname, useRouter } from 'next/navigation'
 import { theme } from 'src/config/theme'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const LanguageSelect: React.FC<Props> = ({ language }) => {
+export const LanguageSelect: React.FC<Props> = ({ locale }) => {
   const router = useRouter()
   const pathname = usePathname() ?? '/'
   const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`
@@ -53,7 +53,7 @@ export const LanguageSelect: React.FC<Props> = ({ language }) => {
           }
         }
       }}
-      value={language.value}
+      value={locale.value}
       startAdornment={<TranslateIcon />}
       inputProps={{ MenuProps: { disableScrollLock: true } }}
       onChange={handleChange}

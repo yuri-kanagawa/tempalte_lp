@@ -5,9 +5,9 @@ import type { Locale } from 'src/domains/valueObjects/locale'
 import { LinkText } from '../LinkText'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const AppLink: FC<Props> = ({ language }) => {
+export const AppLink: FC<Props> = ({ locale }) => {
   return (
     <LinkText pathname={'/'} query={{ scroll: Scroll.APP }} onClick={Scroll.scrollToApp}>
       {common.app}

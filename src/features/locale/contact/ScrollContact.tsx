@@ -8,7 +8,7 @@ import { FC, useMemo } from 'react'
 import { styles } from 'src/config/styles'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
 const SOCIAL_LINKS = [
@@ -18,10 +18,10 @@ const SOCIAL_LINKS = [
   { key: 'tiktok', icon: <BsTiktok />, label: 'TikTok' }
 ] as const
 
-export const ScrollContact: FC<Props> = ({ language }) => {
+export const ScrollContact: FC<Props> = ({ locale }) => {
   const themeFromHook = useTheme()
   const isMdUp = useMediaQuery(themeFromHook.breakpoints.up('md'))
-  const t = language.translation
+  const t = locale.translation
   const snsLinks = t.links
   const iconButtonSx = useMemo(
     () =>

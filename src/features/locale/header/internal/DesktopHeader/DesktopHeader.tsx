@@ -12,10 +12,10 @@ import { Box, Toolbar } from '@mui/material'
 import type { Locale } from 'src/domains/valueObjects/locale'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
 
-export const DesktopHeader: FC<Props> = ({ language }) => {
+export const DesktopHeader: FC<Props> = ({ locale }) => {
   return (
     <TopBar
       sx={{
@@ -28,12 +28,12 @@ export const DesktopHeader: FC<Props> = ({ language }) => {
       }}
     >
       <Toolbar>
-        <AppLink language={language} />
+        <AppLink locale={locale} />
         <Box flexGrow={1} />
-        <HowToUseLink language={language} />
-        <DownLoadLink language={language} />
-        <ContactLink language={language} />
-        <LanguageSelect language={language} />
+        <HowToUseLink locale={locale} />
+        <DownLoadLink locale={locale} />
+        <ContactLink locale={locale} />
+        <LanguageSelect locale={locale} />
       </Toolbar>
     </TopBar>
   )

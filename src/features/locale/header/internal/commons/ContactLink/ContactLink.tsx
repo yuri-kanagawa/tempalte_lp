@@ -5,13 +5,13 @@ import { Scroll } from '@lib/scrolls'
 import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const DownLoadLink: FC<Props> = ({ language }) => {
-  const t = language?.translation ?? enUS
+export const ContactLink: FC<Props> = ({ locale }) => {
+  const t = locale?.translation ?? enUS
   return (
-    <LinkText pathname={'/'} query={{ scroll: Scroll.LINK }} onClick={Scroll.scrollToLink}>
-      {t.words.link}
+    <LinkText pathname={'/'} query={{ scroll: Scroll.CONTACT }} onClick={Scroll.scrollToContact}>
+      {t.words.contact}
     </LinkText>
   )
 }

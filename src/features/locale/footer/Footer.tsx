@@ -7,16 +7,14 @@ import { Locale } from 'src/domains/valueObjects/locale'
 import { enUS } from 'src/locales/en-US'
 
 type Props = {
-  language: Locale
+  locale: Locale
 }
-export const Footer: React.FC<Props> = ({ language }) => {
-  const locale = language?.translation ?? enUS
+export const Footer: React.FC<Props> = ({ locale }) => {
+  const localeTranslation = locale?.translation
 
-  const builder = new PathBuilder(language)
+  const builder = new PathBuilder(locale)
   const privacyPolicyLink = builder.privacyPolicy()
-  const ledenmLink = language.isEnglish
-    ? 'https://ledenm.com/'
-    : `https://ledenm.com/${language.value}`
+  const ledenmLink = builder.homePageUrl()
   const termLink = builder.terms()
   const faqLink = builder.faq()
   return (
@@ -59,17 +57,17 @@ export const Footer: React.FC<Props> = ({ language }) => {
         >
           <Grid item>
             <NextLink pathname={privacyPolicyLink}>
-              <Typography sx={styles.iconButton.white}>{locale.words.privacyPolicy}</Typography>
+              <Typography sx={styles.iconButton.white}>{localeTranslation.words.privacyPolicy}</Typography>
             </NextLink>
           </Grid>
           <Grid item>
             <NextLink pathname={termLink}>
-              <Typography sx={styles.iconButton.white}>{locale.words.terms}</Typography>
+              <Typography sx={styles.iconButton.white}>{localeTranslation.words.terms}</Typography>
             </NextLink>
           </Grid>
           <Grid item>
             <NextLink pathname={faqLink}>
-              <Typography sx={styles.iconButton.white}>{locale.words.faq}</Typography>
+              <Typography sx={styles.iconButton.white}>{localeTranslation.words.faq}</Typography>
             </NextLink>
           </Grid>
         </Grid>
