@@ -1,13 +1,14 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography, SxProps, Theme } from '@mui/material'
 import { FC, useMemo } from 'react'
 import { useMediaQuerySize } from 'src/hooks/useMediaQuerySize'
 import { QueryScrollAnchor } from 'src/ui/cores'
 import { styles } from 'src/config/styles'
 type Props = {
   id?: string
-  background: string
+  background?: string
   label?: string
   labelColor?: string
+  sx?: SxProps<Theme>
   children: React.ReactNode
 }
 
@@ -16,6 +17,7 @@ export const ContainerBox: FC<Props> = ({
   background,
   label,
   labelColor = 'white',
+  sx,
   children
 }) => {
   const { isMobileSize, isLessDesktop, isDesktopSize } = useMediaQuerySize()
@@ -35,7 +37,8 @@ export const ContainerBox: FC<Props> = ({
         justifyContent: 'center',
         width: '100%',
         py: 10,
-        overflow: 'visible'
+        overflow: 'visible',
+        ...sx
       }}
     >
       {id && <QueryScrollAnchor id={id} queryValue={id} />}

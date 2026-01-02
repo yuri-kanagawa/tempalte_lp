@@ -6,7 +6,7 @@ import { Footer, Header } from 'src/features/locale'
 import type { Locale } from 'src/domains/valueObjects/locale'
 import { Scroll } from '@lib/scrolls'
 import { APP_STORE_URL, GOOGLE_STORE_URL, WEB_APP_URL } from 'src/locales/common'
-import { ContainerBox, StoreButtons, HeroContent, SocialLinks, MovieContent } from 'src/ui/fragments'
+import { StoreButtons, HeroContent, SocialLinks, MovieContent, AlternatingContainerBox, ContainerBox } from 'src/ui/fragments'
 import { QueryScrollAnchor } from 'src/ui/cores'
 import { styles } from 'src/config/styles'
 
@@ -31,57 +31,42 @@ export const RootPage: FC<Props> = ({ locale }) => {
   return (
     <>
       <Header locale={locale} />
-      <Box
-        id={Scroll.APP}
-        sx={{
-          background: 'black',
-          py: 5
-        }}
-      >
-        <QueryScrollAnchor id={Scroll.APP} queryValue={Scroll.APP} />
-        <HeroContent imageSrc="/images/lily.png" imageAlt="猫は最高に可愛い" imageWidth={300} imageHeight={553.6}>
-          <Stack spacing={2}>
-            <Typography
-              sx={{
-                color: 'white',
-                whiteSpace: 'pre-wrap',
-                ...styles.typography.titleFontSize
-              }}
-            >
-              {localeTranslation.words.heroText}
-            </Typography>
-            <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToHowToUse}>
-              {localeTranslation.words.howToUse}
-            </Button>
-            <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToLink}>
-              {localeTranslation.words.link}
-            </Button>
+      <AlternatingContainerBox startWith="black">
+        <ContainerBox id={Scroll.APP} sx={{ py: 5 }}>
+          <QueryScrollAnchor id={Scroll.APP} queryValue={Scroll.APP}>
+            <HeroContent imageSrc="/images/lily.png" imageAlt="猫は最高に可愛い" imageWidth={300} imageHeight={553.6}>
+              <Stack spacing={2}>
+                <Typography
+                  sx={{
+                    color: 'white',
+                    whiteSpace: 'pre-wrap',
+                    ...styles.typography.titleFontSize
+                  }}
+                >
+                  {localeTranslation.words.heroText}
+                </Typography>
+                <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToHowToUse}>
+                  {localeTranslation.words.howToUse}
+                </Button>
+                <Button variant={'outlined'} sx={styles.button.white} onClick={Scroll.scrollToLink}>
+                  {localeTranslation.words.link}
+                </Button>
+              </Stack>
+            </HeroContent>
+          </QueryScrollAnchor>
+        </ContainerBox>
+        <ContainerBox id={Scroll.HOW_TO_USE} label={localeTranslation.words.howToUse}>
+          <MovieContent videoUrl="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" />
+        </ContainerBox>
+        <ContainerBox id={Scroll.LINK} label={localeTranslation.words.link}>
+          <Stack spacing={{ xs: 3, md: 4 }}>
+            <StoreButtons buttons={buttons} />
           </Stack>
-        </HeroContent>
-      </Box>
-      <ContainerBox
-        id={Scroll.HOW_TO_USE}
-        background="white"
-        label={localeTranslation.words.howToUse}
-        labelColor="black"
-      >
-        <MovieContent videoUrl="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" />
-      </ContainerBox>
-
-      <ContainerBox id={Scroll.LINK} background="black" label={localeTranslation.words.link}>
-        <Stack spacing={{ xs: 3, md: 4 }}>
-          <StoreButtons buttons={buttons} />
-        </Stack>
-      </ContainerBox>
-
-      <ContainerBox
-        id={Scroll.CONTACT}
-        background="white"
-        label={localeTranslation.words.contact}
-        labelColor="black"
-      >
-        <SocialLinks links={localeTranslation.links} />
-      </ContainerBox>
+        </ContainerBox>
+        <ContainerBox id={Scroll.CONTACT} label={localeTranslation.words.contact}>
+          <SocialLinks links={localeTranslation.links} />
+        </ContainerBox>
+      </AlternatingContainerBox>
 
       <Footer locale={locale} />
     </>
