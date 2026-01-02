@@ -4,14 +4,13 @@ import { enUS } from 'src/locales/en-US'
 export async function generateMetadata(): Promise<Metadata> {
   return enUS.metas.privacyPolicy
 }
-export default function Layout({
+export default async function Layout({
   children,
   params
 }: {
   children: React.ReactNode
-  params: {
-    locale: string
-  }
+  params: Promise<{}>
 }) {
+  await params
   return <>{children}</>
 }

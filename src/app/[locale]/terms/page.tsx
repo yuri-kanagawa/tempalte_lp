@@ -1,9 +1,11 @@
 'use client'
+import { use } from 'react'
 import { IndexPage } from 'src/ui/pages/terms'
 import { Locale } from 'src/domains/valueObjects/locale'
 import type { LanguageProps } from '../layout'
 
 export default function Page({ params }: LanguageProps) {
-  const language = Locale.create(params.locale).locale ?? Locale.default()
+  const resolvedParams = use(params)
+  const language = Locale.create(resolvedParams.locale).locale ?? Locale.default()
   return <IndexPage language={language} />
 }

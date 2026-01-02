@@ -7,7 +7,7 @@ type LanguageParams = {
 }
 
 export type LanguageProps = {
-  params: LanguageParams
+  params: Promise<LanguageParams>
 }
 
 export async function generateStaticParams(): Promise<LanguageParams[]> {
@@ -18,12 +18,17 @@ export async function generateMetadata(
   { params }: LanguageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const result = Locale.create(params.locale)
+  const resolvedParams = await params
+  const result = Locale.create(resolvedParams.locale)
   const language = result.locale ?? Locale.default()
   const t = language.translation
   return t.metas.index
 }
 
-export default function Layout({ children, params }: React.PropsWithChildren<LanguageProps>) {
+export default async function Layout({
+  children,
+  params
+}: React.PropsWithChildren<LanguageProps>) {
+  await params
   return <>{children}</>
 }

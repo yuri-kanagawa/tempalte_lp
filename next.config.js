@@ -12,6 +12,5 @@ module.exports = {
   // experimental: {
   //   serverActions: true
   // },
-  reactStrictMode: true,
-  swcMinify: true
+  reactStrictMode: true
 }

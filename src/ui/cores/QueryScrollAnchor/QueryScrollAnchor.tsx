@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { QueryParameter } from 'src/lib/queryParameters'
 
@@ -10,7 +10,7 @@ export type QueryScrollAnchorProps = {
   behavior?: ScrollBehavior
 }
 
-export const QueryScrollAnchor: React.FC<QueryScrollAnchorProps> = ({
+const QueryScrollAnchorInner: React.FC<QueryScrollAnchorProps> = ({
   id,
   queryKey = 'scroll',
   queryValue,
@@ -30,4 +30,12 @@ export const QueryScrollAnchor: React.FC<QueryScrollAnchorProps> = ({
   }, [searchParams, id, queryKey, queryValue, behavior])
 
   return <div id={id} />
+}
+
+export const QueryScrollAnchor: React.FC<QueryScrollAnchorProps> = (props) => {
+  return (
+    <Suspense fallback={<div id={props.id} />}>
+      <QueryScrollAnchorInner {...props} />
+    </Suspense>
+  )
 }
