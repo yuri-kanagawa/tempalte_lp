@@ -6,7 +6,7 @@ type Props = {
   language: Locale
 }
 
-export const IndexPage: FC<Props> = ({ language }) => {
+export const PrivacyPage: FC<Props> = ({ language }) => {
   const t = language.translation
 
   return (

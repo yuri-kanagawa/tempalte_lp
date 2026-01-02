@@ -1,7 +1,7 @@
 'use client'
-import { IndexPage } from 'src/ui/pages/privacy'
+import { PrivacyPage } from 'src/ui/pages/privacy'
 import { Locale } from 'src/domains/valueObjects/locale'
 
 export default function Page() {
-  return <IndexPage language={Locale.default()} />
+  return <PrivacyPage language={Locale.default()} />
 }

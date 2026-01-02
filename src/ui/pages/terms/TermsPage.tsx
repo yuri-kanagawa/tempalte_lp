@@ -6,7 +6,7 @@ type Props = {
   language: Locale
 }
 
-export const IndexPage: FC<Props> = ({ language }) => {
+export const TermsPage: FC<Props> = ({ language }) => {
   const t = language.translation
 
   return <AccordionTemplate locale={language} title={t.words.terms} items={t.messages.terms} />

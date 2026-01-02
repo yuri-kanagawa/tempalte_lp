@@ -6,7 +6,7 @@ type Props = {
   locale: Locale
 }
 
-export const IndexPage: FC<Props> = ({ locale }) => {
+export const FaqPage: FC<Props> = ({ locale }) => {
   const t = locale.translation
 
   const items = t.messages.faq.map((item) => ({

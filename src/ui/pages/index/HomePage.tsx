@@ -10,7 +10,7 @@ import { HeroBox } from 'src/ui/pages/index/internal/HeroBox/HeroBox'
 type Props = {
   language: Locale
 }
-export const IndexPage: FC<Props> = ({ language }) => {
+export const HomePage: FC<Props> = ({ language }) => {
   return (
     <>
       <Header language={language} />
