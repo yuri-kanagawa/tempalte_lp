@@ -20,8 +20,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const resolvedParams = await params
   const result = Locale.create(resolvedParams.locale)
-  const language = result.locale ?? Locale.default()
-  const t = language.translation
+  const locale = result.locale ?? Locale.default()
+  const t = locale.translation
   return t.metas.index
 }
 

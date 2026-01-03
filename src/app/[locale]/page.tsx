@@ -6,6 +6,6 @@ import type { LanguageProps } from './layout'
 
 export default function Page({ params }: LanguageProps) {
   const resolvedParams = use(params)
-  const language = Locale.create(resolvedParams.locale).locale ?? Locale.default()
-  return <RootPage locale={language} />
+  const locale = Locale.create(resolvedParams.locale).locale ?? Locale.default()
+  return <RootPage locale={locale} />
 }

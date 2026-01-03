@@ -8,7 +8,7 @@ export type QueryScrollAnchorProps = {
   queryKey?: string
   queryValue: string
   behavior?: ScrollBehavior
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const QueryScrollAnchorInner: React.FC<QueryScrollAnchorProps> = ({
@@ -36,7 +36,7 @@ const QueryScrollAnchorInner: React.FC<QueryScrollAnchorProps> = ({
 
 export const QueryScrollAnchor: React.FC<QueryScrollAnchorProps> = (props) => {
   return (
-    <Suspense fallback={<div id={props.id}>{props.children}</div>}>
+    <Suspense fallback={<div id={props.id}>{props.children ?? null}</div>}>
       <QueryScrollAnchorInner {...props} />
     </Suspense>
   )

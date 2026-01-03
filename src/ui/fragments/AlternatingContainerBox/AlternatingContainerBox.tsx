@@ -19,7 +19,7 @@ export const AlternatingContainerBox: FC<Props> = ({ children, startWith = 'blac
           key: child.key || index,
           background,
           labelColor
-        })
+        } as any)
       })}
     </>
   )
